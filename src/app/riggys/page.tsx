@@ -72,9 +72,9 @@ export default function Riggys() {
   ];
 
   return (
-    <div className="min-h-screen bg-djh-primary">
+    <div className="min-h-screen bg-riggys-navy">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-riggys text-white">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center mb-6">
             <img 
