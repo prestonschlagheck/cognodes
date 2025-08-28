@@ -49,21 +49,21 @@ export default function OurTeam() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gradient-dark text-white">
-        <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="heading-1 mb-6">
             OUR TEAM
           </h1>
-          <p className="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto">
+          <p className="body-large text-gray-200 max-w-4xl mx-auto">
             Meet the experienced professionals who are transforming truck parking infrastructure across the nation.
           </p>
         </div>
       </section>
 
       {/* Team Members List */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-800">
-        <div className="max-w-5xl mx-auto">
-          <div className="space-y-6">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-800">
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-8">
             {teamMembers.map((member, index) => (
               <TeamMemberCard key={index} member={member} />
             ))}

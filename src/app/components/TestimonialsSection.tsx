@@ -47,38 +47,38 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-800">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3">
+    <section className="section-spacious bg-gray-800">
+      <div className="container-standard">
+        <div className="text-center mb-10">
+          <h2 className="heading-2 text-white mb-4">
             OUR CUSTOMERS SAY IT BEST
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`rounded-lg p-4 shadow-sm border border-gray-600 ${
+              className={`rounded-lg p-7 shadow-sm border border-gray-600 ${
                 testimonial.featured ? 'bg-gray-600 text-white' : 'bg-gray-700'
               }`}
             >
               {testimonial.featured && (
-                <div className="text-2xl text-white mb-3">&quot;</div>
+                <div className="text-3xl text-white mb-4">&quot;</div>
               )}
               
-              <p className={`text-sm leading-relaxed mb-3 ${
+              <p className={`body-medium leading-relaxed mb-4 ${
                 testimonial.featured ? 'text-white' : 'text-gray-300'
               }`}>
                 {testimonial.quote}
               </p>
 
               {/* Rating Stars */}
-              <div className="flex items-center mb-3">
+              <div className="flex items-center mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    size={16}
+                    size={22}
                     className={`${
                       testimonial.featured ? 'text-white' : 'text-yellow-400'
                     } fill-current`}
@@ -90,14 +90,14 @@ export default function TestimonialsSection() {
               <div className={`${
                 testimonial.featured ? 'text-white' : 'text-white'
               }`}>
-                <p className="font-semibold text-sm">
+                <p className="font-semibold body-medium">
                   {testimonial.author}
                 </p>
                 {testimonial.role && (
-                  <p className="text-xs opacity-80">{testimonial.role}</p>
+                  <p className="body-small opacity-80">{testimonial.role}</p>
                 )}
                 {testimonial.location && (
-                  <p className="text-xs opacity-80">{testimonial.location}</p>
+                  <p className="body-small opacity-80">{testimonial.location}</p>
                 )}
               </div>
             </div>

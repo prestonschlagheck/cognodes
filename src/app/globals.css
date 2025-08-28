@@ -60,7 +60,7 @@ body {
     letter-spacing: -0.01em;
   }
   
-  /* Heading Styles */
+  /* Heading Styles - Unified Design System */
   .heading-1 {
     @apply font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
     line-height: 0.9;
@@ -85,7 +85,7 @@ body {
     letter-spacing: -0.015em;
   }
   
-  /* Body Text Styles */
+  /* Body Text Styles - Unified Design System */
   .body-large {
     @apply font-body text-lg md:text-xl;
     line-height: 1.7;
@@ -93,21 +93,58 @@ body {
   }
   
   .body-medium {
-    @apply font-body text-base md:text-lg;
+    @apply font-body text-lg md:text-xl;
     line-height: 1.6;
     letter-spacing: -0.005em;
   }
   
   .body-small {
-    @apply font-body text-sm md:text-base;
+    @apply font-body text-base md:text-lg;
     line-height: 1.6;
     letter-spacing: 0;
   }
   
   .body-caption {
-    @apply font-body text-xs md:text-sm;
+    @apply font-body text-sm md:text-base;
     line-height: 1.5;
     letter-spacing: 0.01em;
+  }
+  
+  /* Component Styles - Unified Design System */
+  .btn-primary {
+    @apply bg-gray-500 text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-gray-600 transition-colors inline-flex items-center justify-center shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-white text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors inline-flex items-center justify-center shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-gray-500 text-gray-500 px-9 py-3.5 rounded-lg font-semibold hover:bg-gray-500 hover:text-white transition-colors inline-flex items-center justify-center shadow-lg;
+  }
+  
+  .card-standard {
+    @apply bg-gray-700 rounded-lg p-7 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300;
+  }
+  
+  .card-elevated {
+    @apply bg-gray-700 rounded-xl p-9 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300 hover:scale-[1.02];
+  }
+  
+  .section-standard {
+    @apply py-11 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-spacious {
+    @apply py-14 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-standard {
+    @apply max-w-6xl mx-auto;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto;
   }
   
   /* Special Text Styles */

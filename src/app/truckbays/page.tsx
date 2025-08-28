@@ -34,9 +34,9 @@ export default function Truckbays() {
   ];
 
   return (
-    <div className="min-h-screen bg-djh-primary">
+    <div className="min-h-screen bg-jp-blue">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-jp text-white">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center mb-6">
             <img 
@@ -75,7 +75,7 @@ export default function Truckbays() {
                 {appFeatures.map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-jp-blue flex-shrink-0" />
-                    <span className="text-gray-300">{feature}</span>
+                    <span className="body-medium text-gray-300">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -129,31 +129,31 @@ export default function Truckbays() {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
-                                      <div>
-                      <p className="heading-4 text-white">Gate Access Management</p>
-                      <p className="body-caption text-gray-300">Control entry and exit points directly from your phone</p>
-                    </div>
+                  <div>
+                    <p className="heading-4 text-white">Gate Access Management</p>
+                    <p className="body-caption text-gray-300">Control entry and exit points directly from your phone</p>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
-                                      <div>
-                      <p className="heading-4 text-white">Real-time Notifications</p>
-                      <p className="body-caption text-gray-300">Stay informed about gate access and facility updates</p>
-                    </div>
+                  <div>
+                    <p className="heading-4 text-white">Real-time Notifications</p>
+                    <p className="body-caption text-gray-300">Stay informed about gate access and facility updates</p>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
-                                      <div>
-                      <p className="heading-4 text-white">Payment Management</p>
-                      <p className="body-caption text-gray-300">Update payment methods and manage billing easily</p>
-                    </div>
+                  <div>
+                    <p className="heading-4 text-white">Payment Management</p>
+                    <p className="body-caption text-gray-300">Update payment methods and manage billing easily</p>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
-                                      <div>
-                      <p className="heading-4 text-white">Fleet Management</p>
-                      <p className="body-caption text-gray-300">Quickly add or remove vehicles and drivers</p>
-                    </div>
+                  <div>
+                    <p className="heading-4 text-white">Fleet Management</p>
+                    <p className="body-caption text-gray-300">Quickly add or remove vehicles and drivers</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -182,7 +182,7 @@ export default function Truckbays() {
                   </div>
                 </div>
               </div>
-              <p className="text-sm text-gray-300 mt-4">Mobile app interface mockup</p>
+              <p className="body-small text-gray-300 mt-4">Mobile app interface mockup</p>
             </div>
           </div>
         </div>
