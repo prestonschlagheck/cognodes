@@ -169,7 +169,7 @@ export default function Riggys() {
       </section>
 
       {/* Lot Standards */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-primary">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -261,13 +261,13 @@ export default function Riggys() {
               href="https://riggys.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-dark-gray transition-colors inline-flex items-center justify-center"
+              className="bg-djh-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-dark-gray transition-colors inline-flex items-center justify-center"
             >
               Visit Riggy&apos;s Website
             </a>
             <a
               href="mailto:contact@directjh.com"
-              className="border-2 border-black text-black px-8 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors inline-flex items-center justify-center"
+              className="border-2 border-djh-primary text-djh-primary px-8 py-3 rounded-lg font-semibold hover:bg-djh-primary hover:text-white transition-colors inline-flex items-center justify-center"
             >
               Contact Us
             </a>

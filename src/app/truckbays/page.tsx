@@ -85,7 +85,7 @@ export default function Truckbays() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-primary">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -189,7 +189,7 @@ export default function Truckbays() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-primary">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
