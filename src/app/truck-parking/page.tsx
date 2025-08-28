@@ -76,7 +76,7 @@ export default function TruckParking() {
                               <div className="w-16 h-16 bg-djh-accent rounded-full flex items-center justify-center mx-auto mb-4">
                 <item.icon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-500 mb-2">
+              <div className="text-3xl font-bold text-white mb-2">
                 {item.stat}
               </div>
                 <p className="text-sm text-gray-300 leading-relaxed">
@@ -115,7 +115,7 @@ export default function TruckParking() {
               <div className="space-y-4">
                 {communityStats.map((stat, index) => (
                   <div key={index} className="flex items-center space-x-4">
-                                      <div className="text-2xl font-bold text-djh-accent">
+                                      <div className="text-2xl font-bold text-white">
                     {stat.number}
                   </div>
                     <p className="text-sm text-gray-300">
