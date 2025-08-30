@@ -47,7 +47,7 @@ export default function OurTeam() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-page">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
@@ -61,7 +61,7 @@ export default function OurTeam() {
       </section>
 
       {/* Team Members List */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-800">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="space-y-8">
             {teamMembers.map((member, index) => (

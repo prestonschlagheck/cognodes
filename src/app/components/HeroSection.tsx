@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-gray-900">
+    <section className="relative pt-32 pb-20 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden bg-page">
 
       {/* Content */}
       <div className="text-center text-white px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -12,7 +12,7 @@ export default function HeroSection() {
           <img 
             src="/logos/djh-white.png" 
             alt="DJH Logo" 
-            className="h-24 w-auto mx-auto"
+            className="h-40 w-auto mx-auto"
           />
         </div>
         

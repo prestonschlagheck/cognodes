@@ -24,7 +24,7 @@ export default function TestimonialsSection() {
       featured: false
     },
     {
-      quote: "I love the parking. I love the fact you can reserve and manage parking online. You do not need deal with phone calls to reserve spot. Big spot numbers and green lines are top notch. Just keep that way guys! 👋👋👋",
+      quote: "I love the parking. I love the fact you can reserve and manage parking online. You do not need deal with phone calls to reserve spot. Big spot numbers and green lines are top notch. Just keep that way guys!",
       author: "Domagoj Kerestes",
       location: "Houston, TX",
       rating: 5,
@@ -47,8 +47,8 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="section-spacious bg-gray-800">
-      <div className="container-standard">
+    <section className="section-spacious bg-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="heading-2 text-white mb-4">
             OUR CUSTOMERS SAY IT BEST
@@ -59,8 +59,8 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`rounded-lg p-7 shadow-sm border border-gray-600 ${
-                testimonial.featured ? 'bg-gray-600 text-white' : 'bg-gray-700'
+              className={`rounded-lg p-7 shadow-sm border border-[#4B5563] ${
+                testimonial.featured ? 'bg-button-primary text-white' : 'bg-[#4B5563]'
               }`}
             >
               {testimonial.featured && (
@@ -79,9 +79,7 @@ export default function TestimonialsSection() {
                   <Star
                     key={i}
                     size={22}
-                    className={`${
-                      testimonial.featured ? 'text-white' : 'text-yellow-400'
-                    } fill-current`}
+                    className="text-yellow-400 fill-current"
                   />
                 ))}
               </div>

@@ -44,7 +44,7 @@ export default function TruckParking() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-800">
+    <div className="min-h-screen bg-page">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
@@ -58,7 +58,7 @@ export default function TruckParking() {
       </section>
 
       {/* Driver's Perspective Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-secondary">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -72,8 +72,8 @@ export default function TruckParking() {
           {/* Statistics Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {driverStats.map((item, index) => (
-              <div key={index} className="text-center p-8 bg-djh-tertiary rounded-lg">
-                <div className="w-16 h-16 bg-djh-accent rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="text-center p-8 bg-[#4B5563] rounded-lg">
+                <div className="w-16 h-16 bg-button-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-4xl font-bold text-white mb-3">
@@ -87,7 +87,7 @@ export default function TruckParking() {
           </div>
 
           {/* Driver Quote */}
-          <div className="bg-djh-tertiary rounded-2xl p-8 text-center shadow-lg border border-djh-accent">
+          <div className="bg-[#4B5563] rounded-2xl p-8 text-center shadow-lg border border-[#4B5563]">
             <blockquote className="body-large text-gray-200 italic mb-4">
               &quot;There&apos;s nothing worse than pulling into a city at night and then trying to find a place to park. Sometimes you have to depend on your delivery time and how much drive time you have on your clock to work with. I avoid it if I can.&quot;
             </blockquote>
@@ -97,7 +97,7 @@ export default function TruckParking() {
       </section>
 
       {/* Community Perspective Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-primary">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -110,7 +110,7 @@ export default function TruckParking() {
 
           {/* Community Statistics */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <div className="bg-djh-tertiary rounded-lg p-8 shadow-sm border border-djh-accent">
+            <div className="bg-[#4B5563] rounded-lg p-8 shadow-sm border border-[#4B5563]">
               <h3 className="heading-3 text-white mb-6">Texas Statistics</h3>
               <div className="space-y-4">
                 {communityStats.map((stat, index) => (
@@ -126,7 +126,7 @@ export default function TruckParking() {
               </div>
             </div>
 
-            <div className="bg-djh-tertiary rounded-lg p-8 shadow-sm border border-djh-accent">
+            <div className="bg-[#4B5563] rounded-lg p-8 shadow-sm border border-[#4B5563]">
               <h3 className="heading-3 text-white mb-6">Safety Concerns</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
@@ -162,13 +162,13 @@ export default function TruckParking() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/journeyline-properties"
-                className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-600 transition-colors inline-flex items-center justify-center shadow-lg"
+                className="btn-primary"
               >
                 Learn About Our Properties
               </a>
               <a
                 href="/riggys"
-                className="border-2 border-gray-500 text-gray-500 px-8 py-3 rounded-xl font-semibold hover:bg-gray-500 hover:text-white transition-colors inline-flex items-center justify-center shadow-lg"
+                className="btn-secondary"
               >
                 Explore Riggy&apos;s Facilities
               </a>

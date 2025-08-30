@@ -8,8 +8,19 @@
 @tailwind utilities;
 
 :root {
+  /* New Consistent Color Scheme */
+  --header-footer-bg: #0F1827;
+  --page-bg: #1F2937;
+  --container-bg: #374152;
+  --bottom-section-bg: #6A7280;
+  --button-primary: #6A7280;
+  --button-secondary: #FFFFFF;
+  --riggys-accent: #8DD305;
+  --jp-truckbays-accent: #2364ED;
+  
+  /* Legacy colors for backward compatibility */
   --foreground-rgb: 255, 255, 255;
-  --background-rgb: 0, 0, 0;
+  --background-rgb: 31, 41, 55;
   --djh-primary: 255, 255, 255;
   --djh-secondary: 194, 194, 194;
   --djh-accent: 140, 211, 3;
@@ -27,7 +38,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  background: var(--page-bg);
   font-family: 'Montserrat', 'SF Pro Display', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
   line-height: 1.6;
@@ -60,29 +71,33 @@ body {
     letter-spacing: -0.01em;
   }
   
-  /* Heading Styles - Unified Design System */
+  /* Heading Styles - Unified Design System with ALL CAPS */
   .heading-1 {
     @apply font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
     line-height: 0.9;
     letter-spacing: -0.04em;
+    text-transform: uppercase;
   }
   
   .heading-2 {
     @apply font-display text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
     line-height: 0.95;
     letter-spacing: -0.03em;
+    text-transform: uppercase;
   }
   
   .heading-3 {
     @apply font-display text-2xl md:text-3xl font-semibold tracking-tight;
     line-height: 1.1;
     letter-spacing: -0.02em;
+    text-transform: uppercase;
   }
   
   .heading-4 {
     @apply font-display text-xl md:text-2xl font-semibold tracking-tight;
     line-height: 1.2;
     letter-spacing: -0.015em;
+    text-transform: uppercase;
   }
   
   /* Body Text Styles - Unified Design System */
@@ -110,25 +125,25 @@ body {
     letter-spacing: 0.01em;
   }
   
-  /* Component Styles - Unified Design System */
+  /* Component Styles - Updated with New Color Scheme */
   .btn-primary {
-    @apply bg-gray-500 text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-gray-600 transition-colors inline-flex items-center justify-center shadow-lg;
+    @apply bg-[#6A7280] text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-[#5A6370] transition-colors inline-flex items-center justify-center shadow-lg;
   }
   
   .btn-secondary {
-    @apply border-2 border-white text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-white hover:text-black transition-colors inline-flex items-center justify-center shadow-lg;
+    @apply border-2 border-white text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-white hover:text-[#1F2937] transition-colors inline-flex items-center justify-center shadow-lg bg-transparent;
   }
   
   .btn-outline {
-    @apply border-2 border-gray-500 text-gray-500 px-9 py-3.5 rounded-lg font-semibold hover:bg-gray-500 hover:text-white transition-colors inline-flex items-center justify-center shadow-lg;
+    @apply border-2 border-[#6A7280] text-[#6A7280] px-9 py-3.5 rounded-lg font-semibold hover:bg-[#6A7280] hover:text-white transition-colors inline-flex items-center justify-center shadow-lg;
   }
   
   .card-standard {
-    @apply bg-gray-700 rounded-lg p-7 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300;
+    @apply bg-[#374152] rounded-lg p-7 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300;
   }
   
   .card-elevated {
-    @apply bg-gray-700 rounded-xl p-9 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300 hover:scale-[1.02];
+    @apply bg-[#374152] rounded-xl p-9 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 hover:scale-[1.02];
   }
   
   .section-standard {
@@ -157,6 +172,63 @@ body {
     @apply font-display text-xs font-semibold tracking-widest uppercase;
     letter-spacing: 0.1em;
   }
+  
+  /* New Color Utility Classes */
+  .bg-header-footer {
+    background-color: var(--header-footer-bg);
+  }
+  
+  .bg-page {
+    background-color: var(--page-bg);
+  }
+  
+  .bg-container {
+    background-color: var(--container-bg);
+  }
+  
+  .bg-bottom-section {
+    background-color: var(--bottom-section-bg);
+  }
+  
+  .bg-button-primary {
+    background-color: var(--button-primary);
+  }
+  
+  .bg-button-secondary {
+    background-color: transparent;
+    border: 2px solid var(--button-secondary);
+    color: var(--button-secondary);
+  }
+  
+  .text-riggys-accent {
+    color: var(--riggys-accent);
+  }
+  
+  .text-jp-truckbays-accent {
+    color: var(--jp-truckbays-accent);
+  }
+  
+  .border-riggys-accent {
+    border-color: var(--riggys-accent);
+  }
+  
+  .border-jp-truckbays-accent {
+    border-color: var(--jp-truckbays-accent);
+  }
+  
+  /* Button Contrast Guidelines */
+  .btn-contrast {
+    /* Ensures buttons have sufficient contrast against their background */
+    /* This is the only time button styling can be overwritten */
+    background-color: var(--page-bg) !important;
+    color: white !important;
+    border: 2px solid var(--page-bg) !important;
+  }
+  
+  .btn-contrast:hover {
+    background-color: var(--container-bg) !important;
+    border-color: var(--container-bg) !important;
+  }
 }
 
 /* Custom scrollbar for modern browsers */
@@ -165,14 +237,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111111;
+  background: var(--page-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: var(--container-bg);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: var(--bottom-section-bg);
 }

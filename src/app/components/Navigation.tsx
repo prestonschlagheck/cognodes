@@ -9,7 +9,7 @@ export default function Navigation() {
 
   return (
         <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 lg:px-8 py-4">
-      <div className="max-w-5xl mx-auto bg-black/30 backdrop-blur-xl shadow-lg border border-white/20 rounded-xl">
+      <div className="max-w-5xl mx-auto bg-header-footer/20 backdrop-blur-xl shadow-lg border border-white/20 rounded-xl">
         <div className="flex items-center justify-between h-16 px-6">
           {/* DJH Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
@@ -44,19 +44,19 @@ export default function Navigation() {
             </Link>
             <Link 
               href="/journeyline-properties" 
-              className="text-white hover:text-jp-blue transition-colors font-medium text-base whitespace-nowrap"
+              className="text-white hover:text-jp-truckbays-accent transition-colors font-medium text-base whitespace-nowrap"
             >
               Journeyline Properties
             </Link>
             <Link 
               href="/riggys" 
-              className="text-white hover:text-riggys-green transition-colors font-medium text-base whitespace-nowrap"
+              className="text-white hover:text-riggys-accent transition-colors font-medium text-base whitespace-nowrap"
             >
               Riggy&apos;s
             </Link>
             <Link 
               href="/truckbays" 
-              className="text-white hover:text-jp-blue transition-colors font-medium text-base whitespace-nowrap"
+              className="text-white hover:text-jp-truckbays-accent transition-colors font-medium text-base whitespace-nowrap"
             >
               Truckbays
             </Link>
@@ -73,7 +73,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-white/20 bg-black/50 backdrop-blur-xl rounded-b-2xl">
+          <div className="md:hidden border-t border-white/20 bg-header-footer/20 backdrop-blur-xl rounded-b-2xl">
             <div className="px-4 pt-3 pb-4 space-y-2">
               <Link 
                 href="/" 
@@ -98,21 +98,21 @@ export default function Navigation() {
               </Link>
               <Link 
                 href="/journeyline-properties" 
-                className="block px-4 py-3 text-white hover:text-jp-blue hover:bg-white/10 rounded-md transition-colors text-base"
+                className="block px-4 py-3 text-white hover:text-jp-truckbays-accent hover:bg-white/10 rounded-md transition-colors text-base"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Journeyline Properties
               </Link>
               <Link 
                 href="/riggys" 
-                className="block px-4 py-3 text-white hover:text-riggys-green hover:bg-white/10 rounded-md transition-colors text-base"
+                className="block px-4 py-3 text-white hover:text-riggys-accent hover:bg-white/10 rounded-md transition-colors text-base"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Riggy&apos;s
               </Link>
               <Link 
                 href="/truckbays" 
-                className="block px-4 py-3 text-white hover:text-jp-blue hover:bg-white/10 rounded-md transition-colors text-base"
+                className="block px-4 py-3 text-white hover:text-jp-truckbays-accent hover:bg-white/10 rounded-md transition-colors text-base"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Truckbays
