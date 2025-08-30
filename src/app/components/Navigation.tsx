@@ -23,7 +23,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center space-x-6 flex-1 justify-center">
+          <div className="hidden md:flex items-center space-x-12 flex-1 justify-center">
             <Link 
               href="/" 
               className="text-white hover:text-gray-400 transition-colors font-medium text-base whitespace-nowrap"
