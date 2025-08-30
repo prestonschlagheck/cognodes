@@ -62,7 +62,7 @@ export default function TruckParking() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
-              A TRUCK DRIVER'S PERSPECTIVE
+              A TRUCK DRIVER&apos;S PERSPECTIVE
             </h2>
             <p className="body-large text-gray-300">
               The daily challenges faced by truck drivers highlight the urgent need for better parking infrastructure.
