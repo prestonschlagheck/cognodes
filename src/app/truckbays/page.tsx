@@ -69,15 +69,19 @@ export default function Truckbays() {
               </div>
             </div>
 
-            <div className="bg-[#4B5563] rounded-lg p-8">
-              <h3 className="heading-4 text-white mb-4">Technology Built for the Industry</h3>
-              <div className="space-y-3">
-                {appFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-jp-truckbays-accent flex-shrink-0" />
-                    <span className="body-medium text-gray-300">{feature}</span>
-                  </div>
-                ))}
+            <div className="bg-[#4B5563] rounded-lg shadow-sm border border-[#4B5563]">
+              <div className="bg-jp-truckbays-accent rounded-t-lg px-8 py-4">
+                <h3 className="heading-4 text-white">Technology Built for the Industry</h3>
+              </div>
+              <div className="p-8">
+                <div className="space-y-3">
+                  {appFeatures.map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-white flex-shrink-0" />
+                      <span className="body-medium text-gray-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -99,7 +103,7 @@ export default function Truckbays() {
                 <div className="w-16 h-16 bg-jp-truckbays-accent rounded-full flex items-center justify-center mb-4">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="heading-4 text-jp-truckbays-accent mb-3">
+                <h3 className="heading-4 text-white mb-3">
                   {feature.title}
                 </h3>
                 <p className="body-medium text-gray-300">
@@ -118,7 +122,7 @@ export default function Truckbays() {
             <h2 className="heading-2 text-white mb-4">
               Smartphone App Interface
             </h2>
-            <p className="body-large text-gray-300 max-w-3xl mx-auto">
+            <p className="body-large text-gray-300">
               Experience the future of truck parking management through our intuitive mobile application.
             </p>
           </div>
@@ -131,28 +135,28 @@ export default function Truckbays() {
                   <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Gate Access Management</p>
-                    <p className="body-caption text-gray-300">Control entry and exit points directly from your phone</p>
+                    <p className="body-medium text-gray-300">Control entry and exit points directly from your phone</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Real-time Notifications</p>
-                    <p className="body-caption text-gray-300">Stay informed about gate access and facility updates</p>
+                    <p className="body-medium text-gray-300">Stay informed about gate access and facility updates</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Payment Management</p>
-                    <p className="body-caption text-gray-300">Update payment methods and manage billing easily</p>
+                    <p className="body-medium text-gray-300">Update payment methods and manage billing easily</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Fleet Management</p>
-                    <p className="body-caption text-gray-300">Quickly add or remove vehicles and drivers</p>
+                    <p className="body-medium text-gray-300">Quickly add or remove vehicles and drivers</p>
                   </div>
                 </div>
               </div>
@@ -182,7 +186,7 @@ export default function Truckbays() {
                   </div>
                 </div>
               </div>
-              <p className="body-small text-gray-300 mt-4">Mobile app interface mockup</p>
+              <p className="body-medium text-gray-300 mt-4">Mobile app interface mockup</p>
             </div>
           </div>
         </div>
@@ -201,7 +205,7 @@ export default function Truckbays() {
             <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
               <Users className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
               <h3 className="heading-4 text-white mb-3">Fleet Owners</h3>
-              <p className="body-small text-gray-300">
+              <p className="body-medium text-gray-300">
                 Manage multiple drivers, track parking usage, and streamline operations with comprehensive fleet management tools.
               </p>
             </div>
@@ -209,7 +213,7 @@ export default function Truckbays() {
             <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
               <Shield className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
               <h3 className="heading-4 text-white mb-3">Parking Operators</h3>
-              <p className="body-small text-gray-300">
+              <p className="body-medium text-gray-300">
                 Increase efficiency, reduce manual work, and provide better service to drivers with automated systems.
               </p>
             </div>
@@ -217,7 +221,7 @@ export default function Truckbays() {
             <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
               <Smartphone className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
               <h3 className="heading-4 text-white mb-3">Individual Drivers</h3>
-              <p className="body-small text-gray-300">
+              <p className="body-medium text-gray-300">
                 Find and reserve parking spots easily, manage payments, and access facilities with just your phone.
               </p>
             </div>
@@ -226,7 +230,7 @@ export default function Truckbays() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-jp-truckbays-accent text-white">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 text-white" style={{ backgroundColor: '#6A7280' }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="heading-2 mb-4">
             Ready to Transform Your Truck Parking Operations?
@@ -239,7 +243,7 @@ export default function Truckbays() {
               href="https://truckbays.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary"
+              className="btn-primary !bg-blue-600 !border-blue-600 hover:!bg-blue-500 hover:!border-blue-500 transition-colors duration-200"
             >
               Visit Truckbays Website
             </a>
