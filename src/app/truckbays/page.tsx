@@ -34,7 +34,7 @@ export default function Truckbays() {
   ];
 
   return (
-    <div className="min-h-screen bg-jp-blue">
+    <div className="min-h-screen bg-page">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
@@ -52,7 +52,7 @@ export default function Truckbays() {
       </section>
 
       {/* Main Description */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-dark-medium">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
@@ -69,12 +69,12 @@ export default function Truckbays() {
               </div>
             </div>
 
-            <div className="bg-dark-light rounded-lg p-8">
+            <div className="bg-[#4B5563] rounded-lg p-8">
               <h3 className="heading-4 text-white mb-4">Technology Built for the Industry</h3>
               <div className="space-y-3">
                 {appFeatures.map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-jp-blue flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-jp-truckbays-accent flex-shrink-0" />
                     <span className="body-medium text-gray-300">{feature}</span>
                   </div>
                 ))}
@@ -85,7 +85,7 @@ export default function Truckbays() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-primary">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -95,11 +95,11 @@ export default function Truckbays() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map((feature, index) => (
-              <div key={index} className="bg-dark-light rounded-lg p-6 shadow-sm border border-dark-light">
-                <div className="w-16 h-16 bg-jp-blue rounded-full flex items-center justify-center mb-4">
+              <div key={index} className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563]">
+                <div className="w-16 h-16 bg-jp-truckbays-accent rounded-full flex items-center justify-center mb-4">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="heading-4 text-jp-blue mb-3">
+                <h3 className="heading-4 text-jp-truckbays-accent mb-3">
                   {feature.title}
                 </h3>
                 <p className="body-medium text-gray-300">
@@ -112,7 +112,7 @@ export default function Truckbays() {
       </section>
 
       {/* App Interface Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-dark-medium">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -128,28 +128,28 @@ export default function Truckbays() {
               <h3 className="heading-3 text-white mb-6">App Features</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Gate Access Management</p>
                     <p className="body-caption text-gray-300">Control entry and exit points directly from your phone</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Real-time Notifications</p>
                     <p className="body-caption text-gray-300">Stay informed about gate access and facility updates</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Payment Management</p>
                     <p className="body-caption text-gray-300">Update payment methods and manage billing easily</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="heading-4 text-white">Fleet Management</p>
                     <p className="body-caption text-gray-300">Quickly add or remove vehicles and drivers</p>
@@ -158,7 +158,7 @@ export default function Truckbays() {
               </div>
             </div>
 
-            <div className="bg-dark-light rounded-2xl p-8 text-center shadow-lg border border-dark-light">
+            <div className="bg-[#4B5563] rounded-2xl p-8 text-center shadow-lg border border-[#4B5563]">
               <div className="w-64 h-96 bg-white rounded-2xl mx-auto shadow-lg border-4 border-gray-300 relative">
                 {/* Mock App Interface */}
                 <div className="bg-gray-800 text-white p-2 rounded-t-xl text-xs text-center">
@@ -189,7 +189,7 @@ export default function Truckbays() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-primary">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -198,24 +198,24 @@ export default function Truckbays() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-dark-light rounded-lg p-6 shadow-sm border border-dark-light text-center">
-              <Users className="w-16 h-16 text-jp-blue mx-auto mb-4" />
+            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
+              <Users className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
               <h3 className="heading-4 text-white mb-3">Fleet Owners</h3>
               <p className="body-small text-gray-300">
                 Manage multiple drivers, track parking usage, and streamline operations with comprehensive fleet management tools.
               </p>
             </div>
 
-            <div className="bg-dark-light rounded-lg p-6 shadow-sm border border-dark-light text-center">
-              <Shield className="w-16 h-16 text-jp-blue mx-auto mb-4" />
+            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
+              <Shield className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
               <h3 className="heading-4 text-white mb-3">Parking Operators</h3>
               <p className="body-small text-gray-300">
                 Increase efficiency, reduce manual work, and provide better service to drivers with automated systems.
               </p>
             </div>
 
-            <div className="bg-dark-light rounded-lg p-6 shadow-sm border border-dark-light text-center">
-              <Smartphone className="w-16 h-16 text-jp-blue mx-auto mb-4" />
+            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
+              <Smartphone className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
               <h3 className="heading-4 text-white mb-3">Individual Drivers</h3>
               <p className="body-small text-gray-300">
                 Find and reserve parking spots easily, manage payments, and access facilities with just your phone.
@@ -226,7 +226,7 @@ export default function Truckbays() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-jp-blue text-white">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-jp-truckbays-accent text-white">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="heading-2 mb-4">
             Ready to Transform Your Truck Parking Operations?
@@ -239,13 +239,13 @@ export default function Truckbays() {
               href="https://truckbays.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-jp-blue px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
+              className="btn-primary"
             >
               Visit Truckbays Website
             </a>
             <a
               href="mailto:contact@directjh.com"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-jp-blue transition-colors inline-flex items-center justify-center"
+              className="btn-secondary"
             >
               Contact Us
             </a>

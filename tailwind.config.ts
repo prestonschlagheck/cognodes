@@ -25,14 +25,23 @@ const config: Config = {
         '9xl': ['8rem', { lineHeight: '1' }],
       },
       colors: {
+        // New Consistent Color Scheme
+        'header-footer': '#0F1827',
+        'page': '#1F2937',
+        'container': '#374152',
+        'bottom-section': '#6A7280',
+        'button-primary': '#6A7280',
+        'button-secondary': '#FFFFFF',
+        'riggys-accent': '#8DD305',
+        'jp-truckbays-accent': '#2364ED',
 
         // Brand-specific colors from slideshow
         'riggys': {
-          'green': '#8cd303',      // Exact Riggy's green
+          'green': '#8DD305',      // Exact Riggy's green
           'blue': '#061a32',       // Exact Riggy's blue
         },
         'jp': {
-          'blue': '#2563ec',       // JP Blue (updated)
+          'blue': '#2364ED',       // JP Blue (updated)
         },
         // DJH Custom Colors
         'djh': {
@@ -67,8 +76,8 @@ const config: Config = {
         "gradient-glass": "linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))",
         "gradient-fog": "linear-gradient(135deg, rgba(128, 128, 128, 0.1), rgba(128, 128, 128, 0.05))",
         "gradient-dark": "linear-gradient(135deg, #000000, #111111)",
-        "gradient-riggys": "linear-gradient(135deg, #8cd303, #7bb802)",
-        "gradient-jp": "linear-gradient(135deg, #2563ec, #1d4ed8)",
+        "gradient-riggys": "linear-gradient(135deg, #8DD305, #7bb802)",
+        "gradient-jp": "linear-gradient(135deg, #2364ED, #1d4ed8)",
       },
       backdropBlur: {
         'xs': '2px',

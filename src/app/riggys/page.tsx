@@ -72,7 +72,7 @@ export default function Riggys() {
   ];
 
   return (
-    <div className="min-h-screen bg-riggys-navy">
+    <div className="min-h-screen bg-page">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
@@ -90,7 +90,7 @@ export default function Riggys() {
       </section>
 
       {/* Main Description */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-dark-medium">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -106,25 +106,25 @@ export default function Riggys() {
               <h3 className="heading-3 text-white mb-6">Our Approach</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-riggys-green mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-riggys-accent mt-1 flex-shrink-0" />
                   <p className="text-gray-300">
                     <strong>SITE SELECTION:</strong> Analysis of freight corridors focused on origin and destination and trucking company feedback.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-riggys-green mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-riggys-accent mt-1 flex-shrink-0" />
                   <p className="text-gray-300">
                     <strong>DESIGN FEATURES:</strong> Secure fencing, video monitoring, proximity-based gate access.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-riggys-green mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-riggys-accent mt-1 flex-shrink-0" />
                   <p className="text-gray-300">
                     <strong>AMENITIES:</strong> On-site amenities, properly lit areas with wide aisles for ingress and egress.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-riggys-green mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-riggys-accent mt-1 flex-shrink-0" />
                   <p className="text-gray-300">
                     <strong>ENGINEERING:</strong> Designed with AutoTurn Engineering for easy maneuverability and to eliminate blind side parking.
                   </p>
@@ -132,7 +132,7 @@ export default function Riggys() {
               </div>
             </div>
 
-            <div className="bg-dark-light rounded-2xl p-8 shadow-lg border border-dark-light">
+            <div className="bg-[#4B5563] rounded-2xl p-8 shadow-lg border border-[#4B5563]">
               <h3 className="heading-4 text-white mb-4">Lots Tailored for Truck Drivers</h3>
               <p className="text-gray-300 mb-6">
                 Built by those who get it. Managed by those who live it.
@@ -140,27 +140,27 @@ export default function Riggys() {
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-riggys-green rounded-full"></div>
+                  <div className="w-3 h-3 bg-riggys-accent rounded-full"></div>
                   <span className="text-sm text-gray-300">Wide, numbered parking bays</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-riggys-green rounded-full"></div>
+                  <div className="w-3 h-3 bg-riggys-accent rounded-full"></div>
                   <span className="text-sm text-gray-300">24/7 video monitoring</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-riggys-green rounded-full"></div>
+                  <div className="w-3 h-3 bg-riggys-accent rounded-full"></div>
                   <span className="text-sm text-gray-300">On-site attendants</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-riggys-green rounded-full"></div>
+                  <div className="w-3 h-3 bg-riggys-accent rounded-full"></div>
                   <span className="text-sm text-gray-300">Proximity-based gate access</span>
                 </div>
               </div>
               
-              <div className="mt-6 pt-4 border-t border-dark-light/30">
+              <div className="mt-6 pt-4 border-t border-[#4B5563]/30">
                 <div className="flex items-center justify-center space-x-2">
-                  <Truck className="w-5 h-5 text-riggys-green" />
-                  <span className="text-sm text-riggys-green font-medium">Driver-First Design</span>
+                  <Truck className="w-5 h-5 text-riggys-accent" />
+                  <span className="text-sm text-riggys-accent font-medium">Driver-First Design</span>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Riggys() {
       </section>
 
       {/* Lot Standards */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-djh-primary">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="heading-2 text-white mb-4">
@@ -179,15 +179,15 @@ export default function Riggys() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Lot Standards */}
-            <div className="bg-dark-light rounded-lg p-6 shadow-sm border border-dark-light">
-              <h3 className="text-xl font-bold text-riggys-green mb-6">LOT STANDARDS</h3>
+            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563]">
+              <h3 className="text-xl font-bold text-riggys-accent mb-6">LOT STANDARDS</h3>
               {lotStandards.map((standard, index) => (
                 <div key={index} className="mb-6">
-                  <h4 className="font-semibold text-riggys-green mb-3">{standard.category}</h4>
+                  <h4 className="font-semibold text-riggys-accent mb-3">{standard.category}</h4>
                   <ul className="space-y-2">
                     {standard.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start space-x-2">
-                        <CheckCircle className="w-4 h-4 text-riggys-green mt-1 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-riggys-accent mt-1 flex-shrink-0" />
                         <span className="text-sm text-gray-300">{feature}</span>
                       </li>
                     ))}
@@ -197,15 +197,15 @@ export default function Riggys() {
             </div>
 
             {/* Property Description */}
-            <div className="bg-dark-light rounded-lg p-6 shadow-sm border border-dark-light">
-              <h3 className="text-xl font-bold text-riggys-green mb-6">PROPERTY DESCRIPTION</h3>
+            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563]">
+              <h3 className="text-xl font-bold text-riggys-accent mb-6">PROPERTY DESCRIPTION</h3>
               {propertyRequirements.map((requirement, index) => (
                 <div key={index} className="mb-6">
-                  <h4 className="font-semibold text-riggys-green mb-3">{requirement.category}</h4>
+                  <h4 className="font-semibold text-riggys-accent mb-3">{requirement.category}</h4>
                   <ul className="space-y-2">
                     {requirement.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start space-x-2">
-                        <CheckCircle className="w-4 h-4 text-riggys-green mt-1 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-riggys-accent mt-1 flex-shrink-0" />
                         <span className="text-sm text-gray-300">{feature}</span>
                       </li>
                     ))}
@@ -218,25 +218,25 @@ export default function Riggys() {
       </section>
 
       {/* Amenities Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-dark-medium">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+            <h2 className="heading-2 text-white mb-4">
               OUR AMENITIES
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {amenities.map((amenity, index) => (
-              <div key={index} className="bg-dark-light rounded-lg p-6">
+              <div key={index} className="bg-[#4B5563] rounded-lg p-6">
                 <div className="flex items-center mb-4">
-                  <amenity.icon className="w-8 h-8 text-riggys-green mr-3" />
+                  <amenity.icon className="w-8 h-8 text-riggys-accent mr-3" />
                   <h3 className="text-xl font-bold text-white">{amenity.title}</h3>
                 </div>
                 <ul className="space-y-3">
                   {amenity.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start space-x-2">
-                      <CheckCircle className="w-4 h-4 text-riggys-green mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-riggys-accent mt-1 flex-shrink-0" />
                       <span className="text-sm text-gray-300">{feature}</span>
                     </li>
                   ))}
@@ -248,12 +248,12 @@ export default function Riggys() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-riggys-green text-black">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-riggys-accent text-black">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+          <h2 className="heading-2 text-black mb-4">
             Experience the Riggy&apos;s Difference
           </h2>
-          <p className="text-base text-black/80 mb-6">
+          <p className="body-large text-black/80 mb-6">
             Join thousands of drivers who trust Riggy&apos;s for secure, comfortable, and convenient truck parking.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -261,13 +261,13 @@ export default function Riggys() {
               href="https://riggys.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-djh-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-dark-gray transition-colors inline-flex items-center justify-center"
+              className="btn-primary"
             >
               Visit Riggy&apos;s Website
             </a>
             <a
               href="mailto:contact@directjh.com"
-              className="border-2 border-djh-primary text-djh-primary px-8 py-3 rounded-lg font-semibold hover:bg-djh-primary hover:text-white transition-colors inline-flex items-center justify-center"
+              className="btn-secondary"
             >
               Contact Us
             </a>

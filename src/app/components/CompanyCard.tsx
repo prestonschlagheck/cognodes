@@ -5,61 +5,65 @@ interface CompanyCardProps {
   type: string;
   name: string;
   description: string;
-  color: 'primary' | 'accent' | 'jp-blue';
+  color: 'riggys-accent' | 'jp-truckbays-accent';
   href: string;
 }
 
 export default function CompanyCard({ type, name, description, color, href }: CompanyCardProps) {
   const colorClasses = {
-    primary: 'bg-gray-500 text-white',
-    accent: 'bg-riggys-green text-black',
-    'jp-blue': 'bg-jp-blue text-white'
+    'riggys-accent': 'bg-riggys-accent text-black',
+    'jp-truckbays-accent': 'bg-jp-truckbays-accent text-white'
   };
 
   const textColorClasses = {
-    primary: 'text-gray-500',
-    accent: 'text-riggys-green',
-    'jp-blue': 'text-jp-blue'
+    'riggys-accent': 'text-riggys-accent',
+    'jp-truckbays-accent': 'text-jp-truckbays-accent'
   };
 
   return (
-    <div className="card-elevated overflow-hidden h-full flex flex-col">
-      {/* Header - extends to edges with rounded top corners */}
-      <div className={`${colorClasses[color]} relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-        <h3 className="text-base font-semibold text-current relative z-10 leading-tight px-7 py-4.5">{type}</h3>
+    <div className="bg-[#4B5563] rounded-lg shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden">
+      {/* Colored Top Section */}
+      <div className={`px-6 py-3 flex items-center justify-center ${
+        name === "Riggy's" ? "bg-riggys-accent" : "bg-jp-truckbays-accent"
+      }`}>
+        <span className="text-sm font-semibold text-white uppercase tracking-wide">
+          {type}
+        </span>
       </div>
-
-      {/* Content */}
-      <div className="p-7 flex-1 flex flex-col">
-        {/* Company Logo */}
-        <div className="flex items-center mb-7">
-          <img 
-            src={name === "Riggy's" ? "/logos/riggys-white.png" : name === "Journeyline Properties" ? "/logos/jp-white.png" : name === "Truckbays" ? "/logos/truckbays-white.png" : "/logos/djh-white.png"} 
-            alt={`${name} Logo`} 
-            className="h-14 w-auto mr-5"
-          />
-          <h4 className={`heading-4 ${textColorClasses[color]} leading-tight`}>
+      
+      {/* Main Content */}
+      <div className="p-6 flex flex-col flex-1">
+        {/* Company Logo and Title Row */}
+        <div className="flex items-center mb-4">
+          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+            <img 
+              src={name === "Riggy's" ? "/logos/riggys-white.png" : name === "Journeyline Properties" ? "/logos/jp-white.png" : name === "Truckbays" ? "/logos/truckbays-white.png" : "/logos/djh-white.png"} 
+              alt={`${name} Logo`} 
+              className={`w-auto ${name === "Riggy's" ? "h-14" : "h-16"} ${name === "Journeyline Properties" ? "object-contain object-left -ml-2" : ""} ${name === "Truckbays" ? "object-contain object-left" : ""}`}
+            />
+          </div>
+          
+          <h3 className="text-lg font-semibold text-white leading-tight ml-4 uppercase">
             {name}
-          </h4>
+          </h3>
         </div>
-        <p className="body-medium text-gray-300 mb-7 flex-1">
+        
+        {/* Description */}
+        <p className="body-medium text-gray-300 mb-6 flex-1">
           {description}
         </p>
 
-        {/* CTA Button - spans full width */}
+        {/* CTA Button */}
         <Link
           href={href}
-          className={`w-full inline-flex items-center justify-center px-7 py-3.5 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl ${
-            color === 'primary' 
-              ? 'bg-gray-800 text-white hover:bg-gray-700 hover:scale-105' 
-              : color === 'accent'
-              ? 'bg-riggys-green text-black hover:bg-riggys-green/90 hover:scale-105'
-              : 'bg-jp-blue text-white hover:bg-jp-blue/90 hover:scale-105'
+          className={`w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-colors ${
+            name === "Riggy's" 
+              ? "bg-riggys-accent text-white hover:bg-riggys-accent/90" 
+              : "bg-jp-truckbays-accent text-white hover:bg-jp-truckbays-accent/90"
           }`}
         >
-          Learn More
-          <ArrowRight className="ml-2 w-6 h-6" />
+          <span>Learn More</span>
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>

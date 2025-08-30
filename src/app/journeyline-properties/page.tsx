@@ -130,7 +130,7 @@ export default function JourneylineProperties() {
                 <ul className="space-y-4">
                   {phase.steps.map((step, stepIndex) => (
                     <li key={stepIndex} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-jp-blue mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
                       <span className="body-medium text-gray-300">{step}</span>
                     </li>
                   ))}
