@@ -42,9 +42,9 @@ export default function Home() {
             <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 min-w-[360px] sm:min-w-0 w-full sm:w-auto">
               <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <img 
-                  src="/logos/jp-white.png" 
+                  src="/logos/3.png" 
                   alt="Journeyline Properties Logo" 
-                  className="h-14 w-auto"
+                  className="h-14 w-auto object-contain"
                 />
               </div>
               <h3 className="heading-4 text-white mb-2">Property Company</h3>
@@ -54,9 +54,9 @@ export default function Home() {
             <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 min-w-[360px] sm:min-w-0 w-full sm:w-auto">
               <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <img 
-                  src="/logos/riggys-white.png" 
+                  src="/logos/2.png" 
                   alt="Riggy's Logo" 
-                  className="h-14 w-auto"
+                  className="h-14 w-auto object-contain"
                 />
               </div>
               <h3 className="heading-4 text-white mb-2">Operating Company</h3>
@@ -66,9 +66,9 @@ export default function Home() {
             <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 min-w-[360px] sm:min-w-0 w-full sm:w-auto">
               <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <img 
-                  src="/logos/truckbays-white.png" 
+                  src="/logos/1.png" 
                   alt="Truckbays Logo" 
-                  className="h-14 w-auto"
+                  className="h-14 w-auto object-contain"
                 />
               </div>
               <h3 className="heading-4 text-white mb-2">Technology Company</h3>
