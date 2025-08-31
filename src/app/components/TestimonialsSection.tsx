@@ -70,16 +70,14 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`rounded-lg p-7 shadow-sm min-w-[360px] md:min-w-0 w-full md:w-auto ${
+              className={`rounded-lg p-7 shadow-sm min-w-[360px] md:min-w-0 w-full md:w-auto bg-[#4B5563] ${
                 testimonial.featured 
-                  ? 'bg-button-primary text-white' 
-                  : expandedTestimonials.includes(index)
-                    ? 'md:bg-[#4B5563] bg-[#6A7280]' // Lighter gray when opened
-                    : 'md:bg-[#4B5563] bg-[#4B5563]' // Darker gray when closed
+                  ? 'text-white' 
+                  : 'text-white'
               } ${index > 0 ? 'md:mt-0 -mt-11' : ''}`}
-              style={index > 0 ? {
-                boxShadow: '0 -6px 20px -4px rgba(0, 0, 0, 0.5)'
-              } : {}}
+              style={{
+                boxShadow: '0 -3.6px 12px -2.4px rgba(0, 0, 0, 0.3)'
+              }}
             >
               {/* Mobile Compact View */}
               <div className="md:hidden cursor-pointer" onClick={() => toggleTestimonial(index)}>

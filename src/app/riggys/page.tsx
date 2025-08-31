@@ -77,11 +77,13 @@ export default function Riggys() {
       <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center mb-6">
-            <img 
-              src="/logos/riggys-white.png" 
-              alt="Riggy's Logo" 
-              className="h-20 w-auto"
-            />
+            <div className="w-64 h-16 md:w-[50.4rem] md:h-[8.4rem] flex items-center justify-center">
+              <img 
+                src="/logos/2.png" 
+                alt="Riggy's Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
           <p className="text-[12px] sm:body-large text-white max-w-4xl mx-auto">
             Riggy&apos;s raises the standard for truck parking with secure, fully managed facilities designed specifically for today&apos;s drivers and fleets.
