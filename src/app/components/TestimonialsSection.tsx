@@ -70,7 +70,7 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`rounded-lg p-7 shadow-sm min-w-[360px] md:min-w-0 w-full md:w-auto bg-[#4B5563] ${
+              className={`rounded-lg p-7 shadow-sm min-w-[360px] md:min-w-0 w-full md:w-auto bg-[#4B5563] md:relative ${
                 testimonial.featured 
                   ? 'text-white' 
                   : 'text-white'
@@ -154,32 +154,32 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Desktop Full View - Unchanged */}
-              <div className="hidden md:block">
+              <div className="hidden md:block md:flex-1">
                 {testimonial.featured && (
                   <div className="text-3xl text-white mb-4">&quot;</div>
                 )}
                 
-                <p className={`body-medium leading-relaxed mb-4 ${
+                <p className={`body-medium leading-relaxed mb-4 md:mb-[115px] ${
                   testimonial.featured ? 'text-white' : 'text-gray-300'
                 }`}>
                   {testimonial.quote}
                 </p>
 
-                {/* Rating Stars */}
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={22}
-                      className="text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-
-                {/* Author Info */}
-                <div className={`${
+                {/* Author Info - Pushed to bottom */}
+                <div className={`md:absolute md:bottom-[12px] md:left-7 md:right-7 ${
                   testimonial.featured ? 'text-white' : 'text-white'
                 }`}>
+                  {/* Rating Stars - Above author info */}
+                  <div className="flex items-center mb-3 mt-7">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={20}
+                        className="text-yellow-400 fill-current"
+                      />
+                    ))}
+                  </div>
+                  
                   <p className="font-semibold body-medium uppercase">
                     {testimonial.author}
                   </p>
@@ -187,7 +187,7 @@ export default function TestimonialsSection() {
                     <p className="body-small opacity-80 uppercase">{testimonial.role}</p>
                   )}
                   {testimonial.location && (
-                    <p className="body-small opacity-80 uppercase">{testimonial.location}</p>
+                    <p className="body-small opacity-80 uppercase md:mb-[3px]">{testimonial.location}</p>
                   )}
                 </div>
               </div>
