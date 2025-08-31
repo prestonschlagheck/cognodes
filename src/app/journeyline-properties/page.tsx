@@ -58,11 +58,13 @@ export default function JourneylineProperties() {
       <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center mb-6">
-            <img 
-              src="/logos/jp-white.png" 
-              alt="Journeyline Properties Logo" 
-              className="h-20 w-auto"
-            />
+            <div className="w-[21.6rem] h-[5.4rem] md:w-[58.8rem] md:h-[9.45rem] flex items-center justify-center">
+              <img 
+                src="/logos/3.png" 
+                alt="Journeyline Properties Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
           <p className="text-[12px] sm:body-large text-white max-w-4xl mx-auto">
             Specializing in acquiring and leasing large plots in prime locations, designing efficient layouts, and developing high-quality properties for the trucking and logistics industry.
