@@ -30,14 +30,16 @@ export default function Home() {
             <h2 className="heading-2 text-white mb-4">
               WHO WE ARE
             </h2>
-            <p className="body-large text-gray-300 max-w-4xl mx-auto leading-tight">
-              DJH is redefining what truck parking can be - transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.
-            </p>
+            <div className="flex justify-center">
+              <p className="body-large text-gray-300 min-w-[360px] sm:min-w-0 w-full sm:w-auto leading-tight">
+                DJH is redefining what truck parking can be - transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.
+              </p>
+            </div>
           </div>
 
           {/* Brand Logos */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-none">
-            <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300">
+          <div className="flex flex-col sm:grid sm:grid-cols-3 gap-6 max-w-none items-center sm:items-stretch">
+            <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 min-w-[360px] sm:min-w-0 w-full sm:w-auto">
               <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <img 
                   src="/logos/jp-white.png" 
@@ -49,7 +51,7 @@ export default function Home() {
               <p className="body-medium text-gray-300">Real Estate & Development</p>
             </div>
             
-            <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300">
+            <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 min-w-[360px] sm:min-w-0 w-full sm:w-auto">
               <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <img 
                   src="/logos/riggys-white.png" 
@@ -61,7 +63,7 @@ export default function Home() {
               <p className="body-medium text-gray-300">Truck Parking Operations</p>
             </div>
             
-            <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300">
+            <div className="bg-[#4B5563] rounded-lg p-6 text-center shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 min-w-[360px] sm:min-w-0 w-full sm:w-auto">
               <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <img 
                   src="/logos/truckbays-white.png" 
@@ -85,9 +87,9 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 max-w-none">
+          <div className="flex flex-col lg:grid lg:grid-cols-6 gap-6 max-w-none items-center lg:items-stretch">
             {/* Private Investors - Full Height */}
-            <div className="lg:col-span-2 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div className="lg:col-span-2 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
               <div className="w-16 h-16 bg-button-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
                 <DollarSign className="w-8 h-8 text-white" />
               </div>
@@ -117,7 +119,7 @@ export default function Home() {
             </div>
 
             {/* Experienced Management - Full Height */}
-            <div className="lg:col-span-2 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div className="lg:col-span-2 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
               <div className="w-16 h-16 bg-button-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
                 <Users className="w-8 h-8 text-white" />
               </div>
@@ -147,7 +149,7 @@ export default function Home() {
             </div>
 
             {/* Focus on Transforming Land - Full Height */}
-            <div className="lg:col-span-2 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div className="lg:col-span-2 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
               <div className="w-16 h-16 bg-button-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
                 <Building2 className="w-8 h-8 text-white" />
               </div>
@@ -177,7 +179,7 @@ export default function Home() {
             </div>
 
             {/* Safety and Security - Now side by side with Commitment to Safety */}
-            <div className="lg:col-span-3 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div className="lg:col-span-3 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
               <div className="w-16 h-16 bg-button-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
                 <Shield className="w-8 h-8 text-white" />
               </div>
@@ -207,7 +209,7 @@ export default function Home() {
             </div>
 
             {/* Commitment to Safety - Now side by side with Safety and Security */}
-            <div className="lg:col-span-3 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col">
+            <div className="lg:col-span-3 bg-[#4B5563] rounded-lg p-6 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
               <div className="w-16 h-16 bg-button-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
                 <SpeedIcon className="w-8 h-8 text-white" />
               </div>
@@ -248,7 +250,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-none">
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 max-w-none items-center lg:items-stretch">
             <CompanyCard
               type="PROPERTY COMPANY"
               name="Journeyline Properties"
@@ -288,17 +290,17 @@ export default function Home() {
           <p className="body-large text-gray-100 mb-6">
             Join us in revolutionizing truck parking infrastructure across the nation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/truck-parking"
-              className="bg-[#1F2937] text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-[#5A6370] transition-colors inline-flex items-center justify-center shadow-lg"
+              className="bg-[#1F2937] text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-[#5A6370] transition-colors inline-flex items-center justify-center shadow-lg min-w-[360px] sm:min-w-0 w-full sm:w-auto"
             >
               Learn More
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
             <a
               href="mailto:contact@directjh.com"
-              className="btn-secondary"
+              className="btn-secondary min-w-[360px] sm:min-w-0 w-full sm:w-auto"
             >
               Contact Us
             </a>

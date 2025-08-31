@@ -13,11 +13,11 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 px-6">
           {/* DJH Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
-            <div className="w-10 h-10 flex items-center justify-center">
+            <div className="w-12 h-12 flex items-center justify-center">
               <img 
                 src="/logos/djh-white.png" 
                 alt="DJH Logo" 
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
             </div>
           </Link>

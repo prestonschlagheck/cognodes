@@ -23,7 +23,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/truck-parking"
-            className="btn-primary"
+            className="btn-primary min-w-[360px]"
           >
             Learn About Truck Parking
             <ArrowRight className="ml-2 w-6 h-6" />
@@ -31,7 +31,7 @@ export default function HeroSection() {
           
           <Link
             href="/our-team"
-            className="btn-secondary"
+            className="btn-secondary min-w-[360px] sm:min-w-0"
           >
             Meet Our Team
           </Link>

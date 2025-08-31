@@ -8,17 +8,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <img 
-                  src="/logos/djh-white.png" 
-                  alt="DJH Logo" 
-                  className="h-6 w-auto"
-                />
-              </div>
+            <div className="mb-6">
               <span className="font-display text-xl font-semibold uppercase tracking-wide">DIRECT JOURNEY LINE HOLDINGS</span>
             </div>
-            <p className="text-gray-300 text-base leading-relaxed pl-11 -mt-2">
+            <p className="text-gray-300 text-base leading-relaxed -mt-2 md:-mt-2" style={{ lineHeight: '1.9' }}>
               Redefining truck parking by transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.
             </p>
           </div>

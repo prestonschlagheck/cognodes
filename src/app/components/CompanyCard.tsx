@@ -21,7 +21,7 @@ export default function CompanyCard({ type, name, description, color, href }: Co
   };
 
   return (
-    <div className="bg-[#4B5563] rounded-lg shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden">
+    <div className="bg-[#4B5563] rounded-lg shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden min-w-[360px] lg:min-w-0 w-full lg:w-auto">
       {/* Colored Top Section */}
       <div className={`px-6 py-3 flex items-center justify-center ${
         name === "Riggy's" ? "bg-riggys-accent" : "bg-jp-truckbays-accent"
