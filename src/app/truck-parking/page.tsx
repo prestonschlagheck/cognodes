@@ -46,12 +46,12 @@ export default function TruckParking() {
   return (
     <div className="min-h-screen bg-page">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="heading-1 mb-6">
             WHY TRUCK PARKING?
           </h1>
-          <p className="body-large text-gray-200 max-w-4xl mx-auto">
+          <p className="text-[12px] sm:body-large text-gray-200 max-w-4xl mx-auto">
             Understanding the critical need for secure, accessible truck parking infrastructure from both driver and community perspectives.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function TruckParking() {
             <blockquote className="body-large text-gray-200 italic mb-4">
               &quot;There&apos;s nothing worse than pulling into a city at night and then trying to find a place to park. Sometimes you have to depend on your delivery time and how much drive time you have on your clock to work with. I avoid it if I can.&quot;
             </blockquote>
-            <p className="text-gray-300 font-semibold absolute bottom-4 right-6">- ALAN TRUCK DRIVER</p>
+            <p className="text-gray-300 font-semibold absolute bottom-4 right-6">- ALAN, TRUCK DRIVER</p>
           </div>
         </div>
       </section>

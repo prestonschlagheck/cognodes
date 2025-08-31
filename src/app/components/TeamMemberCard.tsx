@@ -66,7 +66,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
 
         {/* Read More/Show Less Button - Bottom Right */}
         {hasMoreText && (
-          <div className="absolute bottom-4 right-6">
+          <div className="absolute bottom-2 right-5 sm:bottom-4 sm:right-6">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="text-[#374153] hover:text-[#1F2937] font-bold cursor-pointer flex items-center space-x-1 transition-colors body-medium"

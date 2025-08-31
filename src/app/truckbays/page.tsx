@@ -36,7 +36,7 @@ export default function Truckbays() {
   return (
     <div className="min-h-screen bg-page">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center mb-6">
             <img 
@@ -45,7 +45,7 @@ export default function Truckbays() {
               className="h-20 w-auto"
             />
           </div>
-          <p className="body-large text-white max-w-4xl mx-auto">
+          <p className="text-[12px] sm:body-large text-white max-w-4xl mx-auto">
             At Truckbays, we&apos;re revolutionizing truck parking management with innovative solutions designed for fleets and truck drivers.
           </p>
         </div>

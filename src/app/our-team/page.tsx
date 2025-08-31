@@ -49,12 +49,12 @@ export default function OurTeam() {
   return (
     <div className="min-h-screen bg-page">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="heading-1 mb-6">
             OUR TEAM
           </h1>
-          <p className="body-large text-gray-200 max-w-4xl mx-auto">
+          <p className="text-[12px] sm:body-large text-gray-200 max-w-4xl mx-auto">
             Meet the experienced professionals who are transforming truck parking infrastructure across the nation.
           </p>
         </div>
