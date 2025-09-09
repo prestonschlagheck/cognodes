@@ -27,7 +27,11 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
   const hasMoreText = remainingText.length > 0;
 
   return (
-    <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] overflow-hidden hover:shadow-md transition-shadow relative">
+    <div 
+      className="rounded-lg p-6 shadow-sm border overflow-hidden hover:shadow-md transition-shadow relative cursor-pointer" 
+      style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}
+      onClick={() => hasMoreText && setIsExpanded(!isExpanded)}
+    >
       <div className="flex flex-col">
         {/* Profile Picture and Basic Info - Top Row */}
         <div className="flex items-center mb-4">
@@ -38,10 +42,10 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
           </div>
           
           <div className="flex-1">
-            <h3 className="text-2xl md:text-3xl text-white mb-1 font-bold tracking-tight leading-tight uppercase">
+            <h3 className="text-2xl md:text-3xl mb-1 font-bold tracking-tight leading-tight uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
               {member.name}
             </h3>
-            <p className="body-medium text-gray-400 font-semibold">
+            <p className="body-medium font-semibold" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
               {member.title}
             </p>
           </div>
@@ -49,7 +53,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
 
         {/* Bio Section - Bottom Section */}
         <div className="w-full mb-4">
-          <p className="body-medium text-gray-300 leading-relaxed">
+          <p className="body-medium leading-relaxed" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
             {previewText}
             {hasMoreText && !isExpanded && (
               <>
@@ -68,8 +72,12 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         {hasMoreText && (
           <div className="absolute bottom-2 right-5 sm:bottom-4 sm:right-6">
             <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="text-[#374153] hover:text-[#1F2937] font-bold cursor-pointer flex items-center space-x-1 transition-colors body-medium"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(!isExpanded);
+              }}
+              className="font-bold cursor-pointer flex items-center space-x-1 transition-colors body-medium hover:opacity-80"
+              style={{ color: 'var(--djh-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}
             >
               <span>{isExpanded ? 'Show Less' : 'Read More'}</span>
               <ArrowRight className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />

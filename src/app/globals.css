@@ -1,22 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;0,800;1,100;1,400;1,500;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* New Consistent Color Scheme */
-  --header-footer-bg: #0F1827;
-  --page-bg: #1F2937;
-  --container-bg: #374152;
-  --bottom-section-bg: #6A7280;
-  --button-primary: #6A7280;
-  --button-secondary: #FFFFFF;
+  /* DJH Brand Colors - Main Three */
+  --djh-black: #000000;
+  --djh-dark-gray: #2F2F2F;
+  --djh-green: #02862A;
+  
+  /* DJH Secondary Colors */
+  --djh-medium-gray: #4D4D4F;
+  --djh-light-gray: #7D7D7D;
+  --djh-very-light-gray: #D9D9D9;
+  --djh-white: #FFFFFF;
+  
+  /* Company-Specific Colors (Preserved) */
   --riggys-accent: #8DD305;
   --jp-truckbays-accent: #2364ED;
+  
+  /* Background System */
+  --header-footer-bg: #000000;
+  --page-bg: #4D4D4F;
+  --container-bg: #2F2F2F;
+  --bottom-section-bg: #7D7D7D;
+  --button-primary: #02862A;
+  --button-secondary: #FFFFFF;
   
   /* Legacy colors for backward compatibility */
   --foreground-rgb: 255, 255, 255;
@@ -37,9 +48,9 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--djh-white);
   background: var(--page-bg);
-  font-family: 'Montserrat', 'SF Pro Display', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Poppins', 'Arial', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -52,98 +63,200 @@ body {
     text-wrap: balance;
   }
   
-  /* Typography System */
+  /* Typography System - Poppins */
   .font-display {
-    font-family: 'Montserrat', 'SF Pro Display', 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', 'Arial', system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: -0.02em;
   }
   
   .font-body {
-    font-family: 'Montserrat', 'SF Pro Display', 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', 'Arial', system-ui, sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
   }
   
   .font-mono {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: 'Arial', monospace;
     font-weight: 500;
     letter-spacing: -0.01em;
   }
   
-  /* Heading Styles - Unified Design System with ALL CAPS */
+  /* Heading Styles - Brand Guidelines Hierarchy */
   .heading-1 {
-    @apply font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
-    line-height: 0.9;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
   
   .heading-2 {
-    @apply font-display text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight;
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
   
   .heading-3 {
-    @apply font-display text-2xl md:text-3xl font-semibold tracking-tight;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
   }
   
   .heading-4 {
-    @apply font-display text-xl md:text-2xl font-semibold tracking-tight;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    text-transform: uppercase;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
   
-  /* Body Text Styles - Unified Design System */
+  .heading-5 {
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  .heading-6 {
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Body Text Styles - Brand Guidelines (16px) */
   .body-large {
-    @apply font-body text-lg md:text-xl;
-    line-height: 1.7;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
     letter-spacing: -0.01em;
   }
   
   .body-medium {
-    @apply font-body text-lg md:text-xl;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.6;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
   }
   
   .body-small {
-    @apply font-body text-base md:text-lg;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.6;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
   }
   
   .body-caption {
-    @apply font-body text-sm md:text-base;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.01em;
   }
   
-  /* Component Styles - Updated with New Color Scheme */
+  /* Component Styles - DJH Brand Colors */
   .btn-primary {
-    @apply bg-[#6A7280] text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-[#5A6370] transition-colors inline-flex items-center justify-center shadow-lg;
+    background-color: var(--djh-green);
+    color: var(--djh-white);
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary:hover {
+    background-color: #02641F;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
   
   .btn-secondary {
-    @apply border-2 border-white text-white px-9 py-3.5 rounded-lg font-semibold hover:bg-white hover:text-[#1F2937] transition-colors inline-flex items-center justify-center shadow-lg bg-transparent;
+    border: 2px solid var(--djh-white);
+    color: var(--djh-white);
+    background-color: transparent;
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--djh-white);
+    color: var(--djh-dark-gray);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
   
   .btn-outline {
-    @apply border-2 border-[#6A7280] text-[#6A7280] px-9 py-3.5 rounded-lg font-semibold hover:bg-[#6A7280] hover:text-white transition-colors inline-flex items-center justify-center shadow-lg;
+    border: 2px solid var(--djh-green);
+    color: var(--djh-green);
+    background-color: transparent;
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--djh-green);
+    color: var(--djh-white);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
   
   .card-standard {
-    @apply bg-[#374152] rounded-lg p-7 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300;
+    background-color: var(--container-bg);
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--djh-dark-gray);
+    transition: all 0.3s ease;
+  }
+  
+  .card-standard:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
   }
   
   .card-elevated {
-    @apply bg-[#374152] rounded-xl p-9 shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 hover:scale-[1.02];
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    padding: 36px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--djh-dark-gray);
+    transition: all 0.3s ease;
+  }
+  
+  .card-elevated:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
   }
   
   .section-standard {

@@ -34,9 +34,9 @@ export default function Truckbays() {
   ];
 
   return (
-    <div className="min-h-screen bg-page">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--page-bg)' }}>
       {/* Hero Section */}
-      <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white" style={{ backgroundColor: 'var(--container-bg)' }}>
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center mb-6">
             <div className="w-72 h-18 md:w-[58.8rem] md:h-[9.45rem] flex items-center justify-center">
@@ -47,21 +47,21 @@ export default function Truckbays() {
               />
             </div>
           </div>
-          <p className="text-[12px] sm:body-large text-white max-w-4xl mx-auto">
+          <p className="text-[12px] sm:body-large max-w-4xl mx-auto" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
             At Truckbays, we&apos;re revolutionizing truck parking management with innovative solutions designed for fleets and truck drivers.
           </p>
         </div>
       </section>
 
       {/* Main Description */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
+      <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="heading-3 text-white mb-6">
-                Revolutionizing Truck Parking Management
+              <h2 className="heading-3 mb-6" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                REVOLUTIONIZING TRUCK PARKING MANAGEMENT
               </h2>
-              <div className="space-y-4 body-large text-gray-300">
+              <div className="space-y-4 body-large" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                 <p>
                   We provide seamless, reliable, and user-friendly systems for managing truck parking lots. Whether you&apos;re a fleet owner, a parking lot operator, or an individual truck driver, our platform empowers you with the tools you need to stay ahead in a fast-evolving industry.
                 </p>
@@ -71,16 +71,16 @@ export default function Truckbays() {
               </div>
             </div>
 
-            <div className="bg-[#4B5563] rounded-lg shadow-sm border border-[#4B5563]">
+            <div className="rounded-lg shadow-sm border" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
               <div className="bg-jp-truckbays-accent rounded-t-lg px-8 py-4">
-                <h3 className="heading-4 text-white">Technology Built for the Industry</h3>
+                <h3 className="heading-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>TECHNOLOGY BUILT FOR THE INDUSTRY</h3>
               </div>
               <div className="p-8">
                 <div className="space-y-3">
                   {appFeatures.map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <CheckCircle className="w-5 h-5 text-white flex-shrink-0" />
-                      <span className="body-medium text-gray-300">{feature}</span>
+                      <span className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -91,24 +91,24 @@ export default function Truckbays() {
       </section>
 
       {/* Features Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
+      <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="heading-2 text-white mb-4">
-              Key Features
+            <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+              KEY FEATURES
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map((feature, index) => (
-              <div key={index} className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563]">
+              <div key={index} className="rounded-lg p-6 shadow-sm border" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
                 <div className="w-16 h-16 bg-jp-truckbays-accent rounded-full flex items-center justify-center mb-4">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="heading-4 text-white mb-3">
+                <h3 className="heading-4 mb-3" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                   {feature.title}
                 </h3>
-                <p className="body-medium text-gray-300">
+                <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                   {feature.description}
                 </p>
               </div>
@@ -118,126 +118,121 @@ export default function Truckbays() {
       </section>
 
       {/* App Interface Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
+      <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="heading-2 text-white mb-4">
-              Smartphone App Interface
+            <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+              SMARTPHONE APP INTERFACE
             </h2>
-            <p className="body-large text-gray-300">
+            <p className="body-large" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
               Experience the future of truck parking management through our intuitive mobile application.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="heading-3 text-white mb-6">App Features</h3>
+              <h3 className="heading-3 mb-6" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>APP FEATURES</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="heading-4 text-white">Gate Access Management</p>
-                    <p className="body-medium text-gray-300">Control entry and exit points directly from your phone</p>
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-2.5 flex-shrink-0" />
+                  <div className="mt-0">
+                    <p className="heading-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>Gate Access Management</p>
+                    <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>Control entry and exit points directly from your phone</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="heading-4 text-white">Real-time Notifications</p>
-                    <p className="body-medium text-gray-300">Stay informed about gate access and facility updates</p>
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-2.5 flex-shrink-0" />
+                  <div className="mt-0">
+                    <p className="heading-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>Real-time Notifications</p>
+                    <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>Stay informed about gate access and facility updates</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="heading-4 text-white">Payment Management</p>
-                    <p className="body-medium text-gray-300">Update payment methods and manage billing easily</p>
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-2.5 flex-shrink-0" />
+                  <div className="mt-0">
+                    <p className="heading-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>Payment Management</p>
+                    <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>Update payment methods and manage billing easily</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="heading-4 text-white">Fleet Management</p>
-                    <p className="body-medium text-gray-300">Quickly add or remove vehicles and drivers</p>
+                  <CheckCircle className="w-5 h-5 text-jp-truckbays-accent mt-2.5 flex-shrink-0" />
+                  <div className="mt-0">
+                    <p className="heading-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>Fleet Management</p>
+                    <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>Quickly add or remove vehicles and drivers</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[#4B5563] rounded-2xl p-8 text-center shadow-lg border border-[#4B5563]">
-              <div className="w-64 h-96 bg-white rounded-2xl mx-auto shadow-lg border-4 border-gray-300 relative">
-                {/* Mock App Interface */}
-                <div className="bg-gray-800 text-white p-2 rounded-t-xl text-xs text-center">
-                  Truckbays App
-                </div>
-                <div className="p-4 space-y-3">
-                  <div className="bg-blue-100 p-2 rounded text-xs">
-                    <div className="font-semibold">Gate access</div>
-                    <div className="text-blue-600">Entry 1</div>
-                    <button className="bg-blue-500 text-white px-3 py-1 rounded text-xs mt-1">
-                      Open Gate
-                    </button>
-                  </div>
-                  <div className="bg-gray-100 p-2 rounded text-xs">
-                    <div className="font-semibold">Change payment</div>
-                    <div className="text-gray-600">Update your payment method</div>
-                  </div>
-                  <div className="bg-gray-100 p-2 rounded text-xs">
-                    <div className="font-semibold">Manage Fleet/Drivers</div>
-                    <div className="text-gray-600">Quickly add or remove vehicles and drivers!</div>
-                  </div>
-                </div>
+            <div className="rounded-2xl text-center shadow-lg border" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
+              <div className="w-full h-[21.6rem] sm:h-[36rem] mx-auto flex items-end justify-center">
+                <img 
+                  src="/logos/phonegraphic.png" 
+                  alt="Truckbays Mobile App Interface" 
+                  className="w-[95.7%] sm:w-[95%] h-[21.12rem] sm:h-full object-contain"
+                />
               </div>
-              <p className="body-medium text-gray-300 mt-4">Mobile app interface mockup</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
+      <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="heading-2 text-white mb-4">
-              Benefits for Different Users
+            <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+              BENEFITS FOR DIFFERENT USERS
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
-              <Users className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
-              <h3 className="heading-4 text-white mb-3">Fleet Owners</h3>
-              <p className="body-medium text-gray-300">
-                Manage multiple drivers, track parking usage, and streamline operations with comprehensive fleet management tools.
-              </p>
+            <div className="rounded-lg p-6 shadow-sm border text-center flex flex-col" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
+              <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <Users className="w-16 h-16 text-jp-truckbays-accent" />
+              </div>
+              <div className="text-center">
+                <h3 className="heading-4 mb-3" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }} dangerouslySetInnerHTML={{ __html: 'FLEET<br>OWNERS' }}></h3>
+                <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                  Manage multiple drivers, track parking usage, and streamline operations with comprehensive fleet management tools.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
-              <Shield className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
-              <h3 className="heading-4 text-white mb-3">Parking Operators</h3>
-              <p className="body-medium text-gray-300">
-                Increase efficiency, reduce manual work, and provide better service to drivers with automated systems.
-              </p>
+            <div className="rounded-lg p-6 shadow-sm border text-center flex flex-col" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
+              <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-16 h-16 text-jp-truckbays-accent" />
+              </div>
+              <div className="text-center">
+                <h3 className="heading-4 mb-3" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>PARKING OPERATORS</h3>
+                <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                  Increase efficiency, reduce manual work, and provide better service to drivers with automated systems.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-[#4B5563] rounded-lg p-6 shadow-sm border border-[#4B5563] text-center">
-              <Smartphone className="w-16 h-16 text-jp-truckbays-accent mx-auto mb-4" />
-              <h3 className="heading-4 text-white mb-3">Individual Drivers</h3>
-              <p className="body-medium text-gray-300">
-                Find and reserve parking spots easily, manage payments, and access facilities with just your phone.
-              </p>
+            <div className="rounded-lg p-6 shadow-sm border text-center flex flex-col" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
+              <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <Smartphone className="w-16 h-16 text-jp-truckbays-accent" />
+              </div>
+              <div className="text-center">
+                <h3 className="heading-4 mb-3" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>INDIVIDUAL DRIVERS</h3>
+                <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                  Find and reserve parking spots easily, manage payments, and access facilities with just your phone.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 text-white" style={{ backgroundColor: '#6A7280' }}>
+      <section className="py-12 px-4 sm:px-6 lg:px-8 text-white" style={{ backgroundColor: 'var(--bottom-section-bg)' }}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="heading-2 mb-4">
-            Ready to Transform Your Truck Parking Operations?
+          <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+            READY TO TRANSFORM YOUR TRUCK PARKING OPERATIONS?
           </h2>
-          <p className="body-large text-gray-200 mb-6">
+          <p className="body-large mb-6" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
             Join the future of truck parking management with Truckbays technology.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
