@@ -80,7 +80,7 @@ export default function Riggys() {
             <div className="w-64 h-16 md:w-[50.4rem] md:h-[8.4rem] flex items-center justify-center">
               <img 
                 src="/logos/2.png" 
-                alt="Riggy's Logo" 
+                alt="Riggy&apos;s Logo" 
                 className="w-full h-full object-contain"
               />
             </div>
@@ -259,7 +259,7 @@ export default function Riggys() {
       <section className="py-12 px-4 sm:px-6 lg:px-8 text-white" style={{ backgroundColor: 'var(--bottom-section-bg)' }}>
         <div className="text-center">
           <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
-            EXPERIENCE THE RIGGY'S DIFFERENCE
+            EXPERIENCE THE RIGGY&apos;S DIFFERENCE
           </h2>
           <p className="body-large mb-6" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
             Join thousands of drivers who trust Riggy&apos;s for secure, comfortable, and convenient truck parking.
