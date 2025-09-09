@@ -5,9 +5,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'display': ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
-        'body': ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'Fira Code', 'monospace'],
+        'display': ['Poppins', 'Arial', 'system-ui', 'sans-serif'],
+        'body': ['Poppins', 'Arial', 'system-ui', 'sans-serif'],
+        'mono': ['Arial', 'monospace'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],
@@ -25,30 +25,34 @@ const config: Config = {
         '9xl': ['8rem', { lineHeight: '1' }],
       },
       colors: {
-        // New Consistent Color Scheme
-        'header-footer': '#0F1827',
-        'page': '#1F2937',
-        'container': '#374152',
-        'bottom-section': '#6A7280',
-        'button-primary': '#6A7280',
+        // DJH Brand Colors - Main Three
+        'djh-black': '#000000',
+        'djh-dark-gray': '#2F2F2F',
+        'djh-green': '#02862A',
+        
+        // DJH Secondary Colors
+        'djh-medium-gray': '#4D4D4F',
+        'djh-light-gray': '#7D7D7D',
+        'djh-very-light-gray': '#D9D9D9',
+        'djh-white': '#FFFFFF',
+        
+        // Background System
+        'header-footer': '#000000',
+        'page': '#4D4D4F',
+        'container': '#2F2F2F',
+        'bottom-section': '#7D7D7D',
+        'button-primary': '#02862A',
         'button-secondary': '#FFFFFF',
+        
+        // Company-Specific Colors (Preserved)
         'riggys-accent': '#8DD305',
         'jp-truckbays-accent': '#2364ED',
-
-        // Brand-specific colors from slideshow
         'riggys': {
           'green': '#8DD305',      // Exact Riggy's green
           'blue': '#061a32',       // Exact Riggy's blue
         },
         'jp': {
-          'blue': '#2364ED',       // JP Blue (updated)
-        },
-        // DJH Custom Colors
-        'djh': {
-          'primary': '#303134',    // Main dark gray
-          'secondary': '#222222',  // Darker gray
-          'tertiary': '#333333',   // Medium gray
-          'accent': '#6B7280',     // Light gray
+          'blue': '#2364ED',       // JP Blue
         },
         // Dark theme colors
         'dark': {

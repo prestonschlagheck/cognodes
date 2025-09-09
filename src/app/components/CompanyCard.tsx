@@ -21,7 +21,7 @@ export default function CompanyCard({ type, name, description, color, href }: Co
   };
 
   return (
-    <div className="bg-[#4B5563] rounded-lg shadow-lg border border-[#4B5563] hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden min-w-[360px] lg:min-w-0 w-full lg:w-auto">
+    <div className="rounded-lg shadow-lg border hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden min-w-[360px] lg:min-w-0 w-full lg:w-auto" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
       {/* Colored Top Section */}
       <div className={`px-6 py-3 flex items-center justify-center ${
         name === "Riggy's" ? "bg-riggys-accent" : "bg-jp-truckbays-accent"
@@ -43,13 +43,19 @@ export default function CompanyCard({ type, name, description, color, href }: Co
             />
           </div>
           
-          <h3 className="text-lg font-semibold text-white leading-tight ml-4 uppercase">
-            {name}
+          <h3 className="text-2xl font-semibold leading-tight ml-4 uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+            {name === "Journeyline Properties" ? (
+              <>
+                Journeyline<br />Properties
+              </>
+            ) : (
+              name
+            )}
           </h3>
         </div>
         
         {/* Description */}
-        <p className="body-medium text-gray-300 mb-6 flex-1">
+        <p className="body-medium mb-6 flex-1" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
           {description}
         </p>
 

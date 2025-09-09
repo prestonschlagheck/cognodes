@@ -58,10 +58,10 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="section-spacious bg-container">
+    <section className="section-spacious" style={{ backgroundColor: 'var(--page-bg)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <h2 className="heading-2 text-white mb-4">
+          <h2 className="heading-2" style={{ color: 'var(--djh-white)' }}>
             OUR CUSTOMERS SAY IT BEST
           </h2>
         </div>
@@ -70,12 +70,14 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`rounded-lg p-7 shadow-sm min-w-[360px] md:min-w-0 w-full md:w-auto bg-[#4B5563] md:relative ${
+              className={`rounded-lg p-7 shadow-sm min-w-[360px] md:min-w-0 w-full md:w-auto md:relative ${
                 testimonial.featured 
                   ? 'text-white' 
                   : 'text-white'
               } ${index > 0 ? 'md:mt-0 -mt-11' : ''}`}
               style={{
+                backgroundColor: 'var(--container-bg)',
+                borderColor: 'var(--djh-dark-gray)',
                 boxShadow: '0 -3.6px 12px -2.4px rgba(0, 0, 0, 0.3)'
               }}
             >
@@ -84,14 +86,14 @@ export default function TestimonialsSection() {
                 {/* Author Info and Rating - Always Visible */}
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
-                    <p className="font-semibold body-medium text-white uppercase">
+                    <p className="font-semibold body-medium uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                       {testimonial.author}
                     </p>
                     {testimonial.role && (
-                      <p className="body-small opacity-80 text-white uppercase">{testimonial.role}</p>
+                      <p className="body-small opacity-80 uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>{testimonial.role}</p>
                     )}
                     {testimonial.location && (
-                      <p className="body-small opacity-80 text-white uppercase">{testimonial.location}</p>
+                      <p className="body-small opacity-80 uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>{testimonial.location}</p>
                     )}
                   </div>
                   
@@ -144,9 +146,7 @@ export default function TestimonialsSection() {
                     {testimonial.featured && (
                       <div className="text-3xl text-white mb-3">&quot;</div>
                     )}
-                    <p className={`body-medium leading-relaxed mb-3 ${
-                      testimonial.featured ? 'text-white' : 'text-gray-300'
-                    }`}>
+                    <p className="body-medium leading-relaxed mb-3" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                       {testimonial.quote}
                     </p>
                   </div>
@@ -159,9 +159,7 @@ export default function TestimonialsSection() {
                   <div className="text-3xl text-white mb-4">&quot;</div>
                 )}
                 
-                <p className={`body-medium leading-relaxed mb-4 md:mb-[115px] ${
-                  testimonial.featured ? 'text-white' : 'text-gray-300'
-                }`}>
+                <p className="body-medium leading-relaxed mb-4 md:mb-[115px]" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                   {testimonial.quote}
                 </p>
 
@@ -180,14 +178,14 @@ export default function TestimonialsSection() {
                     ))}
                   </div>
                   
-                  <p className="font-semibold body-medium uppercase">
+                  <p className="font-semibold body-medium uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                     {testimonial.author}
                   </p>
                   {testimonial.role && (
-                    <p className="body-small opacity-80 uppercase">{testimonial.role}</p>
+                    <p className="body-small opacity-80 uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>{testimonial.role}</p>
                   )}
                   {testimonial.location && (
-                    <p className="body-small opacity-80 uppercase md:mb-[3px]">{testimonial.location}</p>
+                    <p className="body-small opacity-80 uppercase md:mb-[3px]" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>{testimonial.location}</p>
                   )}
                 </div>
               </div>

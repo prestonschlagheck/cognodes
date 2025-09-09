@@ -47,21 +47,21 @@ export default function OurTeam() {
   ];
 
   return (
-    <div className="min-h-screen bg-page">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--page-bg)' }}>
       {/* Hero Section */}
-      <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="pt-28 sm:pt-32 pb-9 sm:pb-20 px-4 sm:px-6 lg:px-8 text-white" style={{ backgroundColor: 'var(--container-bg)' }}>
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="heading-1 mb-6">
+          <h1 className="heading-1 mb-4" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
             OUR TEAM
           </h1>
-          <p className="text-[12px] sm:body-large text-gray-200 max-w-4xl mx-auto">
+          <p className="text-[12px] sm:body-large max-w-4xl mx-auto" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
             Meet the experienced professionals who are transforming truck parking infrastructure across the nation.
           </p>
         </div>
       </section>
 
       {/* Team Members List */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-container">
+      <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {teamMembers.slice(0, -1).map((member, index) => (
