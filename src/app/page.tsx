@@ -30,56 +30,36 @@ export default function Home() {
             <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)' }}>
               WHO WE ARE
             </h2>
-            <div className="flex justify-center">
-              <p className="body-large min-w-[360px] sm:min-w-0 w-full sm:w-auto leading-tight" style={{ color: 'var(--djh-very-light-gray)' }}>
-                DJH is redefining what truck parking can be - transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.
-              </p>
-            </div>
           </div>
 
-          {/* Brand Logos */}
-          <div className="flex flex-col sm:grid sm:grid-cols-3 gap-6 max-w-none items-center sm:items-stretch">
-            <div className="card-standard min-w-[360px] sm:min-w-0 w-full sm:w-auto flex flex-col">
-              <div className="w-72 h-20 flex items-center justify-center mx-auto mb-6">
-                <img 
-                  src="/logos/3.png" 
-                  alt="Journeyline Properties Logo" 
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="heading-4 mb-2" style={{ color: 'var(--djh-white)' }}>PROPERTY COMPANY</h3>
-                <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>Real Estate & Development</p>
-              </div>
-            </div>
+          {/* Company Cards */}
+          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 max-w-none items-center lg:items-stretch">
+            <CompanyCard
+              type="PROPERTY COMPANY"
+              name="Journeyline Properties"
+              subtitle="Real Estate & Development"
+              description="Specializes in acquiring and leasing large plots in prime locations, designing efficient layouts, and developing high-quality properties."
+              color="jp-truckbays-accent"
+              href="/journeyline-properties"
+            />
             
-            <div className="card-standard min-w-[360px] sm:min-w-0 w-full sm:w-auto flex flex-col">
-              <div className="w-72 h-20 flex items-center justify-center mx-auto mb-6">
-                <img 
-                  src="/logos/2.png" 
-                  alt="Riggy's Logo" 
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="heading-4 mb-2" style={{ color: 'var(--djh-white)' }}>OPERATING COMPANY</h3>
-                <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>Truck Parking Operations</p>
-              </div>
-            </div>
+            <CompanyCard
+              type="OPERATING COMPANY"
+              name="Riggy's"
+              subtitle="Truck Parking Operations"
+              description="Manages truck parking facilities with a focus on competitive pricing, operational excellence, consistent standards, and exceptional customer service."
+              color="riggys-accent"
+              href="/riggys"
+            />
             
-            <div className="card-standard min-w-[360px] sm:min-w-0 w-full sm:w-auto flex flex-col">
-              <div className="w-72 h-20 flex items-center justify-center mx-auto mb-6">
-                <img 
-                  src="/logos/1.png" 
-                  alt="Truckbays Logo" 
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="heading-4 mb-2" style={{ color: 'var(--djh-white)' }}>TECHNOLOGY COMPANY</h3>
-                <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>Technology Platform</p>
-              </div>
-            </div>
+            <CompanyCard
+              type="TECHNOLOGY COMPANY"
+              name="Truckbays"
+              subtitle="Technology Platform"
+              description="Develops and maintains cost-effective, user-friendly technology for managing truck parking lots."
+              color="jp-truckbays-accent"
+              href="/truckbays"
+            />
           </div>
         </div>
       </section>
@@ -229,7 +209,7 @@ export default function Home() {
               {expandedBoxes.includes(3) && (
                 <div className="mb-4">
                   <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>
-                    We are acutely aware of the safety and security concerns within Texas and are committed to addressing them comprehensively for the benefit of both the community and road safety.
+                    We are acutely aware of the safety and security concerns within the entire US when it comes to truck parking and are committed to addressing them comprehensively for the benefit of both the community and road safety.
                   </p>
                 </div>
               )}
@@ -302,42 +282,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Companies Section */}
-      <section className="section-spacious" style={{ backgroundColor: 'var(--page-bg)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="heading-2" style={{ color: 'var(--djh-white)' }}>
-              OUR COMPANIES
-            </h2>
-          </div>
-
-          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 max-w-none items-center lg:items-stretch">
-            <CompanyCard
-              type="PROPERTY COMPANY"
-              name="Journeyline Properties"
-              description="Specializes in acquiring and leasing large plots in prime locations, designing efficient layouts, and developing high-quality properties."
-              color="jp-truckbays-accent"
-              href="/journeyline-properties"
-            />
-            
-            <CompanyCard
-              type="OPERATING COMPANY"
-              name="Riggy's"
-              description="Manages truck parking facilities with a focus on competitive pricing, operational excellence, consistent standards, and exceptional customer service."
-              color="riggys-accent"
-              href="/riggys"
-            />
-            
-            <CompanyCard
-              type="TECHNOLOGY COMPANY"
-              name="Truckbays"
-              description="Develops and maintains cost-effective, user-friendly technology for managing truck parking lots."
-              color="jp-truckbays-accent"
-              href="/truckbays"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials Section */}
       <TestimonialsSection />

@@ -6,7 +6,7 @@ export default function Riggys() {
       category: "SECURITY",
       features: [
         "8' barbed wire fencing",
-        "Gates stay closed 24/7, opens via Truckbays app",
+        "Gates stay closed, opens via Truckbays app",
         "Site wide video monitoring",
         "Best in class lighting"
       ]
@@ -147,7 +147,7 @@ export default function Riggys() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-riggys-accent rounded-full"></div>
-                  <span className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>24/7 video monitoring</span>
+                  <span className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>Video monitoring</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-riggys-accent rounded-full"></div>
