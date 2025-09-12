@@ -35,10 +35,29 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       <div className="flex flex-col">
         {/* Profile Picture and Basic Info - Top Row */}
         <div className="flex items-center mb-4">
-          <div className="w-20 h-20 bg-button-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0 border-4 border-[#374153]">
-            <span className="text-white font-bold text-xl">
-              {member.name.split(' ').map(n => n[0]).join('')}
-            </span>
+          <div className="w-20 h-20 rounded-full mr-4 flex-shrink-0 border-4 overflow-hidden" style={{ borderColor: 'var(--djh-light-gray)' }}>
+            <img 
+              src={`/logos/${member.name.split(' ').pop()?.toLowerCase()}.${(member.name.split(' ').pop()?.toLowerCase() === 'fogle' || member.name.split(' ').pop()?.toLowerCase() === 'hughes') ? 'jpg' : 'png'}`}
+              alt={`${member.name} headshot`}
+              className="w-full h-full object-cover"
+              style={{ transform: 'scale(1.12)' }}
+              onError={(e) => {
+                // Fallback to initials if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  parent.style.backgroundColor = 'var(--button-primary)';
+                  parent.style.display = 'flex';
+                  parent.style.alignItems = 'center';
+                  parent.style.justifyContent = 'center';
+                  const span = document.createElement('span');
+                  span.className = 'text-white font-bold text-xl';
+                  span.textContent = member.name.split(' ').map(n => n[0]).join('');
+                  parent.appendChild(span);
+                }
+              }}
+            />
           </div>
           
           <div className="flex-1">
