@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-6">
-              <span className="text-xl font-semibold uppercase tracking-wide" style={{ fontFamily: 'Poppins, Arial, sans-serif', color: 'var(--djh-white)' }}>DIRECT JOURNEY LINE HOLDINGS</span>
+              <span className="text-xl font-semibold uppercase tracking-wide" style={{ fontFamily: 'Poppins, Arial, sans-serif', color: 'var(--djh-white)' }}>DIRECT JOURNEYLINE HOLDINGS</span>
             </div>
             <p className="text-base leading-relaxed -mt-2 md:-mt-2" style={{ lineHeight: '1.9', color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
               Redefining truck parking by transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.
@@ -51,12 +51,10 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-center space-x-3" style={{ color: 'var(--djh-very-light-gray)' }}>
-                <Phone size={18} className="flex-shrink-0" />
-                <span className="text-base font-medium" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-3" style={{ color: 'var(--djh-very-light-gray)' }}>
                 <MapPin size={18} className="flex-shrink-0" />
-                <span className="text-base font-medium" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>Nashville, TN</span>
+                <a href="https://maps.google.com/?q=6305+Kingston+Pike,+Knoxville,+TN+37919" target="_blank" rel="noopener noreferrer" className="transition-colors text-base font-medium" style={{ fontFamily: 'Poppins, Arial, sans-serif' }} onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; }} onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-very-light-gray)'; }}>
+                  6305 Kingston Pike, Knoxville, TN 37919
+                </a>
               </div>
             </div>
           </div>

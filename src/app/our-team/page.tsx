@@ -15,6 +15,12 @@ export default function OurTeam() {
       bio: "David co-founded Riggy's Truck Parking in 2021 and oversees company-wide operations, construction, asset performance, and growth strategy for their network of secure truck parking facilities. He brings 15 years of heavy industrial and energy experience, including work on U.S. Army Corps of Engineers infrastructure, GE Power projects, and $400 million EPC oil and gas projects. He held project manager roles at Fagen Inc, The Ross Group, GE Power, and SOFEC. David was raised by an over-the-road trucker and married into another trucking family, which gives him firsthand empathy for drivers. He earned a bachelor's degree in Construction Management from Bemidji State University."
     },
     {
+      name: "David Hughes",
+      title: "Chief Strategy Officer",
+      image: "/placeholder-avatar.jpg", // Replace with actual image
+      bio: "David serves as Chief Strategy Officer and is responsible for building strategies related to site development, property management, and technology. David will oversee all sales and marketing activities. Most recently, David was Sr. Vice President, Sales at Pilot Flying J where he led 230 team members focused on growing and maintaining a customer base of over 80,000 direct fleet customers. David joined Pilot in 2012 and previously served as President of Pilot Logistics and Transportation. Prior to joining Pilot, David spent 15 years in various positions in the trucking industry including Senior Vice President and Treasurer of Covenant Transportation Group and Chief Financial officer of Star Transportation. David holds a Master of Business Administration and a Bachelor of Business Administration from East Tennessee State University."
+    },
+    {
       name: "Cory Schupp",
       title: "Chief Financial Officer",
       image: "/placeholder-avatar.jpg", // Replace with actual image
@@ -25,12 +31,6 @@ export default function OurTeam() {
       title: "Chief Technology Officer",
       image: "/placeholder-avatar.jpg", // Replace with actual image
       bio: "Adrian is a product innovator and entrepreneur with over a decade of experience in truck parking operations and logistics. Adrian is the Founder of Truckbays, where he leads product vision, design, and technical execution for the platform. Before launching Truckbays, Adrian spent more than 10 years developing and managing one of the largest truck parking facilities in the U.S. This operational foundation shaped his approach to building intuitive, tech-driven solutions for the truck parking industry. Earlier in his career, Adrian was a product designer at SwagUp, where he contributed to the company's rapid growth."
-    },
-    {
-      name: "David Hughes",
-      title: "Chief Strategy Officer",
-      image: "/placeholder-avatar.jpg", // Replace with actual image
-      bio: "David serves as Chief Strategy Officer and is responsible for building strategies related to site development, property management, and technology. David will oversee all sales and marketing activities. Most recently, David was Sr. Vice President, Sales at Pilot Flying J where he led 230 team members focused on growing and maintaining a customer base of over 80,000 direct fleet customers. David joined Pilot in 2012 and previously served as President of Pilot Logistics and Transportation. Prior to joining Pilot, David spent 15 years in various positions in the trucking industry including Senior Vice President and Treasurer of Covenant Transportation Group and Chief Financial officer of Star Transportation. David holds a Master of Business Administration and a Bachelor of Business Administration from East Tennessee State University."
     },
     {
       name: "Brad Butcher",

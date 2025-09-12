@@ -4,12 +4,13 @@ import { ArrowRight } from 'lucide-react';
 interface CompanyCardProps {
   type: string;
   name: string;
+  subtitle: string;
   description: string;
   color: 'riggys-accent' | 'jp-truckbays-accent';
   href: string;
 }
 
-export default function CompanyCard({ type, name, description, color, href }: CompanyCardProps) {
+export default function CompanyCard({ type, name, subtitle, description, color, href }: CompanyCardProps) {
   const colorClasses = {
     'riggys-accent': 'bg-riggys-accent text-black',
     'jp-truckbays-accent': 'bg-jp-truckbays-accent text-white'
@@ -33,25 +34,19 @@ export default function CompanyCard({ type, name, description, color, href }: Co
       
       {/* Main Content */}
       <div className="p-6 flex flex-col flex-1">
-        {/* Company Logo and Title Row */}
-        <div className="flex items-center mb-4">
-          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+        {/* Company Logo and Subtitle */}
+        <div className="text-center" style={{ marginBottom: '19px' }}>
+          <div className={`flex items-center justify-center mx-auto mb-4 ${name === "Journeyline Properties" ? "w-80 h-22" : "w-72 h-20"}`}>
             <img 
-              src={name === "Riggy's" ? "/logos/riggys-white.png" : name === "Journeyline Properties" ? "/logos/jp-white.png" : name === "Truckbays" ? "/logos/truckbays-white.png" : "/logos/djh-white.png"} 
+              src={name === "Riggy's" ? "/logos/2.png" : name === "Journeyline Properties" ? "/logos/3.png" : name === "Truckbays" ? "/logos/1.png" : "/logos/djh-white.png"} 
               alt={`${name} Logo`} 
-              className={`w-auto ${name === "Riggy's" ? "h-14" : "h-16"} ${name === "Journeyline Properties" ? "object-contain object-left -ml-2" : ""} ${name === "Truckbays" ? "object-contain object-left" : ""}`}
+              className="max-w-full max-h-full object-contain"
             />
           </div>
           
-          <h3 className="text-2xl font-semibold leading-tight ml-4 uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
-            {name === "Journeyline Properties" ? (
-              <>
-                Journeyline<br />Properties
-              </>
-            ) : (
-              name
-            )}
-          </h3>
+          <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif', fontWeight: 'bold' }}>
+            {subtitle}
+          </p>
         </div>
         
         {/* Description */}
