@@ -24,7 +24,25 @@ export default function TruckParking() {
     }
   ];
 
-  const communityStats = [
+  const nationalStats = [
+    {
+      number: "76,180",
+      description: "individuals injured in truck-related crashes in 2022",
+      note: "71% were occupants of other vehicles"
+    },
+    {
+      number: "5,370",
+      description: "deaths were attributed to truck accidents in 2022 across the U.S",
+      note: "Many involving trucks parked on shoulders"
+    },
+    {
+      number: "70%+",
+      description: "of US truck drivers park in unauthorized areas weekly",
+      note: "Due to lack of designated parking availability"
+    }
+  ];
+
+  const texasStats = [
     {
       number: "2,315",
       description: "crashes involving parked trucks in Texas (2013-2017)"
@@ -36,10 +54,6 @@ export default function TruckParking() {
     {
       number: "997",
       description: "injuries from parked truck crashes in Texas (2013-2017)"
-    },
-    {
-      number: "60%+",
-      description: "of Texas truck drivers park in unauthorized locations weekly"
     }
   ];
 
@@ -110,17 +124,40 @@ export default function TruckParking() {
             </p>
           </div>
 
+          {/* National Statistics - Prominent Display */}
+          <div className="mb-6">
+            <div className="rounded-lg p-8 shadow-sm border" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
+              <p className="text-sm font-medium text-center mb-2" style={{ color: '#02862A', fontFamily: 'Poppins, Arial, sans-serif' }}>2022 STATISTICS</p>
+              <h3 className="heading-3 mb-6 text-center" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>US TRUCK PARKING CRISIS</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {nationalStats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-4xl font-bold mb-2" style={{ color: '#02862A', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                      {stat.number}
+                    </div>
+                    <p className="body-medium mb-2" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                      {stat.description}
+                    </p>
+                    <p className="text-sm" style={{ color: 'var(--djh-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                      {stat.note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Community Statistics */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <div className="rounded-lg p-8 shadow-sm border" style={{ backgroundColor: 'var(--container-bg)', borderColor: 'var(--djh-dark-gray)' }}>
               <h3 className="heading-3 mb-6" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>TEXAS STATISTICS</h3>
               <div className="space-y-4">
-                {communityStats.map((stat, index) => (
+                {texasStats.map((stat, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="text-3xl font-bold w-20 flex-shrink-0" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                    <div className="text-3xl font-bold w-20 flex-shrink-0" style={{ color: '#02862A', fontFamily: 'Poppins, Arial, sans-serif' }}>
                       {stat.number}
                     </div>
-                    <p className="body-medium ml-5" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
+                    <p className="body-medium ml-5" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif', marginTop: '3px' }}>
                       {stat.description.replace(/\((\d{4}-\d{4})\)/, '')}
                       {stat.description.includes('(2013-2017)') && (
                         <span className="text-xs" style={{ color: 'var(--djh-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}> (2013-2017)</span>
