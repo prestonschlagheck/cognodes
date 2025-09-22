@@ -224,6 +224,18 @@ export default function TruckParking() {
             >
               Explore Riggy&apos;s Facilities
             </a>
+            <a
+              href="https://www.linkedin.com/company/direct-journeyline-holdings-llc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary flex items-center justify-center"
+            >
+              <img 
+                src="/logos/Linkedin-logo-white-png-wordmark-icon-horizontal-900x233.png" 
+                alt="LinkedIn" 
+                className="w-20 h-5 object-contain"
+              />
+            </a>
           </div>
         </div>
       </section>
