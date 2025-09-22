@@ -1,4 +1,4 @@
-import { Star, ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Quote, Star } from 'lucide-react';
 import { useState } from 'react';
 
 export default function TestimonialsSection() {
@@ -97,16 +97,26 @@ export default function TestimonialsSection() {
                     )}
                   </div>
                   
-                  {/* Star Rating - Top Right */}
-                  <div className="flex items-center space-x-1 ml-4 mt-0.5">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={16}
-                        className="text-yellow-400 fill-current"
-                      />
-                    ))}
-                  </div>
+                  {/* Star Rating - Only for non-featured testimonials */}
+                  {!testimonial.featured && (
+                    <div className="flex items-center space-x-1 ml-4 mt-0.5">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={16}
+                          className="text-yellow-400 fill-current"
+                        />
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Quote Icons - Only for featured testimonials, same position as stars */}
+                  {testimonial.featured && (
+                    <div className="flex items-center ml-4 mt-0.5">
+                      <Quote className="w-4 h-4 text-white/60" style={{ transform: 'rotate(180deg)' }} />
+                      <Quote className="w-4 h-4 text-white/60 ml-1" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Simple Arrow Toggle Button - Right Aligned, Close to Stars */}
@@ -143,9 +153,6 @@ export default function TestimonialsSection() {
                 {/* Full Review - Expandable */}
                 {expandedTestimonials.includes(index) && (
                   <div className="mt-4 pt-4 border-t border-white/20">
-                    {testimonial.featured && (
-                      <div className="text-3xl text-white mb-3">&quot;</div>
-                    )}
                     <p className="body-medium leading-relaxed mb-3" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                       {testimonial.quote}
                     </p>
@@ -153,10 +160,13 @@ export default function TestimonialsSection() {
                 )}
               </div>
 
-              {/* Desktop Full View - Unchanged */}
+              {/* Desktop Full View */}
               <div className="hidden md:block md:flex-1">
                 {testimonial.featured && (
-                  <div className="text-3xl text-white mb-4">&quot;</div>
+                  <div className="flex items-center mb-4">
+                    <Quote className="w-5 h-5 text-white/60 mr-2" style={{ transform: 'rotate(180deg)' }} />
+                    <Quote className="w-5 h-5 text-white/60" />
+                  </div>
                 )}
                 
                 <p className="body-medium leading-relaxed mb-4 md:mb-[115px]" style={{ color: 'var(--djh-very-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
@@ -164,19 +174,26 @@ export default function TestimonialsSection() {
                 </p>
 
                 {/* Author Info - Pushed to bottom */}
-                <div className={`md:absolute md:bottom-[12px] md:left-7 md:right-7 ${
-                  testimonial.featured ? 'text-white' : 'text-white'
+                <div className={`md:absolute md:left-7 md:right-7 ${
+                  testimonial.featured ? 'md:bottom-[16px] text-white' : 'md:bottom-[12px] text-white'
                 }`}>
-                  {/* Rating Stars - Above author info */}
-                  <div className="flex items-center mb-3 mt-7">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={20}
-                        className="text-yellow-400 fill-current"
-                      />
-                    ))}
-                  </div>
+                  {/* Rating Stars - Only for non-featured testimonials */}
+                  {!testimonial.featured && (
+                    <div className="flex items-center mb-3 mt-7">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={20}
+                          className="text-yellow-400 fill-current"
+                        />
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Add consistent spacing for featured testimonials to match non-featured */}
+                  {testimonial.featured && (
+                    <div className="mb-3 mt-7"></div>
+                  )}
                   
                   <p className="font-semibold body-medium uppercase" style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}>
                     {testimonial.author}

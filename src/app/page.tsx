@@ -38,7 +38,7 @@ export default function Home() {
               type="PROPERTY COMPANY"
               name="Journeyline Properties"
               subtitle="Real Estate & Development"
-              description="Specializes in acquiring and leasing large plots in prime locations, designing efficient layouts, and developing high-quality properties."
+              description="Specializes in developing high-quality properties including real estate site selection, property entitlement, site design and construction."
               color="jp-truckbays-accent"
               href="/journeyline-properties"
             />
@@ -47,7 +47,7 @@ export default function Home() {
               type="OPERATING COMPANY"
               name="Riggy's"
               subtitle="Truck Parking Operations"
-              description="Manages truck parking facilities with a focus on competitive pricing, operational excellence, consistent standards, and exceptional customer service."
+              description="Manages truck parking facilities with a focus on optimizing revenue through site layout, parking mix, competitive pricing, consistent standards, and exceptional customer service."
               color="riggys-accent"
               href="/riggys"
             />
@@ -56,7 +56,7 @@ export default function Home() {
               type="TECHNOLOGY COMPANY"
               name="Truckbays"
               subtitle="Technology Platform"
-              description="Develops and maintains cost-effective, user-friendly technology for managing truck parking lots."
+              description="Develops and maintains innovative user-friendly technology that fulfills the needs of today's truck parking operator."
               color="jp-truckbays-accent"
               href="/truckbays"
             />
@@ -306,8 +306,26 @@ export default function Home() {
             <a
               href="mailto:contact@directjh.com"
               className="btn-secondary min-w-[360px] sm:min-w-0 w-full sm:w-auto"
+              style={{ 
+                height: '53px', 
+                padding: '13px 36px',
+                minHeight: '53px',
+                maxHeight: '53px'
+              }}
             >
               Contact Us
+            </a>
+            <a
+              href="https://www.linkedin.com/company/direct-journeyline-holdings-llc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary flex items-center justify-center min-w-[360px] sm:min-w-0 w-full sm:w-auto"
+            >
+              <img 
+                src="/logos/Linkedin-logo-white-png-wordmark-icon-horizontal-900x233.png" 
+                alt="LinkedIn" 
+                className="w-20 h-5 object-contain"
+              />
             </a>
           </div>
         </div>

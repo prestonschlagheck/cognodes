@@ -64,13 +64,9 @@ export default function OurTeam() {
       <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {teamMembers.slice(0, -1).map((member, index) => (
+            {teamMembers.map((member, index) => (
               <TeamMemberCard key={index} member={member} />
             ))}
-            {/* Last team member spans full width */}
-            <div className="md:col-span-2">
-              <TeamMemberCard member={teamMembers[teamMembers.length - 1]} />
-            </div>
           </div>
         </div>
       </section>
