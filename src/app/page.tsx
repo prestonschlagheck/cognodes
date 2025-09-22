@@ -18,8 +18,60 @@ export default function Home() {
     );
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Direct Journeyline Holdings",
+    "alternateName": "DJH",
+    "url": "https://djh.vercel.app",
+    "logo": "https://djh.vercel.app/logos/djh-full-white.png",
+    "description": "Redefining truck parking by transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6305 Kingston Pike",
+      "addressLocality": "Knoxville",
+      "addressRegion": "TN",
+      "postalCode": "37919",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@directjh.com",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/direct-journeyline-holdings-llc"
+    ],
+    "subOrganization": [
+      {
+        "@type": "Organization",
+        "name": "Riggy's",
+        "url": "https://djh.vercel.app/riggys",
+        "description": "Truck parking operations with focus on optimizing revenue through site layout, parking mix, competitive pricing, and exceptional customer service."
+      },
+      {
+        "@type": "Organization", 
+        "name": "Journeyline Properties",
+        "url": "https://djh.vercel.app/journeyline-properties",
+        "description": "Real estate and development specializing in high-quality properties including site selection, property entitlement, site design and construction."
+      },
+      {
+        "@type": "Organization",
+        "name": "Truckbays", 
+        "url": "https://djh.vercel.app/truckbays",
+        "description": "Technology platform developing and maintaining innovative user-friendly technology for truck parking operators."
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--page-bg)' }}>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
       {/* Hero Section */}
       <HeroSection />
 

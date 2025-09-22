@@ -63,7 +63,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t mt-12 pt-8 text-center" style={{ borderColor: 'var(--container-bg)' }}>
           <p className="text-sm font-medium" style={{ color: 'var(--djh-light-gray)', fontFamily: 'Poppins, Arial, sans-serif' }}>
-            © 2025 Direct Journey Line Holdings. All rights reserved.
+            © 2025 Direct Journeyline Holdings. All rights reserved.
           </p>
         </div>
       </div>
