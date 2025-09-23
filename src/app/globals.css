@@ -204,7 +204,7 @@ body {
   }
   
   .btn-secondary {
-    border: 1px solid rgba(245, 245, 245, 0.16);
+    border: 2px solid var(--cn-gray-050);
     color: var(--cn-gray-050);
     background-color: transparent;
     padding: 16px 32px;
