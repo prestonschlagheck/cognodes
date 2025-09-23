@@ -25,6 +25,9 @@ export default function Home() {
   useEffect(() => {
     const words = ['efficient', 'automated', 'effective', 'money'];
     const current = words[currentWord];
+    
+    if (!current) return;
+    
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         if (displayText.length < current.length) {
@@ -77,7 +80,7 @@ export default function Home() {
                 <h1 className="heading-1 text-white">
                   {baseText}
                   <span className="text-cn-blue-400">
-                    {displayText}
+                    {displayText || 'efficient'}
                     <span className="animate-pulse">|</span>
                   </span>
                 </h1>
