@@ -239,7 +239,7 @@ export default function Home() {
             {/* Text - Right 1/3 */}
             <div className="text-left relative z-10 lg:col-span-1" style={{ marginLeft: '20px' }}>
               <p className="text-xl text-gray-300 mb-6">
-                Unlike competitors who offer generic solutions, we provide a truly personalized dashboard that adapts to your specific business needs. Your dashboard tracks every agent's performance, showing real-time impact on your business growth and customer satisfaction metrics.
+                Unlike competitors who offer generic solutions, we provide a truly personalized dashboard that adapts to your specific business needs. Your dashboard tracks every agent&apos;s performance, showing real-time impact on your business growth and customer satisfaction metrics.
               </p>
               <a
                 href="https://cognodes-dashboard.vercel.app/websites"
