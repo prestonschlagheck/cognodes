@@ -3,9 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function Navigation() {
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     // Trigger animation after a brief delay
@@ -13,8 +16,29 @@ export default function Navigation() {
       setHasAnimated(true);
     }, 100);
 
-    return () => clearTimeout(timer);
+    // Check if user is logged in
+    const checkLoginStatus = () => {
+      const loggedIn = localStorage.getItem('isLoggedIn');
+      setIsLoggedIn(loggedIn === 'true');
+    };
+
+    checkLoginStatus();
+
+    // Listen for storage changes (when user logs in/out from another tab)
+    window.addEventListener('storage', checkLoginStatus);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('storage', checkLoginStatus);
+    };
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    setIsLoggedIn(false);
+    router.push('/');
+  };
 
   return (
     <>
@@ -72,19 +96,36 @@ export default function Navigation() {
             display: 'flex',
             gap: '12px'
           }}>
-            <a
-              href="/login"
-              className={`btn-secondary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ 
-                transitionDelay: '100ms',
-                filter: 'none',
-                opacity: 1,
-                position: 'relative',
-                zIndex: 99999
-              }}
-            >
-              Log In
-            </a>
+            {isLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className={`btn-secondary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                style={{ 
+                  transitionDelay: '100ms',
+                  filter: 'none',
+                  opacity: 1,
+                  position: 'relative',
+                  zIndex: 99999,
+                  cursor: 'pointer'
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <a
+                href="/login"
+                className={`btn-secondary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                style={{ 
+                  transitionDelay: '100ms',
+                  filter: 'none',
+                  opacity: 1,
+                  position: 'relative',
+                  zIndex: 99999
+                }}
+              >
+                Log In
+              </a>
+            )}
             <a
               href="mailto:cognodes@gmail.com"
               className={`btn-primary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}

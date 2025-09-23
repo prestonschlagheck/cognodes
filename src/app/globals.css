@@ -383,3 +383,86 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--bottom-section-bg);
 }
+
+/* Horizontal scrollbar for dashboard */
+.horizontal-scroll {
+  scrollbar-width: auto;
+  scrollbar-color: var(--cn-blue-400) var(--cn-navy-900);
+  /* Enable horizontal scrolling with visible scrollbar */
+  overflow-x: scroll;
+  overflow-y: hidden;
+  /* Ensure smooth horizontal scrolling */
+  scroll-behavior: smooth;
+  /* Force scrollbar to always be visible */
+  scrollbar-gutter: stable;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 16px;
+  width: 0;
+}
+
+.horizontal-scroll::-webkit-scrollbar:vertical {
+  display: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: var(--cn-navy-900);
+  border-radius: 8px;
+  border: 1px solid var(--cn-blue-400);
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: var(--cn-blue-400);
+  border-radius: 8px;
+  border: 2px solid var(--cn-navy-900);
+  min-width: 60px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--cn-pink-400);
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:active {
+  background: var(--cn-lavender-400);
+}
+
+.horizontal-scroll::-webkit-scrollbar-corner {
+  background: var(--cn-navy-900);
+}
+
+/* Prevent body from scrolling vertically on dashboard */
+body.dashboard-page {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* Custom scroll behavior for dashboard */
+.dashboard-scroll-container {
+  scroll-snap-type: x mandatory;
+  /* Ensure smooth scrolling */
+  scroll-padding: 0;
+}
+
+.dashboard-scroll-container .scroll-snap-align-start {
+  scroll-snap-align: start;
+  /* Ensure each slide takes full width */
+  flex-shrink: 0;
+}
+
+/* Force horizontal scrolling */
+.dashboard-scroll-container > div {
+  display: flex;
+  height: 100%;
+}
+
+/* Enhanced scroll behavior */
+.horizontal-scroll:focus {
+  outline: none;
+}
+
+/* Smooth scrolling for better UX */
+.horizontal-scroll {
+  scroll-padding: 0;
+  scroll-margin: 0;
+}
