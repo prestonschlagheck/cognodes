@@ -473,17 +473,29 @@ export default function Home() {
             </div>
             <div className="space-y-4">
               {[
-                "Limited to business hours",
-                "Customers wait on hold",
-                "High cost, salaries + overhead",
-                "Limited by team size",
-                "Varies by employee"
+                { text: "Limited to business hours", icon: "navy-monogram" },
+                { text: "Customers wait on hold", icon: "default" },
+                { text: "High cost, salaries + overhead", icon: "default" },
+                { text: "Limited by team size", icon: "default" },
+                { text: "Varies by employee", icon: "default" }
               ].map((item, index) => (
                 <div key={index} className="flex items-center space-x-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-red-400 flex items-center justify-center">
-                    <span className="text-red-400 text-sm">×</span>
-                  </div>
-                  <span className="text-gray-300">{item}</span>
+                  {item.icon === "navy-monogram" ? (
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <Image 
+                        src="/Logos/Navy Monogram.png" 
+                        alt="Navy Monogram" 
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-6 h-6 rounded-full border-2 border-red-400 flex items-center justify-center">
+                      <span className="text-red-400 text-sm">×</span>
+                    </div>
+                  )}
+                  <span className="text-gray-300">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -502,7 +514,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Testimonial 1 */}
             <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
               backgroundColor: '#0e143e'
