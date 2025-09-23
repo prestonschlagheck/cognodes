@@ -26,7 +26,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center flex-shrink-0 -ml-2 md:ml-0">
             <div className="w-24 h-24 flex items-center justify-center">
               <Image 
-                src="/logos/CN W_B Full.png" 
+                src="/Logos/CN-W_B-Full.png" 
                 alt="CogNodes Logo" 
                 width={180}
                 height={90}
