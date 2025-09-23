@@ -2,10 +2,42 @@
 
 import Link from 'next/link';
 import { ArrowRight, Bot, Mail, Calendar, MessageSquare, Clock, Zap, DollarSign, Users, Shield, CheckCircle, Star, Phone, Headphones, BarChart3, Settings, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const words = ['efficient', 'automated', 'money'];
+  
+  useEffect(() => {
+    const currentWord = words[currentWordIndex];
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        // Typing effect
+        if (currentText.length < currentWord.length) {
+          setCurrentText(currentWord.substring(0, currentText.length + 1));
+        } else {
+          // Wait before starting to delete - ensure word is fully typed
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting effect
+        if (currentText.length > 0) {
+          setCurrentText(currentText.substring(0, currentText.length - 1));
+        } else {
+          // Move to next word - ensure word is fully deleted
+          setIsDeleting(false);
+          setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }
+      }
+    }, isDeleting ? 100 : 150); // Consistent timing
+    
+    return () => clearTimeout(timeout);
+  }, [currentText, currentWordIndex, isDeleting, words]);
   
   const features = [
     {
@@ -78,52 +110,92 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with Typing Effect */}
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="heading-1 text-white mb-6">
-              Innovative AI Solutions for Forward Thinking Businesses
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Focus on growing your business, while our AI Receptionist & Sales Agent handle inbound and outbound calls.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:cognodes@gmail.com"
-                className="btn-primary inline-flex items-center justify-center"
-              >
-                Learn More
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-              <a
-                href="mailto:cognodes@gmail.com"
-                className="btn-secondary inline-flex items-center justify-center"
-              >
-                Book a Call
-                <Phone className="ml-2 w-5 h-5" />
-              </a>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Text and buttons */}
+            <div className="text-left relative z-10">
+              <h1 className="heading-1 text-white mb-6">
+                Make your business more{' '}
+                <span className="text-cn-blue-400">
+                  {currentText}
+                  <span className="animate-pulse">|</span>
+                </span>
+              </h1>
+              <p className="text-xl text-gray-300 max-w-2xl mb-8">
+                Focus on growing your business, while our<br />AI Receptionist & Sales Agent handle<br />inbound and outbound calls.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="mailto:cognodes@gmail.com"
+                  className="btn-primary inline-flex items-center justify-center"
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+                <a
+                  href="mailto:cognodes@gmail.com"
+                  className="btn-secondary inline-flex items-center justify-center"
+                >
+                  Book a Call
+                  <Phone className="ml-2 w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            
+            {/* Hero Image */}
+            <div className="relative lg:col-span-1">
+              <div className="relative w-full h-96 lg:h-[500px]">
+                <img
+                  src="/Logos/CN-W_B-Full.png"
+                  alt="CogNodes Dashboard"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  style={{ 
+                    filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))',
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon;
-              return (
-                <div key={index} className="card-elevated group hover:scale-105 transition-transform duration-300">
-                  <div className="w-16 h-16 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cn-pink-400 transition-colors">
-                    <IconComponent className="w-8 h-8 text-cn-navy-900" />
-                  </div>
-                  <h3 className="heading-4 text-white mb-4">{feature.title}</h3>
-                  <p className="text-gray-300">{feature.description}</p>
-                </div>
-              );
-            })}
+          <div className="bg-cn-charcoal-900 rounded-3xl border border-gray-700/50">
+            <div className="overflow-hidden rounded-3xl py-6">
+              <div className="flex animate-marquee" style={{ width: '200%' }}>
+                {/* First set of features */}
+                {features.map((feature, index) => {
+                  const IconComponent = feature.icon;
+                  return (
+                    <div key={`first-${index}`} className="card-elevated group hover:scale-105 transition-transform duration-300 bg-cn-navy-900/50 border border-gray-600/30 flex-shrink-0 w-80 mx-2">
+                      <div className="w-16 h-16 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cn-pink-400 transition-colors">
+                        <IconComponent className="w-8 h-8 text-cn-navy-900" />
+                      </div>
+                      <h3 className="heading-4 text-white mb-4">{feature.title}</h3>
+                      <p className="text-gray-300">{feature.description}</p>
+                    </div>
+                  );
+                })}
+                {/* Second set of features for seamless loop */}
+                {features.map((feature, index) => {
+                  const IconComponent = feature.icon;
+                  return (
+                    <div key={`second-${index}`} className="card-elevated group hover:scale-105 transition-transform duration-300 bg-cn-navy-900/50 border border-gray-600/30 flex-shrink-0 w-80 mx-2">
+                      <div className="w-16 h-16 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cn-pink-400 transition-colors">
+                        <IconComponent className="w-8 h-8 text-cn-navy-900" />
+                      </div>
+                      <h3 className="heading-4 text-white mb-4">{feature.title}</h3>
+                      <p className="text-gray-300">{feature.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -131,70 +203,120 @@ export default function Home() {
       {/* Workflow Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="heading-2 text-white mb-6">Perfect Workflow for Your Business</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Our AI solutions create a seamless workflow that handles every aspect of customer interaction
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Clock className="w-8 h-8 text-cn-navy-900" />
+          <div className="bg-cn-charcoal-900 rounded-3xl p-12 border border-gray-700/50">
+            <div className="text-center mb-16">
+              <h2 className="heading-2 text-white mb-6">Perfect Workflow for Your Business</h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                See exactly how our AI automation works with this visual workflow
+              </p>
+            </div>
+            
+            {/* Enhanced Workflow Diagram */}
+            <div className="bg-cn-navy-900/50 rounded-2xl p-8 border border-gray-600/30 mb-12">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">Complete AI Workflow Process</h3>
+                <p className="text-gray-400">From initial contact to service completion - see exactly how our AI handles every step</p>
+              </div>
+              
+              {/* Main Workflow Flow */}
+              <div className="relative mb-12">
+                
+                {/* Main Workflow Steps */}
+                <div className="grid grid-cols-4 gap-6 items-center">
+                  {/* 1. Customer Initiates Contact */}
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-cn-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                      <Phone className="w-12 h-12 text-cn-navy-900" />
+                    </div>
+                    <h4 className="text-white font-bold mb-2 text-lg">1. Customer Initiates</h4>
+                    <p className="text-gray-300 text-sm mb-2">Call, email, or website visit</p>
+                    <div className="text-xs text-cn-blue-400 font-medium">START HERE</div>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">24/7 Availability</h3>
+                  
+                  {/* 2. AI Instantly Responds */}
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-cn-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                      <Bot className="w-12 h-12 text-cn-navy-900" />
+                    </div>
+                    <h4 className="text-white font-bold mb-2 text-lg">2. AI Instantly Responds</h4>
+                    <p className="text-gray-300 text-sm mb-2">Qualifies lead & gathers info</p>
+                    <div className="text-xs text-cn-pink-400 font-medium">0.5 seconds</div>
+                  </div>
+                  
+                  {/* 3. Smart Processing & Integration */}
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-cn-lavender-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                      <Settings className="w-12 h-12 text-cn-navy-900" />
+                    </div>
+                    <h4 className="text-white font-bold mb-2 text-lg">3. Smart Processing</h4>
+                    <p className="text-gray-300 text-sm mb-2">Route, price, & schedule</p>
+                    <div className="text-xs text-cn-lavender-400 font-medium">Auto-integration</div>
+                  </div>
+                  
+                  {/* 4. Service Delivered */}
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-cn-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                      <CheckCircle className="w-12 h-12 text-cn-navy-900" />
+                    </div>
+                    <h4 className="text-white font-bold mb-2 text-lg">4. Service Delivered</h4>
+                    <p className="text-gray-300 text-sm mb-2">Complete & automated follow-up</p>
+                    <div className="text-xs text-cn-blue-400 font-medium">COMPLETE</div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-cn-pink-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Calendar className="w-8 h-8 text-cn-navy-900" />
+                
+                {/* Integration Examples */}
+                <div className="mt-8 grid grid-cols-2 gap-6">
+                  <div className="text-center bg-cn-charcoal-900/50 rounded-xl p-4 border border-gray-600/30">
+                    <div className="w-16 h-16 bg-cn-pink-400 rounded-xl flex items-center justify-center mx-auto mb-3 relative z-10">
+                      <Calendar className="w-8 h-8 text-cn-navy-900" />
+                    </div>
+                    <h5 className="text-white font-semibold mb-1">Calendar Integration</h5>
+                    <p className="text-gray-400 text-xs">Syncs with Google Calendar, Outlook, Calendly</p>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Seamless Booking</h3>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-cn-lavender-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <DollarSign className="w-8 h-8 text-cn-navy-900" />
+                  
+                  <div className="text-center bg-cn-charcoal-900/50 rounded-xl p-4 border border-gray-600/30">
+                    <div className="w-16 h-16 bg-cn-lavender-400 rounded-xl flex items-center justify-center mx-auto mb-3 relative z-10">
+                      <Mail className="w-8 h-8 text-cn-navy-900" />
+                    </div>
+                    <h5 className="text-white font-semibold mb-1">Email Automation</h5>
+                    <p className="text-gray-400 text-xs">Sends confirmations, reminders, follow-ups</p>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Auto Pricing</h3>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="w-8 h-8 text-cn-navy-900" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Higher Efficiency</h3>
                 </div>
               </div>
             </div>
             
-            <div className="relative">
-              <div className="bg-gradient-to-br from-cn-charcoal-900 to-cn-navy-900 rounded-2xl p-8 border border-gray-700">
-                <div className="space-y-6">
-                  <div className="text-center mb-8">
-                    <div className="w-20 h-20 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Settings className="w-10 h-10 text-cn-navy-900" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white">Smart Routing</h3>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    {workflowSteps.map((step, index) => {
-                      const IconComponent = step.icon;
-                      return (
-                        <div key={index} className="flex items-center space-x-4">
-                          <div className="w-12 h-12 bg-cn-slate-600 rounded-lg flex items-center justify-center">
-                            <IconComponent className="w-6 h-6 text-cn-gray-300" />
-                          </div>
-                          <div>
-                            <h4 className="text-white font-semibold">{step.title}</h4>
-                            <p className="text-gray-400 text-sm">{step.description}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+            {/* Minor Features Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center p-4 bg-cn-navy-900/30 rounded-xl border border-gray-600/20">
+                <div className="w-12 h-12 bg-cn-blue-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Clock className="w-6 h-6 text-cn-navy-900" />
                 </div>
+                <h4 className="text-white font-medium text-sm mb-1">24/7 Availability</h4>
+                <p className="text-gray-400 text-xs">Never miss a customer</p>
+              </div>
+              
+              <div className="text-center p-4 bg-cn-navy-900/30 rounded-xl border border-gray-600/20">
+                <div className="w-12 h-12 bg-cn-pink-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Calendar className="w-6 h-6 text-cn-navy-900" />
+                </div>
+                <h4 className="text-white font-medium text-sm mb-1">Seamless Booking</h4>
+                <p className="text-gray-400 text-xs">Easy appointment scheduling</p>
+              </div>
+              
+              <div className="text-center p-4 bg-cn-navy-900/30 rounded-xl border border-gray-600/20">
+                <div className="w-12 h-12 bg-cn-lavender-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <DollarSign className="w-6 h-6 text-cn-navy-900" />
+                </div>
+                <h4 className="text-white font-medium text-sm mb-1">Auto Pricing</h4>
+                <p className="text-gray-400 text-xs">Smart quote generation</p>
+              </div>
+              
+              <div className="text-center p-4 bg-cn-navy-900/30 rounded-xl border border-gray-600/20">
+                <div className="w-12 h-12 bg-cn-blue-400 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <BarChart3 className="w-6 h-6 text-cn-navy-900" />
+                </div>
+                <h4 className="text-white font-medium text-sm mb-1">Higher Efficiency</h4>
+                <p className="text-gray-400 text-xs">Optimized workflows</p>
               </div>
             </div>
           </div>
@@ -202,63 +324,67 @@ export default function Home() {
       </section>
 
       {/* AI vs Traditional Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="heading-2 text-white mb-6">
-              CogNodes AI vs. Traditional Hiring
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              See why AI automation is the smarter choice for modern businesses
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-cn-blue-400 to-cn-pink-400 rounded-2xl p-8">
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Bot className="w-8 h-8 text-cn-navy-900" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">CogNodes AI</h3>
-              </div>
-              <div className="space-y-4">
-                {[
-                  "24/7, never off duty",
-                  "Instant replies, no hold time", 
-                  "Low cost, no salaries or training",
-                  "Handles unlimited calls",
-                  "100% accurate, no mood swings"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="w-6 h-6 text-white" />
-                    <span className="text-white font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="bg-cn-charcoal-900 rounded-3xl p-12 border border-gray-700/50">
+            <div className="text-center mb-16">
+              <h2 className="heading-2 text-white mb-6">
+                CogNodes AI vs. Traditional Hiring
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                See why AI automation is the smarter choice for modern businesses
+              </p>
             </div>
             
-            <div className="bg-cn-navy-900 rounded-2xl p-8 border border-gray-700">
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-cn-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-cn-gray-300" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Traditional</h3>
-              </div>
-              <div className="space-y-4">
-                {[
-                  "Limited to business hours",
-                  "Customers wait on hold",
-                  "High cost, salaries + overhead",
-                  "Limited by team size",
-                  "Varies by employee"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-6 h-6 rounded-full border-2 border-red-400 flex items-center justify-center">
-                      <span className="text-red-400 text-sm">×</span>
-                    </div>
-                    <span className="text-gray-300">{item}</span>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-cn-navy-900/50 rounded-2xl p-8 border border-gray-600/30">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Bot className="w-8 h-8 text-cn-navy-900" />
                   </div>
-                ))}
+                  <h3 className="text-2xl font-bold text-white">CogNodes AI</h3>
+                  <p className="text-gray-400 mt-2">The future of customer service</p>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "24/7, never off duty",
+                    "Instant replies, no hold time", 
+                    "Low cost, no salaries or training",
+                    "Handles unlimited calls",
+                    "100% accurate, no mood swings"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <CheckCircle className="w-6 h-6 text-cn-blue-400" />
+                      <span className="text-white font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="bg-cn-navy-900/50 rounded-2xl p-8 border border-gray-600/30">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-cn-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-cn-gray-300" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Traditional</h3>
+                  <p className="text-gray-400 mt-2">Outdated hiring methods</p>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Limited to business hours",
+                    "Customers wait on hold",
+                    "High cost, salaries + overhead",
+                    "Limited by team size",
+                    "Varies by employee"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-6 h-6 rounded-full border-2 border-red-400 flex items-center justify-center">
+                        <span className="text-red-400 text-sm">×</span>
+                      </div>
+                      <span className="text-gray-300">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -267,65 +393,69 @@ export default function Home() {
 
       {/* FAQ Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-white mb-6">Questions You May Have</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Get answers to the most common questions about our AI automation solutions
+            </p>
           </div>
           
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-cn-charcoal-900 rounded-xl border border-gray-700">
-                <button
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-cn-navy-900 transition-colors rounded-xl"
-                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                >
-                  <span className="text-white font-medium">{faq.question}</span>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-cn-blue-400 transition-transform ${
-                      expandedFaq === index ? 'rotate-180' : ''
-                    }`} 
-                  />
-                </button>
-                {expandedFaq === index && (
-                  <div className="px-6 pb-4">
-                    <p className="text-gray-300">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+          <div className="bg-cn-charcoal-900 rounded-3xl p-12 border border-gray-700/50">
+            <div className="space-y-6">
+              {faqs.map((faq, index) => (
+                <div key={index} className="bg-cn-navy-900/50 rounded-2xl border border-gray-600/30">
+                  <button
+                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-cn-navy-900 transition-colors rounded-2xl"
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  >
+                    <span className="text-white font-semibold text-lg pr-4">{faq.question}</span>
+                    <ChevronDown 
+                      className={`w-6 h-6 text-cn-blue-400 transition-transform flex-shrink-0 ${
+                        expandedFaq === index ? 'rotate-180' : ''
+                      }`} 
+                    />
+                  </button>
+                  {expandedFaq === index && (
+                    <div className="px-8 pb-8 pt-2">
+                      <p className="text-gray-300 text-lg leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-cn-navy-900 to-cn-blue-400 rounded-2xl p-12 relative overflow-hidden">
-            <div className="absolute top-4 left-4 w-8 h-8 bg-cn-pink-400 rounded-full opacity-20"></div>
-            <div className="absolute bottom-4 right-4 w-6 h-6 bg-cn-lavender-400 rounded-full opacity-30"></div>
-            
-            <h2 className="heading-2 text-white mb-6">
-              Let&apos;s Talk.<br />
-              Book a Free Consultation
-            </h2>
-            
-            <div className="flex justify-center mb-8">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-cn-blue-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-cn-pink-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-cn-lavender-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-cn-blue-400 rounded-full"></div>
-              </div>
+          <h2 className="heading-2 text-white mb-6">
+            Let&apos;s Talk.<br />
+            Book a Free Consultation
+          </h2>
+          
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            Ready to transform your business with AI automation? Get started with a free consultation today.
+          </p>
+          
+          <div className="flex justify-center mb-8">
+            <div className="flex space-x-2">
+              <div className="w-3 h-3 bg-cn-blue-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-cn-pink-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-cn-lavender-400 rounded-full"></div>
+              <div className="w-3 h-3 bg-cn-blue-400 rounded-full"></div>
             </div>
-            
-            <a
-              href="mailto:cognodes@gmail.com"
-              className="btn-primary inline-flex items-center justify-center text-lg px-8 py-4"
-            >
-              Book a Call
-              <ArrowRight className="ml-2 w-6 h-6" />
-            </a>
           </div>
+          
+          <a
+            href="mailto:cognodes@gmail.com"
+            className="btn-primary inline-flex items-center justify-center text-lg px-8 py-4"
+          >
+            Book a Call
+            <ArrowRight className="ml-2 w-6 h-6" />
+          </a>
         </div>
       </section>
     </div>
