@@ -5,7 +5,12 @@ import { ArrowRight, Bot, Mail, Calendar, MessageSquare, Clock, Zap, DollarSign,
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [currentService, setCurrentService] = useState(0);
+  const [currentWord, setCurrentWord] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const words = ['efficient', 'automated', 'effective', 'money'];
+  const baseText = "Make your business more ";
   
   const services = [
     { name: "Automated Quote Generator", icon: DollarSign },
@@ -19,11 +24,26 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentService((prev) => (prev + 1) % services.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [services.length]);
+    const current = words[currentWord];
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayText.length < current.length) {
+          setDisplayText(current.slice(0, displayText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), 2000); // Pause before deleting
+        }
+      } else {
+        if (displayText.length > 0) {
+          setDisplayText(displayText.slice(0, -1));
+        } else {
+          setIsDeleting(false);
+          setCurrentWord((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, isDeleting ? 100 : 150); // Faster typing, slower deleting
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentWord, words]);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -53,81 +73,17 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h1 className="heading-1 text-white">
-                  Make your business more money
+                  {baseText}
+                  <span className="text-cn-blue-400">
+                    {displayText}
+                    <span className="animate-pulse">|</span>
+                  </span>
                 </h1>
                 <p className="text-xl text-gray-300 leading-relaxed">
                   Optimize your workflows with AI-powered automation that handles customer engagement, scheduling, and business operations 24/7.
                 </p>
-          </div>
-
-              {/* Rotating Services Carousel */}
-              <div className="bg-cn-charcoal-900 rounded-xl p-8 border border-gray-700 overflow-hidden">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-400 uppercase tracking-wide">Now Featuring</span>
-                </div>
-                <div className="relative h-20 overflow-hidden">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 transition-transform duration-1000 ease-in-out"
-                       style={{ transform: `translateY(-${currentService * 80}px)` }}>
-                    {services.map((service, index) => {
-                      const IconComponent = service.icon;
-                      const isActive = index === currentService;
-                      const isAbove = index === (currentService - 1 + services.length) % services.length;
-                      const isBelow = index === (currentService + 1) % services.length;
-                      
-                      let opacity = 0.3;
-                      let scale = 0.8;
-                      let brightness = 0.4;
-                      
-                      if (isActive) {
-                        opacity = 1;
-                        scale = 1;
-                        brightness = 1;
-                      } else if (isAbove || isBelow) {
-                        opacity = 0.6;
-                        scale = 0.9;
-                        brightness = 0.7;
-                      }
-                      
-                      return (
-                        <div
-                          key={index}
-                          className="flex items-center space-x-4 transition-all duration-500 ease-in-out"
-                          style={{
-                            opacity,
-                            transform: `scale(${scale})`,
-                            filter: `brightness(${brightness})`
-                          }}
-                        >
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 ${
-                            isActive ? 'bg-cn-blue-400' : 'bg-cn-slate-600'
-                          }`}>
-                            <IconComponent className={`w-6 h-6 transition-colors duration-500 ${
-                              isActive ? 'text-cn-navy-900' : 'text-cn-gray-300'
-                            }`} />
-                          </div>
-                          <span className={`font-semibold transition-colors duration-500 ${
-                            isActive ? 'text-white' : 'text-gray-400'
-                          }`}>
-                            {service.name}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="flex justify-center mt-4 space-x-2">
-                  {services.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentService ? 'bg-cn-blue-400' : 'bg-cn-slate-600'
-                      }`}
-                    />
-                  ))}
-                </div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -147,9 +103,158 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Right Content - AI Dashboard Visualization */}
+            {/* Right Content - Clean Visual */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-cn-navy-900 to-cn-charcoal-900 rounded-2xl p-8 border border-gray-700 shadow-2xl">
+              <div className="bg-gradient-to-br from-cn-navy-900 to-cn-charcoal-900 rounded-2xl p-12 border border-gray-700 shadow-2xl">
+                <div className="text-center space-y-8">
+                  <div className="w-24 h-24 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto">
+                    <Zap className="w-12 h-12 text-cn-navy-900" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">AI-Powered</h3>
+                    <p className="text-gray-300">Transform your business with intelligent automation</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div className="text-3xl font-bold text-cn-blue-400">24/7</div>
+                      <div className="text-sm text-gray-400">Always On</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-cn-pink-400">75%</div>
+                      <div className="text-sm text-gray-400">Time Saved</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-cn-blue-400 rounded-full opacity-20 animate-bounce"></div>
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-cn-pink-400 rounded-full opacity-30 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Now Featuring Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <div className="w-2 h-2 bg-cn-blue-400 rounded-full animate-pulse"></div>
+              <span className="text-sm text-gray-400 uppercase tracking-wide">Now Featuring</span>
+            </div>
+            <h2 className="heading-2 text-white mb-4">Our AI Services</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Discover how our intelligent automation can transform your business operations
+            </p>
+          </div>
+          
+          <div className="relative bg-cn-navy-900 rounded-2xl p-8 border border-gray-700 overflow-hidden">
+            <div className="relative h-32 overflow-hidden">
+              <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 transition-transform duration-1000 ease-in-out"
+                   style={{ transform: `translateY(-${currentWord * 80}px)` }}>
+                {services.map((service, index) => {
+                  const IconComponent = service.icon;
+                  const isActive = index === currentWord;
+                  const isAbove = index === (currentWord - 1 + services.length) % services.length;
+                  const isBelow = index === (currentWord + 1) % services.length;
+                  
+                  let opacity = 0.3;
+                  let scale = 0.8;
+                  let brightness = 0.4;
+                  
+                  if (isActive) {
+                    opacity = 1;
+                    scale = 1;
+                    brightness = 1;
+                  } else if (isAbove || isBelow) {
+                    opacity = 0.6;
+                    scale = 0.9;
+                    brightness = 0.7;
+                  }
+                  
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center space-x-4 transition-all duration-500 ease-in-out"
+                      style={{
+                        opacity,
+                        transform: `scale(${scale})`,
+                        filter: `brightness(${brightness})`
+                      }}
+                    >
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${
+                        isActive ? 'bg-cn-blue-400' : 'bg-cn-slate-600'
+                      }`}>
+                        <IconComponent className={`w-6 h-6 transition-colors duration-500 ${
+                          isActive ? 'text-cn-navy-900' : 'text-cn-gray-300'
+                        }`} />
+                      </div>
+                      <span className={`text-lg font-semibold transition-colors duration-500 ${
+                        isActive ? 'text-white' : 'text-gray-400'
+                      }`}>
+                        {service.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="flex justify-center mt-6 space-x-2">
+              {services.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentWord ? 'bg-cn-blue-400' : 'bg-cn-slate-600'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Dashboard Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="heading-2 text-white mb-4">Real-Time AI Dashboard</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Monitor your business performance with our intelligent analytics and automation insights
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white">Live Performance Metrics</h3>
+                <p className="text-gray-300">
+                  Track real-time data and see how AI automation is transforming your business operations.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-cn-charcoal-900 rounded-xl p-6 border border-gray-700">
+                  <div className="text-3xl font-bold text-cn-blue-400 mb-2">247</div>
+                  <div className="text-sm text-gray-400">Leads Generated</div>
+                </div>
+                <div className="bg-cn-charcoal-900 rounded-xl p-6 border border-gray-700">
+                  <div className="text-3xl font-bold text-cn-pink-400 mb-2">98%</div>
+                  <div className="text-sm text-gray-400">Response Rate</div>
+                </div>
+                <div className="bg-cn-charcoal-900 rounded-xl p-6 border border-gray-700">
+                  <div className="text-3xl font-bold text-cn-lavender-400 mb-2">24/7</div>
+                  <div className="text-sm text-gray-400">Active</div>
+                </div>
+                <div className="bg-cn-charcoal-900 rounded-xl p-6 border border-gray-700">
+                  <div className="text-3xl font-bold text-cn-blue-400 mb-2">$12K</div>
+                  <div className="text-sm text-gray-400">Revenue</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-gradient-to-br from-cn-charcoal-900 to-cn-navy-900 rounded-2xl p-8 border border-gray-700 shadow-2xl">
                 <div className="space-y-6">
                   {/* Header */}
                   <div className="flex items-center justify-between">
@@ -161,41 +266,25 @@ export default function Home() {
                     <div className="text-xs text-gray-400 font-mono">AI DASHBOARD</div>
                   </div>
                   
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
-                      <div className="text-2xl font-bold text-cn-blue-400 mb-1">247</div>
-                      <div className="text-xs text-gray-400">Leads Generated</div>
-                    </div>
-                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
-                      <div className="text-2xl font-bold text-cn-pink-400 mb-1">98%</div>
-                      <div className="text-xs text-gray-400">Response Rate</div>
-                    </div>
-                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
-                      <div className="text-2xl font-bold text-cn-lavender-400 mb-1">24/7</div>
-                      <div className="text-xs text-gray-400">Active</div>
-                    </div>
-                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
-                      <div className="text-2xl font-bold text-cn-blue-400 mb-1">$12K</div>
-                      <div className="text-xs text-gray-400">Revenue</div>
-                    </div>
-                  </div>
-                  
                   {/* Activity Feed */}
-                  <div className="space-y-3">
-                    <div className="text-xs text-gray-400 font-semibold">Recent Activity</div>
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-3 text-xs">
+                  <div className="space-y-4">
+                    <div className="text-sm text-gray-400 font-semibold">Recent Activity</div>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3 text-sm">
                         <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
-                        <span className="text-gray-300">New lead captured</span>
+                        <span className="text-gray-300">New lead captured from website</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-xs">
+                      <div className="flex items-center space-x-3 text-sm">
                         <div className="w-2 h-2 bg-cn-pink-400 rounded-full"></div>
-                        <span className="text-gray-300">Quote generated</span>
+                        <span className="text-gray-300">Automated quote generated</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-xs">
+                      <div className="flex items-center space-x-3 text-sm">
                         <div className="w-2 h-2 bg-cn-lavender-400 rounded-full"></div>
-                        <span className="text-gray-300">Appointment scheduled</span>
+                        <span className="text-gray-300">Appointment scheduled for tomorrow</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-sm">
+                        <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+                        <span className="text-gray-300">Follow-up email sent</span>
                       </div>
                     </div>
                   </div>
