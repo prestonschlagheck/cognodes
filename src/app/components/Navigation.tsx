@@ -17,35 +17,75 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 lg:px-8 py-4 bg-cn-navy-900/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto relative">
-        <div className="relative z-10 flex items-center justify-between h-16">
-          {/* CogNodes Logo - Made bigger */}
-                  <Link href="/" className="flex items-center flex-shrink-0">
-                    <div className="w-40 h-20 flex items-center justify-center">
-                      <Image 
-                        src="/Logos/CN-W_B-Full.png" 
-                        alt="CogNodes Logo" 
-                        width={240}
-                        height={120}
-                className={`transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-                priority
-              />
-            </div>
-          </Link>
+    <>
+      {/* Persistent blur and gradient overlay at top of page */}
+      <div 
+        className="fixed top-0 left-0 right-0 w-full pointer-events-none"
+        style={{ 
+          height: '200px',
+          zIndex: 1000,
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          background: 'linear-gradient(to bottom, rgba(13, 19, 59, 0.95) 0%, rgba(13, 19, 59, 0.85) 15%, rgba(13, 19, 59, 0.7) 30%, rgba(13, 19, 59, 0.5) 50%, rgba(13, 19, 59, 0.3) 70%, rgba(13, 19, 59, 0.1) 85%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, black 0%, black 10%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.1) 90%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 10%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.7) 45%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.1) 90%, transparent 100%)'
+        }}
+      />
+      
+      {/* Navigation content - positioned above the blur */}
+      <nav className="fixed top-0 left-0 right-0 z-[1001] w-full px-4 sm:px-6 lg:px-8 py-4 pointer-events-auto">
+        <div className="max-w-7xl mx-auto relative">
+          {/* Logo - On top of everything */}
+          <div style={{ 
+            position: 'absolute', 
+            top: '2px', 
+            left: '0', 
+            zIndex: 99999,
+            filter: 'none',
+            opacity: 1,
+            pointerEvents: 'auto'
+          }}>
+            <Link href="/" className="flex items-center flex-shrink-0">
+              <div className="w-40 h-20 flex items-center justify-center">
+                <Image 
+                  src="/Logos/CN-W_B-Full.png" 
+                  alt="CogNodes Logo" 
+                  width={240}
+                  height={120}
+                  className={`transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                  priority
+                  style={{ filter: 'none', opacity: 1 }}
+                />
+              </div>
+            </Link>
+          </div>
 
-          {/* Get Started Button - Made smaller */}
-          <div>
+          {/* Button - On top of everything */}
+          <div style={{ 
+            position: 'absolute', 
+            top: '12px', 
+            right: '0', 
+            zIndex: 99999,
+            filter: 'none',
+            opacity: 1,
+            pointerEvents: 'auto'
+          }}>
             <a
               href="mailto:cognodes@gmail.com"
               className={`btn-primary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ transitionDelay: '200ms' }}
+              style={{ 
+                transitionDelay: '200ms',
+                filter: 'none',
+                opacity: 1,
+                position: 'relative',
+                zIndex: 99999
+              }}
             >
               Get Started
             </a>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }

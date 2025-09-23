@@ -111,7 +111,7 @@ export default function Home() {
       />
       
       {/* Hero Section with Typing Effect */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
+      <section className="relative pt-52 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text and buttons */}
@@ -145,16 +145,28 @@ export default function Home() {
             </div>
             
             {/* Hero Image */}
-            <div className="relative lg:col-span-1">
-              <div className="relative w-full h-96 lg:h-[500px]">
-                <img
-                  src="/Logos/CN-W_B-Full.png"
-                  alt="CogNodes Dashboard"
-                  className="absolute inset-0 w-full h-full object-contain"
-                  style={{ 
-                    filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))',
-                  }}
-                />
+            <div className="relative lg:col-span-1 flex items-center justify-center">
+              <div className="relative w-full max-w-lg h-full flex items-center justify-center">
+                <div className="relative">
+                  <img
+                    src="/CogNodes Graphics.png"
+                    alt="CogNodes Dashboard Graphics"
+                    className="w-full h-auto max-h-[800px] object-contain"
+                    style={{ 
+                      transform: 'scale(2.024) translateX(-5%) translateX(-10px)',
+                    }}
+                  />
+                  {/* Bottom gradient fade overlay - positioned directly on the image */}
+                  <div 
+                    className="absolute left-0 right-0 h-32 bg-gradient-to-t from-cn-navy-900 to-transparent pointer-events-none"
+                    style={{
+                      background: 'linear-gradient(to top, var(--cn-navy-900), transparent)',
+                      bottom: '-100px',
+                      transform: 'scale(2.024) translateX(-5%) translateX(-10px)',
+                      transformOrigin: 'bottom center'
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
@@ -172,12 +184,12 @@ export default function Home() {
                 {features.map((feature, index) => {
                   const IconComponent = feature.icon;
                   return (
-                    <div key={`first-${index}`} className="card-elevated group hover:scale-105 transition-transform duration-300 bg-cn-navy-900/50 border border-gray-600/30 flex-shrink-0 w-80 mx-2">
-                      <div className="w-16 h-16 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cn-pink-400 transition-colors">
-                        <IconComponent className="w-8 h-8 text-cn-navy-900" />
+                    <div key={`first-${index}`} className="group hover:scale-105 transition-transform duration-300 bg-cn-navy-900/50 border border-gray-600/30 flex-shrink-0 w-64 mx-2 p-6 rounded-xl shadow-2xl">
+                      <div className="w-12 h-12 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cn-pink-400 transition-colors">
+                        <IconComponent className="w-6 h-6 text-cn-navy-900" />
                       </div>
-                      <h3 className="heading-4 text-white mb-4">{feature.title}</h3>
-                      <p className="text-gray-300">{feature.description}</p>
+                      <h3 className="heading-4 text-white mb-3">{feature.title}</h3>
+                      <p className="text-gray-300 text-sm">{feature.description}</p>
                     </div>
                   );
                 })}
@@ -185,16 +197,59 @@ export default function Home() {
                 {features.map((feature, index) => {
                   const IconComponent = feature.icon;
                   return (
-                    <div key={`second-${index}`} className="card-elevated group hover:scale-105 transition-transform duration-300 bg-cn-navy-900/50 border border-gray-600/30 flex-shrink-0 w-80 mx-2">
-                      <div className="w-16 h-16 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-6 group-hover:bg-cn-pink-400 transition-colors">
-                        <IconComponent className="w-8 h-8 text-cn-navy-900" />
+                    <div key={`second-${index}`} className="group hover:scale-105 transition-transform duration-300 bg-cn-navy-900/50 border border-gray-600/30 flex-shrink-0 w-64 mx-2 p-6 rounded-xl shadow-2xl">
+                      <div className="w-12 h-12 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cn-pink-400 transition-colors">
+                        <IconComponent className="w-6 h-6 text-cn-navy-900" />
                       </div>
-                      <h3 className="heading-4 text-white mb-4">{feature.title}</h3>
-                      <p className="text-gray-300">{feature.description}</p>
+                      <h3 className="heading-4 text-white mb-3">{feature.title}</h3>
+                      <p className="text-gray-300 text-sm">{feature.description}</p>
                     </div>
                   );
                 })}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Desktop & Phoner Image with Text */}
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
+        <div className="max-w-7xl mx-auto">
+          {/* Centered Title */}
+          <div className="text-center" style={{ marginBottom: '40px' }}>
+            <h2 className="heading-1 text-white">
+              Visualize your success.
+            </h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            {/* Image - Left 2/3 */}
+            <div className="relative lg:col-span-2">
+              <img
+                src="/Logos/CogNodes Graphics (3).png"
+                alt="CogNodes Graphics"
+                className="w-full h-auto object-cover rounded-2xl"
+                style={{ 
+                  objectPosition: 'center',
+                  transform: 'translateX(5%) translateX(-70px) scale(2.1)'
+                }}
+              />
+            </div>
+            
+            {/* Text - Right 1/3 */}
+            <div className="text-left relative z-10 lg:col-span-1" style={{ marginLeft: '20px' }}>
+              <p className="text-xl text-gray-300 mb-6">
+                Unlike competitors who offer generic solutions, we provide a truly personalized dashboard that adapts to your specific business needs. Your dashboard tracks every agent's performance, showing real-time impact on your business growth and customer satisfaction metrics.
+              </p>
+              <a
+                href="https://cognodes-dashboard.vercel.app/websites"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center justify-center"
+              >
+                Explore the dashboard
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
