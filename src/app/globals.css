@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  width: 200%; /* Ensure smooth loop */
+}
+
 :root {
   /* CogNodes Brand Colors - Primary Palette */
   --cn-navy-900: #0d133b;
@@ -83,7 +98,7 @@ body {
   /* Heading Styles - CogNodes Typography Scale */
   .heading-1 {
     font-family: 'DM Sans', sans-serif;
-    font-size: 56px;
+    font-size: 64px;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
