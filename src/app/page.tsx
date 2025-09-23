@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Bot, Mail, Calendar, MessageSquare, Clock, Zap, DollarSign, Users, Shield, CheckCircle, Star, Phone, Headphones, BarChart3, Settings, ChevronDown, CalendarDays, Workflow, Code } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -167,13 +168,16 @@ export default function Home() {
             <div className="relative lg:col-span-1 flex items-center justify-center">
               <div className="relative w-full max-w-lg h-full flex items-center justify-center">
                 <div className="relative">
-                  <img
+                  <Image
                     src="/CogNodes Graphics.png"
                     alt="CogNodes Dashboard Graphics"
+                    width={800}
+                    height={800}
                     className="w-full h-auto max-h-[800px] object-contain"
                     style={{ 
                       transform: 'scale(2.024) translateX(-5%) translateX(-10px)',
                     }}
+                    priority
                   />
                   {/* Bottom gradient fade overlay - positioned directly on the image */}
                   <div 
@@ -264,9 +268,11 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             {/* Image - Left 2/3 */}
             <div className="relative lg:col-span-2">
-              <img
+              <Image
                 src="/Logos/CogNodes Graphics (3).png"
                 alt="CogNodes Graphics"
+                width={800}
+                height={600}
                 className="w-full h-auto object-cover rounded-2xl"
                 style={{ 
                   objectPosition: 'center',
