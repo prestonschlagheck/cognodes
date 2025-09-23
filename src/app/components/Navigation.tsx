@@ -21,15 +21,15 @@ export default function Navigation() {
   return (
         <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 lg:px-8 py-4">
       <div className="max-w-5xl mx-auto backdrop-blur-xl shadow-lg border rounded-xl" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', borderColor: 'rgba(255, 255, 255, 0.2)' }}>
-        <div className="flex items-center justify-between h-16 px-6">
+        <div className="flex items-center justify-between h-20 px-6">
           {/* CogNodes Logo */}
           <Link href="/" className="flex items-center flex-shrink-0 -ml-2 md:ml-0">
-            <div className="w-16 h-16 flex items-center justify-center">
+            <div className="w-24 h-24 flex items-center justify-center">
               <Image 
                 src="/logos/CN W_B Full.png" 
                 alt="CogNodes Logo" 
-                width={120}
-                height={60}
+                width={180}
+                height={90}
                 className={`transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
                 priority
               />

@@ -48,9 +48,9 @@ export default function Home() {
       />
       
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-4">
@@ -60,24 +60,73 @@ export default function Home() {
                 <p className="text-xl text-gray-300 leading-relaxed">
                   Optimize your workflows with AI-powered automation that handles customer engagement, scheduling, and business operations 24/7.
                 </p>
-              </div>
-              
-              {/* Rotating Services Marquee */}
-              <div className="bg-cn-charcoal-900 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+          </div>
+
+              {/* Rotating Services Carousel */}
+              <div className="bg-cn-charcoal-900 rounded-xl p-8 border border-gray-700 overflow-hidden">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full animate-pulse"></div>
                   <span className="text-sm text-gray-400 uppercase tracking-wide">Now Featuring</span>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-8 h-8 bg-cn-blue-400 rounded-lg flex items-center justify-center">
-                    {(() => {
-                      const IconComponent = services[currentService].icon;
-                      return <IconComponent className="w-5 h-5 text-cn-navy-900" />;
-                    })()}
+                <div className="relative h-20 overflow-hidden">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 transition-transform duration-1000 ease-in-out"
+                       style={{ transform: `translateY(-${currentService * 80}px)` }}>
+                    {services.map((service, index) => {
+                      const IconComponent = service.icon;
+                      const isActive = index === currentService;
+                      const isAbove = index === (currentService - 1 + services.length) % services.length;
+                      const isBelow = index === (currentService + 1) % services.length;
+                      
+                      let opacity = 0.3;
+                      let scale = 0.8;
+                      let brightness = 0.4;
+                      
+                      if (isActive) {
+                        opacity = 1;
+                        scale = 1;
+                        brightness = 1;
+                      } else if (isAbove || isBelow) {
+                        opacity = 0.6;
+                        scale = 0.9;
+                        brightness = 0.7;
+                      }
+                      
+                      return (
+                        <div
+                          key={index}
+                          className="flex items-center space-x-4 transition-all duration-500 ease-in-out"
+                          style={{
+                            opacity,
+                            transform: `scale(${scale})`,
+                            filter: `brightness(${brightness})`
+                          }}
+                        >
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 ${
+                            isActive ? 'bg-cn-blue-400' : 'bg-cn-slate-600'
+                          }`}>
+                            <IconComponent className={`w-6 h-6 transition-colors duration-500 ${
+                              isActive ? 'text-cn-navy-900' : 'text-cn-gray-300'
+                            }`} />
+                          </div>
+                          <span className={`font-semibold transition-colors duration-500 ${
+                            isActive ? 'text-white' : 'text-gray-400'
+                          }`}>
+                            {service.name}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
-                  <span className="text-lg font-semibold text-white">
-                    {services[currentService].name}
-                  </span>
+                </div>
+                <div className="flex justify-center mt-4 space-x-2">
+                  {services.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentService ? 'bg-cn-blue-400' : 'bg-cn-slate-600'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
               
@@ -98,26 +147,64 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Right Content - Illustration Placeholder */}
+            {/* Right Content - AI Dashboard Visualization */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-cn-navy-900 to-cn-charcoal-900 rounded-2xl p-8 border border-gray-700">
+              <div className="bg-gradient-to-br from-cn-navy-900 to-cn-charcoal-900 rounded-2xl p-8 border border-gray-700 shadow-2xl">
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-cn-pink-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-cn-lavender-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-cn-blue-400 rounded-full"></div>
+                  {/* Header */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-cn-pink-400 rounded-full animate-pulse"></div>
+                      <div className="w-3 h-3 bg-cn-lavender-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                      <div className="w-3 h-3 bg-cn-blue-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    </div>
+                    <div className="text-xs text-gray-400 font-mono">AI DASHBOARD</div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="h-4 bg-cn-dark-700 rounded w-3/4"></div>
-                    <div className="h-4 bg-cn-dark-700 rounded w-1/2"></div>
-                    <div className="h-4 bg-cn-dark-700 rounded w-2/3"></div>
-                  </div>
+                  
+                  {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="h-16 bg-cn-dark-700 rounded-lg"></div>
-                    <div className="h-16 bg-cn-dark-700 rounded-lg"></div>
+                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
+                      <div className="text-2xl font-bold text-cn-blue-400 mb-1">247</div>
+                      <div className="text-xs text-gray-400">Leads Generated</div>
+                    </div>
+                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
+                      <div className="text-2xl font-bold text-cn-pink-400 mb-1">98%</div>
+                      <div className="text-xs text-gray-400">Response Rate</div>
+                    </div>
+                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
+                      <div className="text-2xl font-bold text-cn-lavender-400 mb-1">24/7</div>
+                      <div className="text-xs text-gray-400">Active</div>
+                    </div>
+                    <div className="bg-cn-dark-700 rounded-lg p-4 border border-gray-600">
+                      <div className="text-2xl font-bold text-cn-blue-400 mb-1">$12K</div>
+                      <div className="text-xs text-gray-400">Revenue</div>
+                    </div>
+                  </div>
+                  
+                  {/* Activity Feed */}
+                  <div className="space-y-3">
+                    <div className="text-xs text-gray-400 font-semibold">Recent Activity</div>
+                    <div className="space-y-2">
+                      <div className="flex items-center space-x-3 text-xs">
+                        <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+                        <span className="text-gray-300">New lead captured</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-xs">
+                        <div className="w-2 h-2 bg-cn-pink-400 rounded-full"></div>
+                        <span className="text-gray-300">Quote generated</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-xs">
+                        <div className="w-2 h-2 bg-cn-lavender-400 rounded-full"></div>
+                        <span className="text-gray-300">Appointment scheduled</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-cn-blue-400 rounded-full opacity-20 animate-bounce"></div>
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-cn-pink-400 rounded-full opacity-30 animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -143,10 +230,10 @@ export default function Home() {
                 <div key={index} className="card-standard group">
                   <div className="w-12 h-12 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cn-pink-400 transition-colors">
                     <IconComponent className="w-6 h-6 text-cn-navy-900" />
-                  </div>
+              </div>
                   <h3 className="heading-4 text-white mb-3">
                     {service.name}
-                  </h3>
+              </h3>
                   <p className="text-gray-300">
                     Default text describing how this service helps businesses optimize their operations and increase efficiency.
                   </p>
@@ -189,7 +276,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className="space-y-8">
               <div className="card-elevated">
                 <div className="text-center">
@@ -211,7 +298,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+              </div>
       </section>
 
       {/* AI vs Traditional Hiring Section */}
@@ -263,7 +350,7 @@ export default function Home() {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
                   <span className="text-gray-300">24/7 availability</span>
-                </div>
+              </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
                   <span className="text-gray-300">Consistent performance, no downtime</span>
