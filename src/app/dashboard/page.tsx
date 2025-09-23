@@ -408,7 +408,7 @@ export default function DashboardPage() {
                     <h4 className="heading-4 text-cn-pink-400 mb-2">Charkol</h4>
                     <p className="text-gray-300">85% reduction in administrative time</p>
                   </div>
-                  <div className="text-center">
+        <div className="text-center">
                     <h4 className="heading-4 text-cn-lavender-400 mb-2">US HealthConnect</h4>
                     <p className="text-gray-300">300% increase in lead conversion</p>
                   </div>

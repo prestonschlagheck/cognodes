@@ -507,7 +507,7 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="heading-1 text-white mb-6">What Our Clients Say</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Real results from businesses that have transformed their operations with CogNodes AI
