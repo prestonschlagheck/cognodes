@@ -9,7 +9,6 @@ export default function Home() {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   
-  const words = ['efficient', 'automated', 'effective', 'money'];
   const baseText = "Make your business more ";
   
   const services = [
@@ -24,6 +23,7 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    const words = ['efficient', 'automated', 'effective', 'money'];
     const current = words[currentWord];
     const timeout = setTimeout(() => {
       if (!isDeleting) {
@@ -43,7 +43,7 @@ export default function Home() {
     }, isDeleting ? 100 : 150); // Faster typing, slower deleting
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentWord, words]);
+  }, [displayText, isDeleting, currentWord]);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -148,7 +148,7 @@ export default function Home() {
               Discover how our intelligent automation can transform your business operations
             </p>
           </div>
-          
+
           <div className="relative bg-cn-navy-900 rounded-2xl p-8 border border-gray-700 overflow-hidden">
             <div className="relative h-32 overflow-hidden">
               <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 transition-transform duration-1000 ease-in-out"
@@ -223,7 +223,7 @@ export default function Home() {
               Monitor your business performance with our intelligent analytics and automation insights
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
@@ -310,7 +310,7 @@ export default function Home() {
               AI-powered solutions that transform how service-based businesses operate, 
               saving time and increasing revenue through intelligent automation.
             </p>
-          </div>
+            </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
