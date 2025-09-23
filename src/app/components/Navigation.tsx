@@ -24,12 +24,18 @@ export default function Navigation() {
 
     checkLoginStatus();
 
-    // Listen for storage changes (when user logs in/out from another tab)
-    window.addEventListener('storage', checkLoginStatus);
+    // Listen for storage changes and custom auth events
+    const handleAuthChange = () => {
+      checkLoginStatus();
+    };
+
+    window.addEventListener('storage', handleAuthChange);
+    window.addEventListener('authChange', handleAuthChange);
 
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('storage', checkLoginStatus);
+      window.removeEventListener('storage', handleAuthChange);
+      window.removeEventListener('authChange', handleAuthChange);
     };
   }, []);
 
@@ -37,6 +43,8 @@ export default function Navigation() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userEmail');
     setIsLoggedIn(false);
+    // Dispatch custom event to notify other components
+    window.dispatchEvent(new Event('authChange'));
     router.push('/');
   };
 

@@ -29,6 +29,17 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
+  // Webpack configuration to fix module loading issues
+  webpack: (config, { dev, isServer }) => {
+    if (dev) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      };
+    }
+    return config;
+  },
+  
   // Security headers
   async headers() {
     return [

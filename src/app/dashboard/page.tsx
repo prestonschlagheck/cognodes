@@ -128,8 +128,8 @@ export default function DashboardPage() {
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userEmail');
-    // Trigger storage event to update navigation
-    window.dispatchEvent(new Event('storage'));
+    // Dispatch custom event to notify navigation component
+    window.dispatchEvent(new Event('authChange'));
     router.push('/');
   };
 
@@ -277,52 +277,54 @@ export default function DashboardPage() {
               <h2 className="heading-1 text-white text-center mb-16">Meet the Team</h2>
               
               <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <div className="text-center">
-                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 border-4 border-cn-blue-400">
-                    <Image 
-                      src="/Logos/far-sq.png" 
-                      alt="Preston Schlagheck" 
-                      width={128}
-                      height={128}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="heading-3 text-white mb-2">Preston Schlagheck</h3>
-                  <p className="text-gray-300 mb-4">Specialized in web development and UI design</p>
-                  <p className="text-gray-400 text-sm">Previously employed by US HealthConnect, Direct Journeyline Holdings, Charkol, Guilford Fund for Education, Trinity Institute for Applied Neurosciences and Spirituality</p>
-                </div>
+                    <div className="text-center">
+                      <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6 border-4 border-cn-blue-400">
+                        <Image 
+                          src="/Logos/far-sq.png" 
+                          alt="Preston Schlagheck" 
+                          width={160}
+                          height={160}
+                          className="w-full h-full object-cover"
+                          quality={100}
+                          priority
+                        />
+                      </div>
+                      <h3 className="heading-3 text-white mb-2">Preston Schlagheck</h3>
+                      <p className="text-gray-300 mb-4">Specialized in web development and UI design</p>
+                    </div>
                 
-                <div className="text-center">
-                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 border-4 border-cn-pink-400">
-                    <Image 
-                      src="/Logos/headshot.jpeg" 
-                      alt="Dylan Cobb" 
-                      width={128}
-                      height={128}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="heading-3 text-white mb-2">Dylan Cobb</h3>
-                  <p className="text-gray-300 mb-4">Specialized in automations and back-end dev</p>
-                  <p className="text-gray-400 text-sm">Previously employed by US HealthConnect, Direct Journeyline Holdings, Charkol, Guilford Fund for Education, Trinity Institute for Applied Neurosciences and Spirituality</p>
-                </div>
+                    <div className="text-center">
+                      <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6 border-4 border-cn-pink-400">
+                        <Image 
+                          src="/Logos/headshot.jpeg" 
+                          alt="Dylan Cobb" 
+                          width={160}
+                          height={160}
+                          className="w-full h-full object-cover"
+                          quality={100}
+                          priority
+                        />
+                      </div>
+                      <h3 className="heading-3 text-white mb-2">Dylan Cobb</h3>
+                      <p className="text-gray-300 mb-4">Specialized in automations and back-end dev</p>
+                    </div>
               </div>
               
-              <div className="text-center">
-                <div className="bg-cn-blue-400/10 rounded-2xl p-6 border border-cn-blue-400/20">
-                  <div className="flex items-center justify-center space-x-4 mb-4">
-                    <Award className="w-8 h-8 text-cn-blue-400" />
-                    <span className="text-white text-lg">Previously employed by</span>
+                  <div className="text-center">
+                    <div className="bg-cn-blue-400/10 rounded-2xl p-6 border border-cn-blue-400/20">
+                      <div className="flex items-center justify-center space-x-4 mb-6">
+                        <Award className="w-8 h-8 text-cn-blue-400" />
+                        <span className="text-white text-lg">Previously employed by</span>
+                      </div>
+                      <div className="flex flex-col space-y-3 text-sm">
+                        <span className="text-cn-blue-400">US HealthConnect</span>
+                        <span className="text-cn-blue-400">Direct Journeyline Holdings</span>
+                        <span className="text-cn-blue-400">Charkol</span>
+                        <span className="text-cn-blue-400">Guilford Fund for Education</span>
+                        <span className="text-cn-blue-400">Trinity Institute for Applied Neurosciences and Spirituality</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
-                    <span className="text-cn-blue-400">US HealthConnect</span>
-                    <span className="text-cn-blue-400">Direct Journeyline Holdings</span>
-                    <span className="text-cn-blue-400">Charkol</span>
-                    <span className="text-cn-blue-400">Guilford Fund for Education</span>
-                    <span className="text-cn-blue-400">Trinity Institute for Applied Neurosciences and Spirituality</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
