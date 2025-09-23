@@ -1,67 +1,42 @@
 "use client";
 
 import Link from 'next/link';
-import { ArrowRight, Users, Shield, Building2, Truck, Zap, DollarSign, Zap as SpeedIcon, ChevronDown, ChevronUp } from 'lucide-react';
-import HeroSection from './components/HeroSection';
-import CompanyCard from './components/CompanyCard';
-import TestimonialsSection from './components/TestimonialsSection';
-import { useState } from 'react';
+import { ArrowRight, Bot, Mail, Calendar, MessageSquare, Clock, Zap, DollarSign, Users, Shield, CheckCircle, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [expandedBoxes, setExpandedBoxes] = useState<number[]>([]);
+  const [currentService, setCurrentService] = useState(0);
+  
+  const services = [
+    { name: "Automated Quote Generator", icon: DollarSign },
+    { name: "Customer Engagement & Follow-Up", icon: MessageSquare },
+    { name: "Smart Email Assistant", icon: Mail },
+    { name: "After-Hours Receptionist", icon: Clock },
+    { name: "Website Chatbot", icon: Bot },
+    { name: "AI Receptionist", icon: Users },
+    { name: "Appointment & Scheduling Assistant", icon: Calendar },
+    { name: "Custom Websites & Agents", icon: Zap }
+  ];
 
-  const toggleBox = (index: number) => {
-    setExpandedBoxes(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    );
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentService((prev) => (prev + 1) % services.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [services.length]);
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Direct Journeyline Holdings",
-    "alternateName": "DJH",
-    "url": "https://djh.vercel.app",
-    "logo": "https://djh.vercel.app/logos/djh-full-white.png",
-    "description": "Redefining truck parking by transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "6305 Kingston Pike",
-      "addressLocality": "Knoxville",
-      "addressRegion": "TN",
-      "postalCode": "37919",
-      "addressCountry": "US"
-    },
+    "name": "CogNodes",
+    "url": "https://cognodes.com",
+    "logo": "https://cognodes.com/logos/CN-W_B-Full.png",
+    "description": "AI-powered business automation solutions that help service-based businesses optimize workflows and increase revenue through intelligent automation.",
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "contact@directjh.com",
+      "email": "cognodes@gmail.com",
       "contactType": "customer service"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/direct-journeyline-holdings-llc"
-    ],
-    "subOrganization": [
-      {
-        "@type": "Organization",
-        "name": "Riggy's",
-        "url": "https://djh.vercel.app/riggys",
-        "description": "Truck parking operations with focus on optimizing revenue through site layout, parking mix, competitive pricing, and exceptional customer service."
-      },
-      {
-        "@type": "Organization", 
-        "name": "Journeyline Properties",
-        "url": "https://djh.vercel.app/journeyline-properties",
-        "description": "Real estate and development specializing in high-quality properties including site selection, property entitlement, site design and construction."
-      },
-      {
-        "@type": "Organization",
-        "name": "Truckbays", 
-        "url": "https://djh.vercel.app/truckbays",
-        "description": "Technology platform developing and maintaining innovative user-friendly technology for truck parking operators."
-      }
-    ]
+    }
   };
 
   return (
@@ -73,312 +48,288 @@ export default function Home() {
       />
       
       {/* Hero Section */}
-      <HeroSection />
-
-      {/* Who We Are Section */}
-      <section className="section-spacious" style={{ backgroundColor: 'var(--page-bg)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)' }}>
-              WHO WE ARE
-            </h2>
-          </div>
-
-          {/* Company Cards */}
-          <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 max-w-none items-center lg:items-stretch">
-            <CompanyCard
-              type="PROPERTY COMPANY"
-              name="Journeyline Properties"
-              subtitle="Real Estate & Development"
-              description="Specializes in developing high-quality properties including real estate site selection, property entitlement, site design and construction."
-              color="jp-truckbays-accent"
-              href="/journeyline-properties"
-            />
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="heading-1 text-white">
+                  Make your business more money
+                </h1>
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  Optimize your workflows with AI-powered automation that handles customer engagement, scheduling, and business operations 24/7.
+                </p>
+              </div>
+              
+              {/* Rotating Services Marquee */}
+              <div className="bg-cn-charcoal-900 rounded-xl p-6 border border-gray-700">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+                  <span className="text-sm text-gray-400 uppercase tracking-wide">Now Featuring</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-8 h-8 bg-cn-blue-400 rounded-lg flex items-center justify-center">
+                    {(() => {
+                      const IconComponent = services[currentService].icon;
+                      return <IconComponent className="w-5 h-5 text-cn-navy-900" />;
+                    })()}
+                  </div>
+                  <span className="text-lg font-semibold text-white">
+                    {services[currentService].name}
+                  </span>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="mailto:cognodes@gmail.com"
+                  className="btn-primary inline-flex items-center justify-center"
+                >
+                  Book a Call
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+                <Link
+                  href="/pricing"
+                  className="btn-secondary inline-flex items-center justify-center"
+                >
+                  View Pricing
+                </Link>
+              </div>
+            </div>
             
-            <CompanyCard
-              type="OPERATING COMPANY"
-              name="Riggy's"
-              subtitle="Truck Parking Operations"
-              description="Manages truck parking facilities with a focus on optimizing revenue through site layout, parking mix, competitive pricing, consistent standards, and exceptional customer service."
-              color="riggys-accent"
-              href="/riggys"
-            />
-            
-            <CompanyCard
-              type="TECHNOLOGY COMPANY"
-              name="Truckbays"
-              subtitle="Technology Platform"
-              description="Develops and maintains innovative user-friendly technology that fulfills the needs of today's truck parking operator."
-              color="jp-truckbays-accent"
-              href="/truckbays"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Why Work With Us Section */}
-      <section className="section-spacious" style={{ backgroundColor: 'var(--page-bg)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="heading-2" style={{ color: 'var(--djh-white)' }}>
-              WHY WORK WITH US?
-            </h2>
-          </div>
-
-          <div className="flex flex-col lg:grid lg:grid-cols-6 gap-6 max-w-none items-center lg:items-stretch">
-            {/* Private Investors - Full Height */}
-            <div className="lg:col-span-2 card-standard flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg" style={{ backgroundColor: 'var(--djh-green)' }}>
-                <DollarSign className="w-8 h-8" style={{ color: 'var(--djh-white)' }} />
-              </div>
-              <h3 className="heading-4 mb-4 leading-tight" style={{ color: 'var(--djh-white)' }}>
-                PRIVATE INVESTORS WITH A HISTORY OF SUCCESS
-              </h3>
-              
-              {expandedBoxes.includes(0) && (
-                <div className="mb-4">
-                  <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>
-                    The company is backed by private investors who have a proven track record of building successful teams in both the public and private sectors, with decades of combined experience.
-                  </p>
+            {/* Right Content - Illustration Placeholder */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-cn-navy-900 to-cn-charcoal-900 rounded-2xl p-8 border border-gray-700">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-cn-pink-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-cn-lavender-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-cn-blue-400 rounded-full"></div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="h-4 bg-cn-dark-700 rounded w-3/4"></div>
+                    <div className="h-4 bg-cn-dark-700 rounded w-1/2"></div>
+                    <div className="h-4 bg-cn-dark-700 rounded w-2/3"></div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="h-16 bg-cn-dark-700 rounded-lg"></div>
+                    <div className="h-16 bg-cn-dark-700 rounded-lg"></div>
+                  </div>
                 </div>
-              )}
-              
-              <button
-                onClick={() => toggleBox(0)}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors mt-auto"
-                style={{ 
-                  backgroundColor: 'var(--djh-dark-gray)', 
-                  color: 'var(--djh-white)',
-                  fontFamily: 'Poppins, Arial, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-medium-gray)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-dark-gray)';
-                }}
-              >
-                <span>{expandedBoxes.includes(0) ? 'Show Less' : 'Read More'}</span>
-                {expandedBoxes.includes(0) ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                )}
-              </button>
-            </div>
-
-            {/* Experienced Management - Full Height */}
-            <div className="lg:col-span-2 card-standard flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg" style={{ backgroundColor: 'var(--djh-green)' }}>
-                <Users className="w-8 h-8" style={{ color: 'var(--djh-white)' }} />
               </div>
-              <h3 className="heading-4 mb-4 leading-tight" style={{ color: 'var(--djh-white)' }}>
-                EXPERIENCED LEADERSHIP AND MANAGEMENT TEAM
-              </h3>
-              
-              {expandedBoxes.includes(1) && (
-                <div className="mb-4">
-                  <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>
-                    Our management team brings deep industry knowledge and strong family heritage, with proven leadership across multiple sectors and decades of operational excellence.
-                  </p>
-                </div>
-              )}
-              
-              <button
-                onClick={() => toggleBox(1)}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors mt-auto"
-                style={{ 
-                  backgroundColor: 'var(--djh-dark-gray)', 
-                  color: 'var(--djh-white)',
-                  fontFamily: 'Poppins, Arial, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-medium-gray)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-dark-gray)';
-                }}
-              >
-                <span>{expandedBoxes.includes(1) ? 'Show Less' : 'Read More'}</span>
-                {expandedBoxes.includes(1) ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                )}
-              </button>
-            </div>
-
-            {/* Focus on Transforming Land - Full Height */}
-            <div className="lg:col-span-2 card-standard flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg" style={{ backgroundColor: 'var(--djh-green)' }}>
-                <Building2 className="w-8 h-8" style={{ color: 'var(--djh-white)' }} />
-              </div>
-              <h3 className="heading-4 mb-4 leading-tight" style={{ color: 'var(--djh-white)' }}>
-                FOCUS ON TRANSFORMING UNDERUTILIZED LAND
-              </h3>
-              
-              {expandedBoxes.includes(2) && (
-                <div className="mb-4">
-                  <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>
-                    We are dedicated to converting underutilized land into critical truck parking infrastructure, creating value where others see only potential.
-                  </p>
-                </div>
-              )}
-              
-              <button
-                onClick={() => toggleBox(2)}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors mt-auto"
-                style={{ 
-                  backgroundColor: 'var(--djh-dark-gray)', 
-                  color: 'var(--djh-white)',
-                  fontFamily: 'Poppins, Arial, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-medium-gray)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-dark-gray)';
-                }}
-              >
-                <span>{expandedBoxes.includes(2) ? 'Show Less' : 'Read More'}</span>
-                {expandedBoxes.includes(2) ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                )}
-              </button>
-            </div>
-
-            {/* Safety and Security - Now side by side with Commitment to Safety */}
-            <div className="lg:col-span-3 card-standard flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg" style={{ backgroundColor: 'var(--djh-green)' }}>
-                <Shield className="w-8 h-8" style={{ color: 'var(--djh-white)' }} />
-              </div>
-              <h3 className="heading-4 mb-4 leading-tight" style={{ color: 'var(--djh-white)' }}>
-                UNDERSTANDING OF SAFETY AND SECURITY ISSUES
-              </h3>
-              
-              {expandedBoxes.includes(3) && (
-                <div className="mb-4">
-                  <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>
-                    We are acutely aware of the safety and security concerns within the entire US when it comes to truck parking and are committed to addressing them comprehensively for the benefit of both the community and road safety.
-                  </p>
-                </div>
-              )}
-              
-              <button
-                onClick={() => toggleBox(3)}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors mt-auto"
-                style={{ 
-                  backgroundColor: 'var(--djh-dark-gray)', 
-                  color: 'var(--djh-white)',
-                  fontFamily: 'Poppins, Arial, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-medium-gray)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-dark-gray)';
-                }}
-              >
-                <span>{expandedBoxes.includes(3) ? 'Show Less' : 'Read More'}</span>
-                {expandedBoxes.includes(3) ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                )}
-              </button>
-            </div>
-
-            {/* Commitment to Safety - Now side by side with Safety and Security */}
-            <div className="lg:col-span-3 card-standard flex flex-col min-w-[360px] lg:min-w-0 w-full lg:w-auto">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-lg" style={{ backgroundColor: 'var(--djh-green)' }}>
-                <SpeedIcon className="w-8 h-8" style={{ color: 'var(--djh-white)' }} />
-              </div>
-              <h3 className="heading-4 mb-4 leading-tight" style={{ color: 'var(--djh-white)' }}>
-                COMMITMENT TO SAFETY, EFFICIENCY, AND EASE OF DOING BUSINESS
-              </h3>
-              
-              {expandedBoxes.includes(4) && (
-                <div className="mb-4">
-                  <p className="body-medium" style={{ color: 'var(--djh-very-light-gray)' }}>
-                    We prioritize safety, efficiency, and streamlined business operations, ensuring that every interaction and process is designed for maximum effectiveness and minimal friction.
-                  </p>
-                </div>
-              )}
-              
-              <button
-                onClick={() => toggleBox(4)}
-                className="w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors mt-auto"
-                style={{ 
-                  backgroundColor: 'var(--djh-dark-gray)', 
-                  color: 'var(--djh-white)',
-                  fontFamily: 'Poppins, Arial, sans-serif'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-medium-gray)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--djh-dark-gray)';
-                }}
-              >
-                <span>{expandedBoxes.includes(4) ? 'Show Less' : 'Read More'}</span>
-                {expandedBoxes.includes(4) ? (
-                  <ChevronUp className="w-4 h-4" />
-                ) : (
-                  <ChevronDown className="w-4 h-4" />
-                )}
-              </button>
             </div>
           </div>
         </div>
       </section>
 
+      {/* What We Offer Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="heading-2 text-white mb-6">
+              What We Offer
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              AI-powered solutions that transform how service-based businesses operate, 
+              saving time and increasing revenue through intelligent automation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <div key={index} className="card-standard group">
+                  <div className="w-12 h-12 bg-cn-blue-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cn-pink-400 transition-colors">
+                    <IconComponent className="w-6 h-6 text-cn-navy-900" />
+                  </div>
+                  <h3 className="heading-4 text-white mb-3">
+                    {service.name}
+                  </h3>
+                  <p className="text-gray-300">
+                    Default text describing how this service helps businesses optimize their operations and increase efficiency.
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Why It Matters Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--surface-bg)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="heading-2 text-white mb-6">
+                Why It Matters to Your Business
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-cn-blue-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="heading-4 text-white mb-2">Save Time & Money</h3>
+                    <p className="text-gray-300">Default text about how AI automation reduces operational costs and frees up staff for higher-value tasks.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-cn-blue-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="heading-4 text-white mb-2">24/7 Customer Service</h3>
+                    <p className="text-gray-300">Default text about how AI never sleeps, providing consistent customer engagement around the clock.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <CheckCircle className="w-6 h-6 text-cn-blue-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="heading-4 text-white mb-2">Scalable Growth</h3>
+                    <p className="text-gray-300">Default text about how AI solutions grow with your business without proportional cost increases.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-8">
+              <div className="card-elevated">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-cn-blue-400 mb-2">75%</div>
+                  <div className="text-gray-300">Time Saved on Administrative Tasks</div>
+                </div>
+              </div>
+              <div className="card-elevated">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-cn-pink-400 mb-2">40%</div>
+                  <div className="text-gray-300">Increase in Lead Conversion</div>
+                </div>
+              </div>
+              <div className="card-elevated">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-cn-lavender-400 mb-2">24/7</div>
+                  <div className="text-gray-300">Customer Support Availability</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI vs Traditional Hiring Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="heading-2 text-white mb-6">
+              AI vs Traditional Hiring
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              See how AI automation compares to traditional staffing solutions
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="card-standard">
+              <h3 className="heading-3 text-white mb-6">Traditional Hiring</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <span className="text-gray-300">$50,000+ annual salary per employee</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <span className="text-gray-300">Benefits, training, and management overhead</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <span className="text-gray-300">Limited to business hours</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <span className="text-gray-300">Sick days, vacation, turnover</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="card-standard border-cn-blue-400">
+              <h3 className="heading-3 text-white mb-6">AI Automation</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+                  <span className="text-gray-300">$500-2000 monthly per solution</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+                  <span className="text-gray-300">No benefits, training, or management needed</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+                  <span className="text-gray-300">24/7 availability</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-cn-blue-400 rounded-full"></div>
+                  <span className="text-gray-300">Consistent performance, no downtime</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
-      <TestimonialsSection />
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--surface-bg)' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="heading-2 text-white mb-6">
+              What Our Clients Say
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="card-standard">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="w-5 h-5 text-cn-blue-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-300 mb-4">
+                  "Default text testimonial about how CogNodes AI solutions transformed our business operations and increased our efficiency."
+                </p>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-cn-dark-700 rounded-full"></div>
+                  <div>
+                    <div className="font-semibold text-white">Default Client Name</div>
+                    <div className="text-sm text-gray-400">Default Company</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--bottom-section-bg)' }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="heading-2 mb-4" style={{ color: 'var(--djh-white)' }}>
-            READY TO TRANSFORM YOUR TRUCK PARKING EXPERIENCE?
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="heading-2 text-white mb-6">
+            Ready to Transform Your Business?
           </h2>
-          <p className="body-large mb-6" style={{ color: 'var(--djh-very-light-gray)' }}>
-            Join us in revolutionizing truck parking infrastructure across the nation.
+          <p className="text-xl text-gray-300 mb-8">
+            Join hundreds of service-based businesses already using AI to optimize their operations and increase revenue.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/truck-parking"
-              className="btn-primary min-w-[360px] sm:min-w-0 w-full sm:w-auto"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:cognodes@gmail.com"
+              className="btn-primary inline-flex items-center justify-center"
             >
-              Learn More
+              Book a Call
               <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
+            <Link
+              href="/pricing"
+              className="btn-secondary inline-flex items-center justify-center"
+            >
+              View Pricing
             </Link>
-            <a
-              href="mailto:contact@directjh.com"
-              className="btn-secondary min-w-[360px] sm:min-w-0 w-full sm:w-auto"
-              style={{ 
-                height: '53px', 
-                padding: '13px 36px',
-                minHeight: '53px',
-                maxHeight: '53px'
-              }}
-            >
-              Contact Us
-            </a>
-            <a
-              href="https://www.linkedin.com/company/direct-journeyline-holdings-llc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary flex items-center justify-center min-w-[360px] sm:min-w-0 w-full sm:w-auto"
-            >
-              <img 
-                src="/logos/Linkedin-logo-white-png-wordmark-icon-horizontal-900x233.png" 
-                alt="LinkedIn" 
-                className="w-20 h-5 object-contain"
-              />
-            </a>
           </div>
         </div>
       </section>

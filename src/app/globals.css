@@ -1,33 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arial:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* DJH Brand Colors - Main Three */
-  --djh-black: #000000;
-  --djh-dark-gray: #2F2F2F;
-  --djh-green: #02862A;
+  /* CogNodes Brand Colors - Primary Palette */
+  --cn-navy-900: #0d133b;
+  --cn-slate-600: #395e79;
+  --cn-blue-400: #63b2fa;
+  --cn-gray-050: #f5f5f5;
+  --cn-charcoal-900: #222222;
   
-  /* DJH Secondary Colors */
-  --djh-medium-gray: #4D4D4F;
-  --djh-light-gray: #7D7D7D;
-  --djh-very-light-gray: #D9D9D9;
-  --djh-white: #FFFFFF;
-  
-  /* Company-Specific Colors (Preserved) */
-  --riggys-accent: #8DD305;
-  --jp-truckbays-accent: #2364ED;
+  /* CogNodes Secondary Colors - Accents Only */
+  --cn-pink-400: #ff91d4;
+  --cn-lavender-400: #a89bff;
+  --cn-steel-500: #8098af;
+  --cn-gray-300: #dbdbdb;
+  --cn-dark-700: #424242;
   
   /* Background System */
-  --header-footer-bg: #000000;
-  --page-bg: #4D4D4F;
-  --container-bg: #2F2F2F;
-  --bottom-section-bg: #7D7D7D;
-  --button-primary: #02862A;
-  --button-secondary: #FFFFFF;
+  --header-footer-bg: var(--cn-charcoal-900);
+  --page-bg: var(--cn-navy-900);
+  --container-bg: var(--cn-charcoal-900);
+  --surface-bg: var(--cn-dark-700);
+  --button-primary: var(--cn-blue-400);
+  --button-secondary: var(--cn-gray-050);
   
   /* Legacy colors for backward compatibility */
   --foreground-rgb: 255, 255, 255;
@@ -48,9 +46,9 @@
 }
 
 body {
-  color: var(--djh-white);
+  color: var(--cn-gray-050);
   background: var(--page-bg);
-  font-family: 'Poppins', 'Arial', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -63,77 +61,77 @@ body {
     text-wrap: balance;
   }
   
-  /* Typography System - Poppins */
+  /* Typography System - DM Sans */
   .font-display {
-    font-family: 'Poppins', 'Arial', system-ui, sans-serif;
-    font-weight: 600;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 700;
     letter-spacing: -0.02em;
   }
   
   .font-body {
-    font-family: 'Poppins', 'Arial', system-ui, sans-serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
   }
   
   .font-mono {
-    font-family: 'Arial', monospace;
+    font-family: 'DM Sans', monospace;
     font-weight: 500;
     letter-spacing: -0.01em;
   }
   
-  /* Heading Styles - Brand Guidelines Hierarchy */
+  /* Heading Styles - CogNodes Typography Scale */
   .heading-1 {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 56px;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
   
   .heading-2 {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: 44px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
     letter-spacing: -0.02em;
   }
   
   .heading-3 {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.3;
     letter-spacing: -0.02em;
   }
   
   .heading-4 {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
   }
   
   .heading-5 {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
   }
   
   .heading-6 {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
   }
   
-  /* Body Text Styles - Brand Guidelines (16px) */
+  /* Body Text Styles - CogNodes Typography Scale */
   .body-large {
-    font-family: 'Poppins', 'Arial', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
@@ -141,7 +139,7 @@ body {
   }
   
   .body-medium {
-    font-family: 'Poppins', 'Arial', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
@@ -149,114 +147,114 @@ body {
   }
   
   .body-small {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: -0.01em;
   }
   
   .body-caption {
-    font-family: 'Poppins', 'Arial', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.01em;
   }
   
-  /* Component Styles - DJH Brand Colors */
+  /* Component Styles - CogNodes Brand Colors */
   .btn-primary {
-    background-color: var(--djh-green);
-    color: var(--djh-white);
+    background-color: var(--cn-blue-400);
+    color: var(--cn-navy-900);
     padding: 14px 36px;
-    border-radius: 8px;
-    font-family: 'Poppins', 'Arial', sans-serif;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
+    letter-spacing: 0.2px;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .btn-primary:hover {
-    background-color: #02641F;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: #4da3f7;
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
   .btn-secondary {
-    border: 2px solid var(--djh-white);
-    color: var(--djh-white);
+    border: 1px solid rgba(245, 245, 245, 0.16);
+    color: var(--cn-gray-050);
     background-color: transparent;
     padding: 14px 36px;
-    border-radius: 8px;
-    font-family: 'Poppins', 'Arial', sans-serif;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
+    letter-spacing: 0.2px;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .btn-secondary:hover {
-    background-color: var(--djh-white);
-    color: var(--djh-dark-gray);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    border-color: var(--cn-blue-400);
+    color: var(--cn-blue-400);
+    transform: translateY(1px);
   }
   
   .btn-outline {
-    border: 2px solid var(--djh-green);
-    color: var(--djh-green);
+    border: 1px solid var(--cn-blue-400);
+    color: var(--cn-blue-400);
     background-color: transparent;
     padding: 14px 36px;
-    border-radius: 8px;
-    font-family: 'Poppins', 'Arial', sans-serif;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
+    letter-spacing: 0.2px;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .btn-outline:hover {
-    background-color: var(--djh-green);
-    color: var(--djh-white);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color: var(--cn-blue-400);
+    color: var(--cn-navy-900);
+    transform: translateY(1px);
   }
   
   .card-standard {
-    background-color: var(--container-bg);
-    border-radius: 8px;
+    background-color: var(--surface-bg);
+    border-radius: 12px;
     padding: 28px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--djh-dark-gray);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(245, 245, 245, 0.08);
     transition: all 0.3s ease;
   }
   
   .card-standard:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-color: rgba(245, 245, 245, 0.16);
   }
   
   .card-elevated {
-    background-color: var(--container-bg);
+    background-color: var(--surface-bg);
     border-radius: 12px;
     padding: 36px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--djh-dark-gray);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(245, 245, 245, 0.08);
     transition: all 0.3s ease;
   }
   
   .card-elevated:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
   }
   
   .section-standard {

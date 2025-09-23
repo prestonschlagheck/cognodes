@@ -21,73 +21,66 @@ export default function Navigation() {
         <nav className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 lg:px-8 py-4">
       <div className="max-w-5xl mx-auto backdrop-blur-xl shadow-lg border rounded-xl" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', borderColor: 'rgba(255, 255, 255, 0.2)' }}>
         <div className="flex items-center justify-between h-16 px-6">
-          {/* DJH Logo */}
+          {/* CogNodes Logo */}
           <Link href="/" className="flex items-center flex-shrink-0 -ml-2 md:ml-0">
             <div className="w-12 h-12 flex items-center justify-center">
               <img 
-                src="/logos/djh-white.png" 
-                alt="DJH Logo" 
+                src="/logos/CN W_B Full.png" 
+                alt="CogNodes Logo" 
                 className={`h-10 w-auto transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
               />
             </div>
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center space-x-12 flex-1 justify-center">
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             <Link 
               href="/" 
               className={`transition-all duration-1000 font-medium text-base whitespace-nowrap ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ transitionDelay: '150ms', color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--djh-very-light-gray)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; }}
+              style={{ transitionDelay: '150ms', color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; }}
             >
               Home
             </Link>
             <Link 
-              href="/our-team" 
+              href="/services" 
               className={`transition-all duration-1000 font-medium text-base whitespace-nowrap ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ transitionDelay: '200ms', color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--djh-very-light-gray)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; }}
+              style={{ transitionDelay: '200ms', color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; }}
             >
-              Our Team
+              Services
             </Link>
             <Link 
-              href="/truck-parking" 
+              href="/pricing" 
               className={`transition-all duration-1000 font-medium text-base whitespace-nowrap ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ transitionDelay: '250ms', color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--djh-very-light-gray)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; }}
+              style={{ transitionDelay: '250ms', color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; }}
             >
-              Truck Parking
+              Pricing
             </Link>
             <Link 
-              href="/journeyline-properties" 
+              href="/about" 
               className={`transition-all duration-1000 font-medium text-base whitespace-nowrap ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ transitionDelay: '300ms', color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--jp-truckbays-accent)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; }}
+              style={{ transitionDelay: '300ms', color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; }}
             >
-              Journeyline Properties
+              About
             </Link>
-            <Link 
-              href="/riggys" 
-              className={`transition-all duration-1000 font-medium text-base whitespace-nowrap ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ transitionDelay: '350ms', color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--riggys-accent)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; }}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <a
+              href="mailto:cognodes@gmail.com"
+              className={`btn-primary transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+              style={{ transitionDelay: '400ms' }}
             >
-              Riggy&apos;s
-            </Link>
-            <Link 
-              href="/truckbays" 
-              className={`transition-all duration-1000 font-medium text-base whitespace-nowrap ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-              style={{ transitionDelay: '400ms', color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--jp-truckbays-accent)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; }}
-            >
-              Truckbays
-            </Link>
+              Get Started
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -102,68 +95,57 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t backdrop-blur-xl rounded-b-2xl" style={{ borderColor: 'rgba(255, 255, 255, 0.2)', backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+          <div className="md:hidden border-t backdrop-blur-xl rounded-b-2xl" style={{ borderColor: 'rgba(245, 245, 245, 0.08)', backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
             <div className="px-4 pt-3 pb-4 space-y-2">
               <Link 
                 href="/" 
                 className="block px-4 py-3 rounded-md transition-colors text-base"
-                style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--djh-very-light-gray)'; e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+                style={{ color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; e.currentTarget.style.backgroundColor = 'rgba(99, 178, 250, 0.1)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
-                href="/our-team" 
+                href="/services" 
                 className="block px-4 py-3 rounded-md transition-colors text-base"
-                style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--djh-very-light-gray)'; e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+                style={{ color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; e.currentTarget.style.backgroundColor = 'rgba(99, 178, 250, 0.1)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Our Team
+                Services
               </Link>
               <Link 
-                href="/truck-parking" 
+                href="/pricing" 
                 className="block px-4 py-3 rounded-md transition-colors text-base"
-                style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--djh-very-light-gray)'; e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+                style={{ color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; e.currentTarget.style.backgroundColor = 'rgba(99, 178, 250, 0.1)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Truck Parking
+                Pricing
               </Link>
               <Link 
-                href="/journeyline-properties" 
+                href="/about" 
                 className="block px-4 py-3 rounded-md transition-colors text-base"
-                style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--jp-truckbays-accent)'; e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
+                style={{ color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--cn-blue-400)'; e.currentTarget.style.backgroundColor = 'rgba(99, 178, 250, 0.1)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--cn-gray-050)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Journeyline Properties
+                About
               </Link>
-              <Link 
-                href="/riggys" 
-                className="block px-4 py-3 rounded-md transition-colors text-base"
-                style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--riggys-accent)'; e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Riggy&apos;s
-              </Link>
-              <Link 
-                href="/truckbays" 
-                className="block px-4 py-3 rounded-md transition-colors text-base"
-                style={{ color: 'var(--djh-white)', fontFamily: 'Poppins, Arial, sans-serif' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--jp-truckbays-accent)'; e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--djh-white)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Truckbays
-              </Link>
+              <div className="pt-2">
+                <a
+                  href="mailto:cognodes@gmail.com"
+                  className="btn-primary w-full text-center block"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started
+                </a>
+              </div>
             </div>
           </div>
         )}

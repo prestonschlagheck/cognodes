@@ -5,9 +5,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'display': ['Poppins', 'Arial', 'system-ui', 'sans-serif'],
-        'body': ['Poppins', 'Arial', 'system-ui', 'sans-serif'],
-        'mono': ['Arial', 'monospace'],
+        'display': ['DM Sans', 'system-ui', 'sans-serif'],
+        'body': ['DM Sans', 'system-ui', 'sans-serif'],
+        'mono': ['DM Sans', 'monospace'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],
@@ -25,34 +25,34 @@ const config: Config = {
         '9xl': ['8rem', { lineHeight: '1' }],
       },
       colors: {
-        // DJH Brand Colors - Main Three
-        'djh-black': '#000000',
-        'djh-dark-gray': '#2F2F2F',
-        'djh-green': '#02862A',
-        
-        // DJH Secondary Colors
-        'djh-medium-gray': '#4D4D4F',
-        'djh-light-gray': '#7D7D7D',
-        'djh-very-light-gray': '#D9D9D9',
-        'djh-white': '#FFFFFF',
-        
-        // Background System
-        'header-footer': '#000000',
-        'page': '#4D4D4F',
-        'container': '#2F2F2F',
-        'bottom-section': '#7D7D7D',
-        'button-primary': '#02862A',
-        'button-secondary': '#FFFFFF',
-        
-        // Company-Specific Colors (Preserved)
-        'riggys-accent': '#8DD305',
-        'jp-truckbays-accent': '#2364ED',
-        'riggys': {
-          'green': '#8DD305',      // Exact Riggy's green
-          'blue': '#061a32',       // Exact Riggy's blue
+        // CogNodes Brand Colors - Primary Palette
+        'cn-navy': {
+          900: '#0d133b',
         },
-        'jp': {
-          'blue': '#2364ED',       // JP Blue
+        'cn-slate': {
+          600: '#395e79',
+        },
+        'cn-blue': {
+          400: '#63b2fa',
+        },
+        'cn-gray': {
+          50: '#f5f5f5',
+          300: '#dbdbdb',
+        },
+        'cn-charcoal': {
+          900: '#222222',
+        },
+        'cn-pink': {
+          400: '#ff91d4',
+        },
+        'cn-lavender': {
+          400: '#a89bff',
+        },
+        'cn-steel': {
+          500: '#8098af',
+        },
+        'cn-dark': {
+          700: '#424242',
         },
         // Dark theme colors
         'dark': {

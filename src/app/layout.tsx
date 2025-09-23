@@ -3,13 +3,13 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
 export const metadata = {
-  metadataBase: new URL('https://djh.vercel.app'),
-  title: "DJH - Direct Journeyline Holdings",
-  description: "Direct Journeyline Holdings redefines truck parking by transforming underutilized land into critical infrastructure. Our companies - Riggy's, Journeyline Properties, and Truckbays - serve drivers, fleets, and communities nationwide with innovative parking solutions.",
-  keywords: "truck parking, logistics infrastructure, real estate development, parking technology, truck stops, fleet management, commercial real estate, transportation infrastructure, Direct Journeyline Holdings, Riggy's, Journeyline Properties, Truckbays",
-  authors: [{ name: "Direct Journeyline Holdings" }],
-  creator: "Direct Journeyline Holdings",
-  publisher: "Direct Journeyline Holdings",
+  metadataBase: new URL('https://cognodes.com'),
+  title: "CogNodes - AI-Powered Business Automation",
+  description: "Transform your service-based business with AI automation. Automated quote generation, customer engagement, smart email assistants, and 24/7 AI receptionists that help you make more money and optimize workflows.",
+  keywords: "AI automation, business automation, AI receptionist, automated quotes, customer engagement, email assistant, chatbot, appointment scheduling, service business, AI technology, workflow optimization",
+  authors: [{ name: "CogNodes" }],
+  creator: "CogNodes",
+  publisher: "CogNodes",
   robots: {
     index: true,
     follow: true,
@@ -24,24 +24,24 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://djh.vercel.app',
-    siteName: 'Direct Journeyline Holdings',
-    title: 'Direct Journeyline Holdings - Transforming Truck Parking Infrastructure',
-    description: 'Redefining truck parking by transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.',
+    url: 'https://cognodes.com',
+    siteName: 'CogNodes',
+    title: 'CogNodes - AI-Powered Business Automation Solutions',
+    description: 'Transform your service-based business with AI automation. Make more money and optimize workflows with intelligent automation solutions.',
     images: [
       {
-        url: '/logos/djh-full-white.png',
+        url: '/logos/CN-W_B-Full.png',
         width: 1200,
         height: 630,
-        alt: 'Direct Journeyline Holdings Logo',
+        alt: 'CogNodes Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Direct Journeyline Holdings - Transforming Truck Parking Infrastructure',
-    description: 'Redefining truck parking by transforming underutilized land into critical infrastructure that serves drivers, fleets, and communities nationwide.',
-    images: ['/logos/djh-full-white.png'],
+    title: 'CogNodes - AI-Powered Business Automation Solutions',
+    description: 'Transform your service-based business with AI automation. Make more money and optimize workflows with intelligent automation solutions.',
+    images: ['/logos/CN-W_B-Full.png'],
   },
   verification: {
     google: 'your-google-verification-code', // Replace with actual verification code
