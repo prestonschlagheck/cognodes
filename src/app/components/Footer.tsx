@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="mb-6">
               <Image 
-                src="/logos/CN W_B Full.png" 
+                src="/Logos/CN-W_B-Full.png" 
                 alt="CogNodes Logo" 
                 width={160}
                 height={80}
