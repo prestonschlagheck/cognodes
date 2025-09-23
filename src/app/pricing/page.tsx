@@ -64,7 +64,7 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--page-bg)' }}>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="heading-1 text-white mb-6">
             Simple, Transparent Pricing
@@ -76,7 +76,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
@@ -139,7 +139,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--surface-bg)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-white mb-6">
