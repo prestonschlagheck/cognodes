@@ -16,7 +16,9 @@
 
 .animate-marquee {
   animation: marquee 20s linear infinite;
-  width: 200%; /* Ensure smooth loop */
+  display: flex;
+  width: 200%;
+  will-change: transform; /* Optimize for smooth animation */
 }
 
 :root {
