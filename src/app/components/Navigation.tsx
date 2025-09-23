@@ -60,7 +60,7 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Button - On top of everything */}
+          {/* Buttons - On top of everything */}
           <div style={{ 
             position: 'absolute', 
             top: '12px', 
@@ -68,8 +68,23 @@ export default function Navigation() {
             zIndex: 99999,
             filter: 'none',
             opacity: 1,
-            pointerEvents: 'auto'
+            pointerEvents: 'auto',
+            display: 'flex',
+            gap: '12px'
           }}>
+            <a
+              href="/login"
+              className={`btn-secondary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+              style={{ 
+                transitionDelay: '100ms',
+                filter: 'none',
+                opacity: 1,
+                position: 'relative',
+                zIndex: 99999
+              }}
+            >
+              Log In
+            </a>
             <a
               href="mailto:cognodes@gmail.com"
               className={`btn-primary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
