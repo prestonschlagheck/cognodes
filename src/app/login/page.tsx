@@ -23,7 +23,10 @@ export default function LoginPage() {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('userEmail', email);
       
-      // Redirect to dashboard/404 page
+      // Dispatch custom event to notify navigation component
+      window.dispatchEvent(new Event('authChange'));
+      
+      // Redirect to dashboard
       router.push('/dashboard');
     } else {
       setError('Invalid email or password');
