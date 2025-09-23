@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { Settings, LogOut, Home, Users, CheckCircle, ArrowRight, Phone, Mail, Calendar, Clock, DollarSign, FileText, CreditCard, Star, Bot, Zap, BarChart3, Target, Award, TrendingUp, Shield, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Settings, LogOut, Home, Users, CheckCircle, ArrowRight, Phone, Mail, Calendar, Clock, DollarSign, FileText, CreditCard, Star, Bot, Zap, BarChart3, Target, Award, TrendingUp, Shield } from 'lucide-react';
 
 export default function DashboardPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,17 +43,6 @@ export default function DashboardPage() {
     setCurrentSlide(slideIndex);
   }, []);
 
-  const goToNextSlide = useCallback(() => {
-    if (currentSlide < totalSlides - 1) {
-      goToSlide(currentSlide + 1);
-    }
-  }, [currentSlide, totalSlides, goToSlide]);
-
-  const goToPrevSlide = useCallback(() => {
-    if (currentSlide > 0) {
-      goToSlide(currentSlide - 1);
-    }
-  }, [currentSlide, goToSlide]);
 
   // Separate useEffect for scroll functionality
   useEffect(() => {
@@ -86,26 +75,18 @@ export default function DashboardPage() {
       }
     };
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      switch (e.key) {
-        case 'ArrowLeft':
-          e.preventDefault();
-          goToPrevSlide();
-          break;
-        case 'ArrowRight':
-          e.preventDefault();
-          goToNextSlide();
-          break;
-        case 'Home':
-          e.preventDefault();
-          goToSlide(0);
-          break;
-        case 'End':
-          e.preventDefault();
-          goToSlide(totalSlides - 1);
-          break;
-      }
-    };
+        const handleKeyDown = (e: KeyboardEvent) => {
+          switch (e.key) {
+            case 'Home':
+              e.preventDefault();
+              goToSlide(0);
+              break;
+            case 'End':
+              e.preventDefault();
+              goToSlide(totalSlides - 1);
+              break;
+          }
+        };
 
     const handleScroll = () => {
       const slideWidth = window.innerWidth;
@@ -123,7 +104,7 @@ export default function DashboardPage() {
       scrollContainer.removeEventListener('keydown', handleKeyDown);
       scrollContainer.removeEventListener('scroll', handleScroll);
     };
-  }, [isLoggedIn, goToSlide, goToNextSlide, goToPrevSlide]);
+  }, [isLoggedIn, goToSlide]);
 
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
@@ -188,29 +169,6 @@ export default function DashboardPage() {
         <div className="flex h-full relative z-10" style={{ width: '1200vw' }}>
           
           {/* Navigation Arrows */}
-          <button
-            onClick={goToPrevSlide}
-            disabled={currentSlide === 0}
-            className={`fixed left-4 top-1/2 transform -translate-y-1/2 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
-              currentSlide === 0 
-                ? 'bg-cn-navy-900/50 text-gray-500 cursor-not-allowed' 
-                : 'bg-cn-blue-400 text-cn-navy-900 hover:bg-cn-pink-400 hover:scale-110'
-            }`}
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          <button
-            onClick={goToNextSlide}
-            disabled={currentSlide === totalSlides - 1}
-            className={`fixed right-4 top-1/2 transform -translate-y-1/2 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 ${
-              currentSlide === totalSlides - 1 
-                ? 'bg-cn-navy-900/50 text-gray-500 cursor-not-allowed' 
-                : 'bg-cn-blue-400 text-cn-navy-900 hover:bg-cn-pink-400 hover:scale-110'
-            }`}
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
 
           {/* Slide Indicators */}
           <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex items-center space-x-2 bg-cn-navy-900/90 backdrop-blur-sm rounded-full px-4 py-3 border border-cn-blue-400/20">
@@ -306,7 +264,7 @@ export default function DashboardPage() {
                         />
                       </div>
                       <h3 className="heading-3 text-white mb-2">Dylan Cobb</h3>
-                      <p className="text-gray-300 mb-4">Specialized in automations and back-end dev</p>
+                      <p className="text-gray-300 mb-4">Specialized in automations and back-end development</p>
                     </div>
               </div>
               
@@ -721,19 +679,30 @@ export default function DashboardPage() {
             <div className="max-w-6xl mx-auto text-center">
               <h2 className="heading-1 text-white mb-8">Ready to Transform Your Business?</h2>
               
-              <div className="mb-12">
-                <div className="inline-flex items-center space-x-4 bg-cn-blue-400/10 rounded-2xl p-8 border border-cn-blue-400/20 mb-8">
-                  <CreditCard className="w-12 h-12 text-cn-blue-400" />
-                  <div>
-                    <h3 className="heading-3 text-white mb-2">Total Investment</h3>
-                    <div className="text-3xl font-bold text-cn-blue-400">$XX,XXX Setup + $XXX/Month</div>
+                  <div className="mb-12">
+                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+                      <div className="bg-cn-blue-400/10 rounded-2xl p-6 border border-cn-blue-400/20">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <CreditCard className="w-8 h-8 text-cn-blue-400" />
+                          <h3 className="heading-4 text-white">Total Investment</h3>
+                        </div>
+                        <div className="text-2xl font-bold text-cn-blue-400">$XX,XXX Setup + $XXX/Month</div>
+                      </div>
+                      
+                      <div className="bg-cn-pink-400/10 rounded-2xl p-6 border border-cn-pink-400/20">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <TrendingUp className="w-8 h-8 text-cn-pink-400" />
+                          <h3 className="heading-4 text-white">Total Potential Savings</h3>
+                        </div>
+                        <div className="text-2xl font-bold text-cn-pink-400">$XXX,XXX+ Annually</div>
+                        <p className="text-gray-300 text-sm mt-2">From reduced labor costs and increased efficiency</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                      Join numerous businesses that have already transformed their operations with CogNodes AI
+                    </p>
                   </div>
-                </div>
-                
-                <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                  Join numerous businesses that have already transformed their operations with CogNodes AI
-                </p>
-              </div>
               
               <div className="space-y-6 mb-12">
                 <h3 className="heading-3 text-white">Next Steps:</h3>
