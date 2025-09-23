@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* What We Offer Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-white mb-6">
@@ -158,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* Why It Matters Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--surface-bg)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -215,7 +215,7 @@ export default function Home() {
       </section>
 
       {/* AI vs Traditional Hiring Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--page-bg)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-navy-900)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-white mb-6">
@@ -275,7 +275,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--surface-bg)' }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--cn-charcoal-900)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-white mb-6">
@@ -292,7 +292,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-gray-300 mb-4">
-                  "Default text testimonial about how CogNodes AI solutions transformed our business operations and increased our efficiency."
+                  &ldquo;Default text testimonial about how CogNodes AI solutions transformed our business operations and increased our efficiency.&rdquo;
                 </p>
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-cn-dark-700 rounded-full"></div>

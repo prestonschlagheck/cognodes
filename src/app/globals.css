@@ -166,8 +166,8 @@ body {
   .btn-primary {
     background-color: var(--cn-blue-400);
     color: var(--cn-navy-900);
-    padding: 14px 36px;
-    border-radius: 12px;
+    padding: 16px 32px;
+    border-radius: 8px;
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 15px;
@@ -177,11 +177,14 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
   }
   
   .btn-primary:hover {
     background-color: #4da3f7;
-    transform: translateY(1px);
+    transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
@@ -189,8 +192,8 @@ body {
     border: 1px solid rgba(245, 245, 245, 0.16);
     color: var(--cn-gray-050);
     background-color: transparent;
-    padding: 14px 36px;
-    border-radius: 12px;
+    padding: 16px 32px;
+    border-radius: 8px;
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 15px;
@@ -199,20 +202,22 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
   }
   
   .btn-secondary:hover {
     border-color: var(--cn-blue-400);
     color: var(--cn-blue-400);
-    transform: translateY(1px);
+    transform: translateY(-1px);
   }
   
   .btn-outline {
     border: 1px solid var(--cn-blue-400);
     color: var(--cn-blue-400);
     background-color: transparent;
-    padding: 14px 36px;
-    border-radius: 12px;
+    padding: 16px 32px;
+    border-radius: 8px;
     font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 15px;
@@ -221,12 +226,14 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
   }
   
   .btn-outline:hover {
     background-color: var(--cn-blue-400);
     color: var(--cn-navy-900);
-    transform: translateY(1px);
+    transform: translateY(-1px);
   }
   
   .card-standard {

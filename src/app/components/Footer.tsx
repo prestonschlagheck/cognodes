@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
@@ -11,10 +12,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-6">
-              <img 
+              <Image 
                 src="/logos/CN W_B Full.png" 
                 alt="CogNodes Logo" 
-                className="h-8 w-auto mb-4"
+                width={160}
+                height={80}
+                className="mb-4"
               />
             </div>
             <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--cn-gray-050)', fontFamily: 'DM Sans, sans-serif' }}>

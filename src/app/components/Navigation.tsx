@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
@@ -23,11 +24,14 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 px-6">
           {/* CogNodes Logo */}
           <Link href="/" className="flex items-center flex-shrink-0 -ml-2 md:ml-0">
-            <div className="w-12 h-12 flex items-center justify-center">
-              <img 
+            <div className="w-16 h-16 flex items-center justify-center">
+              <Image 
                 src="/logos/CN W_B Full.png" 
                 alt="CogNodes Logo" 
-                className={`h-10 w-auto transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                width={120}
+                height={60}
+                className={`transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                priority
               />
             </div>
           </Link>
