@@ -467,21 +467,21 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {/* Testimonial 1 */}
+            {/* Testimonial 1 - USH */}
             <div className="rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
               backgroundColor: '#0e143e'
             }}>
               <div className="flex items-center mb-4 sm:mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cn-blue-400 rounded-full flex items-center justify-center mr-3 sm:mr-4">
-                  <span className="text-cn-navy-900 font-bold text-sm sm:text-lg">DJH</span>
+                  <span className="text-cn-navy-900 font-bold text-sm sm:text-lg">USH</span>
                 </div>
                 <div>
-                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">Direct Journey Holdings</h4>
-                  <p className="text-gray-400 text-xs sm:text-sm">Truck Parking Infrastructure</p>
+                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">USH</h4>
+                  <p className="text-gray-400 text-xs sm:text-sm">Business Solutions</p>
                 </div>
               </div>
             <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-              &ldquo;CogNodes AI has revolutionized our truck parking operations. We&apos;ve seen a 300% increase in efficiency and our drivers love the instant, accurate responses. Revenue is up 40% since implementation.&rdquo;
+              &ldquo;The AI receptionist handles our after-hours calls perfectly. We never miss a lead anymore, and the quote generation feature has streamlined our entire sales process. Customer satisfaction is up 50% and we&apos;re closing deals faster than ever.&rdquo;
             </p>
               <div className="flex text-cn-blue-400">
                 {[...Array(5)].map((_, i) => (
@@ -492,7 +492,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Testimonial 2 */}
+            {/* Testimonial 2 - Shake the Block Hospitality */}
             <div className="rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
               backgroundColor: '#0e143e'
             }}>
@@ -502,11 +502,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">Shake the Block Hospitality</h4>
-                  <p className="text-gray-400 text-xs sm:text-sm">Hospitality Services</p>
+                  <p className="text-gray-400 text-xs sm:text-sm">Hospitality Group</p>
                 </div>
               </div>
             <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-              &ldquo;CogNodes has transformed our hospitality business operations. The AI handles reservations, customer inquiries, and scheduling seamlessly. We&apos;ve reduced response time by 90% and increased bookings by 35%. Our guests love the instant service.&rdquo;
+              &ldquo;Managing multiple hotels meant endless scheduling, guest communications, and internal reporting headaches. Preston&apos;s team built us a system that centralized everything—automated confirmations, staff scheduling, and even analytics dashboards. The result has been fewer errors, faster response times, and happier guests. It&apos;s transformed how smoothly our properties operate.&rdquo;
             </p>
               <div className="flex text-cn-pink-400">
                 {[...Array(5)].map((_, i) => (
@@ -517,21 +517,21 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Testimonial 3 */}
+            {/* Testimonial 3 - Charkol (Restaurant) */}
             <div className="rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
               backgroundColor: '#0e143e'
             }}>
               <div className="flex items-center mb-4 sm:mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cn-lavender-400 rounded-full flex items-center justify-center mr-3 sm:mr-4">
-                  <span className="text-cn-navy-900 font-bold text-sm sm:text-lg">USH</span>
+                  <span className="text-cn-navy-900 font-bold text-sm sm:text-lg">CH</span>
                 </div>
                 <div>
-                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">USH</h4>
-                  <p className="text-gray-400 text-xs sm:text-sm">Business Solutions</p>
+                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">Charkol</h4>
+                  <p className="text-gray-400 text-xs sm:text-sm">Restaurant</p>
                 </div>
               </div>
             <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-              &ldquo;The AI receptionist handles our after-hours calls perfectly. We never miss a lead anymore, and the quote generation feature has streamlined our entire sales process. Customer satisfaction is up 50% and we&apos;re closing deals faster than ever.&rdquo;
+              &ldquo;Running a busy restaurant is nonstop, but Preston&apos;s solutions gave us breathing room. Online reservations sync automatically with staff schedules, inventory updates happen in real-time, and customer feedback is tracked without extra effort. What used to feel chaotic now runs like clockwork, and our team can focus on creating a better dining experience.&rdquo;
             </p>
               <div className="flex text-cn-lavender-400">
                 {[...Array(5)].map((_, i) => (
