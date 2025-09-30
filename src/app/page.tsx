@@ -92,20 +92,36 @@ export default function Home() {
 
   const faqs = [
     {
-      question: "How can AI automation specifically address the unique challenges of my business?",
-      answer: "Our AI solutions are tailored to your specific industry and business model. We analyze your current processes and implement automation that directly addresses your pain points, whether it's lead generation, customer service, or appointment scheduling."
+      question: "What exactly does CogNodes do for my business?",
+      answer: "We automate your business operations using AI-powered voice agents and chatbots. Our solutions handle customer inquiries, book appointments, manage workflows, and provide 24/7 support—helping you save time and resources while improving customer experience."
     },
     {
-      question: "What measurable improvements can we expect in customer engagement and satisfaction?",
-      answer: "Our clients typically see a 75% increase in response time, 98% customer satisfaction rate, and 24/7 availability that ensures no customer inquiry goes unanswered. We provide detailed analytics to track these improvements."
+      question: "How do you ensure the AI provides accurate and reliable service?",
+      answer: "We monitor performance continuously, use intelligent fallback systems, and provide real-time analytics to constantly improve responses. Our AI is trained on your specific business data and continuously optimized to ensure smooth, accurate interactions."
     },
     {
-      question: "How does the implementation of AI voice agents and chatbots integrate with our current systems?",
-      answer: "Our AI solutions seamlessly integrate with your existing CRM, calendar systems, and business tools. We handle all technical integration and provide training to ensure smooth operation with your current workflow."
+      question: "Do I need to change my existing phone system or CRM?",
+      answer: "Not at all. We integrate seamlessly with most major phone systems, CRMs, and business tools you already use. Our goal is a smooth implementation that enhances your current workflows without disruption."
     },
     {
-      question: "How scalable is the AI solution to accommodate future growth or changes in business needs?",
-      answer: "Our AI solutions are designed to scale with your business. As you grow, we can easily add more agents, expand capabilities, and adjust the system to meet your evolving needs without disrupting your operations."
+      question: "What are your pricing options?",
+      answer: "Our pricing is flexible and based on call volume, features, and customization needs. Most clients find they pay significantly less than hiring a full-time employee while getting 24/7 coverage, increased efficiency, and comprehensive support."
+    },
+    {
+      question: "What kind of return on investment can I expect and how quickly?",
+      answer: "Clients typically see positive ROI within the first month through reduced missed calls, increased bookings, and improved operational efficiency. The exact ROI depends on your business needs and implementation timeline, but most see measurable improvements immediately."
+    },
+    {
+      question: "What kind of support and training do you provide?",
+      answer: "We provide comprehensive support throughout your journey—from initial setup to ongoing optimization. You'll receive detailed performance reports, regular system adjustments, and continuous support to ensure everything runs smoothly for your business."
+    },
+    {
+      question: "Can I customize the AI to match my brand voice and style?",
+      answer: "Absolutely! We tailor the AI's tone, script style, and conversation flow to reflect your unique brand identity. Whether it's voice preferences for phone interactions or messaging style for chatbots, customization ensures your AI represents your business authentically."
+    },
+    {
+      question: "What if I want to scale back or return to human-only service?",
+      answer: "You maintain complete control over your AI implementation. You can scale usage up or down as needed, route specific calls back to humans when required, or adjust the system to match your business preferences. We offer full flexibility to adapt to your changing needs."
     }
   ];
 
@@ -131,35 +147,35 @@ export default function Home() {
       />
       
       {/* Hero Section with Typing Effect */}
-      <section className="relative pt-52 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: '#0d133b' }}>
+      <section className="relative pt-32 sm:pt-40 lg:pt-52 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left side - Text and buttons */}
             <div className="text-left relative z-10">
-              <h1 className="heading-1 text-white mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6">
                 Make your business more{' '}
                 <span className="text-cn-blue-400">
                   {currentText}
                   <span className="animate-pulse">|</span>
                 </span>
               </h1>
-              <p className="text-lg text-gray-300 max-w-2xl mb-8">
-                Focus on growing your business, while our<br />AI Receptionist & Sales Agent handle<br />inbound and outbound calls.
+              <p className="text-base sm:text-lg text-gray-300 max-w-2xl mb-6 sm:mb-8">
+                Focus on growing your business, while our<br className="hidden sm:block" />AI Receptionist & Sales Agent handle<br className="hidden sm:block" />inbound and outbound calls.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
-                  href="mailto:cognodes@gmail.com"
-                  className="btn-primary inline-flex items-center justify-center"
+                  href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
+                  className="btn-primary inline-flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
                 >
                   Learn More
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
                 <a
-                  href="mailto:cognodes@gmail.com"
-                  className="btn-secondary inline-flex items-center justify-center"
+                  href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
+                  className="btn-secondary inline-flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
                 >
                   Book a Call
-                  <Phone className="ml-2 w-5 h-5" />
+                  <Phone className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
               </div>
             </div>
@@ -171,13 +187,16 @@ export default function Home() {
                   <Image
                     src="/CogNodes Graphics.png"
                     alt="CogNodes Dashboard Graphics"
-                    width={800}
-                    height={800}
-                    className="w-full h-auto max-h-[800px] object-contain"
+                    width={1200}
+                    height={1200}
+                    className="w-full h-auto object-contain"
                     style={{ 
-                      transform: 'scale(2.024) translateX(-5%) translateX(-10px)',
+                      maxHeight: '800px',
+                      transform: 'scale(2.024) translateX(-5%) translateX(-10px)'
                     }}
                     priority
+                    quality={100}
+                    unoptimized={true}
                   />
                   {/* Bottom gradient fade overlay - positioned directly on the image */}
                   <div 
@@ -256,163 +275,108 @@ export default function Home() {
       </section>
 
       {/* Desktop & Phoner Image with Text */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="pt-20 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           {/* Centered Title */}
-          <div className="text-center" style={{ marginBottom: '80px' }}>
-            <h2 className="heading-1 text-white">
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="heading-1 text-white mb-6">
               Visualize your success.
             </h2>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
             {/* Image - Left 2/3 */}
             <div className="relative lg:col-span-2">
               <Image
                 src="/Logos/CogNodes Graphics (3).png"
                 alt="CogNodes Graphics"
-                width={800}
-                height={600}
+                width={1200}
+                height={900}
                 className="w-full h-auto object-cover rounded-2xl"
                 style={{ 
                   objectPosition: 'center',
-                  transform: 'translateX(5%) translateX(-70px) scale(2.1) translateY(40px)'
+                  transform: 'translateX(5%) translateX(-70px) scale(2.1) translateY(40px)',
+                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))'
                 }}
+                quality={100}
+                unoptimized={true}
               />
             </div>
             
             {/* Text - Right 1/3 */}
-            <div className="text-left relative z-10 lg:col-span-1" style={{ marginLeft: '20px', marginTop: '60px' }}>
-              <p className="text-lg text-gray-300 mb-6">
-                Unlike competitors who offer generic solutions, we provide a truly personalized dashboard that adapts to your specific business needs. Your dashboard tracks every agent&apos;s performance, showing real-time impact on your business growth and customer satisfaction metrics.
-              </p>
-              <a
-                href="https://cognodes-dashboard.vercel.app/websites"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center justify-center"
-              >
-                Explore the dashboard
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
+            <div className="text-left relative z-10 lg:col-span-1 flex items-center" style={{ marginTop: '100px' }}>
+              <div className="rounded-2xl p-6 sm:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                backgroundColor: '#0e143e'
+              }}>
+                <p className="text-base sm:text-lg text-gray-300">
+                  <span className="font-bold text-white">Unlike competitors</span> who offer generic solutions, we provide a truly personalized dashboard that adapts to your specific business needs. Your dashboard tracks every agent&apos;s performance, showing real-time impact on your business growth and customer satisfaction metrics.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Workflow Section */}
-      <section className="pt-48 pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="pt-20 sm:pt-32 lg:pt-48 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="heading-1 text-white mb-6">Perfect Workflow for Your Business</h2>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="heading-1 text-white mb-6">Complete AI Workflow Process</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               See exactly how our AI automation works with this visual workflow
             </p>
           </div>
         
         {/* Enhanced Workflow Diagram */}
-        <div className="rounded-2xl p-8 border border-gray-600/30 mb-12 backdrop-blur-sm" style={{ 
+        <div className="rounded-2xl pt-8 px-8 pb-5 border border-gray-600/30 mb-12 backdrop-blur-sm" style={{ 
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
           backgroundColor: '#0e143e'
         }}>
-          <div className="text-center mb-8">
-            <h3 className="heading-3 text-white mb-2">Complete AI Workflow Process</h3>
-            <p className="text-gray-400">From initial contact to service completion - see exactly how our AI handles every step</p>
-          </div>
-          
           {/* Main Workflow Flow */}
           <div className="relative mb-12">
             
             {/* Main Workflow Steps */}
-            <div className="grid grid-cols-4 gap-6 items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch min-h-[200px] sm:min-h-[220px] lg:min-h-[240px]">
               {/* 1. Customer Initiates Contact */}
-              <div className="text-center">
-                <div className="w-24 h-24 bg-cn-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
-                  <Phone className="w-12 h-12 text-cn-navy-900" />
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-cn-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 relative z-10 shadow-lg">
+                  <Phone className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-cn-navy-900" />
                 </div>
-                <h4 className="heading-4 text-white mb-2">1. Customer Initiates</h4>
-                <p className="text-gray-300 text-base mb-2">Call, email, or website visit</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">1. Customer Initiates</h4>
+                <p className="text-xs sm:text-sm lg:text-base text-gray-300">Call, email, or website visit</p>
               </div>
               
               {/* 2. AI Instantly Responds */}
-              <div className="text-center">
-                <div className="w-24 h-24 bg-cn-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
-                  <Bot className="w-12 h-12 text-cn-navy-900" />
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-cn-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 relative z-10 shadow-lg">
+                  <Bot className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-cn-navy-900" />
                 </div>
-                <h4 className="heading-4 text-white mb-2">2. AI Instantly Responds</h4>
-                <p className="text-gray-300 text-base mb-2">Qualifies lead & gathers info</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">2. AI Instantly Responds</h4>
+                <p className="text-xs sm:text-sm lg:text-base text-gray-300">Qualifies lead & gathers info</p>
               </div>
               
               {/* 3. Smart Processing & Integration */}
-              <div className="text-center">
-                <div className="w-24 h-24 bg-cn-lavender-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
-                  <Settings className="w-12 h-12 text-cn-navy-900" />
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-cn-lavender-400 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 relative z-10 shadow-lg">
+                  <Settings className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-cn-navy-900" />
                 </div>
-                <h4 className="heading-4 text-white mb-2">3. Smart Processing</h4>
-                <p className="text-gray-300 text-base mb-2">Route, price, & schedule</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">3. Smart Processing</h4>
+                <p className="text-xs sm:text-sm lg:text-base text-gray-300">Route, price, & schedule</p>
               </div>
               
               {/* 4. Service Delivered */}
-              <div className="text-center">
-                <div className="w-24 h-24 bg-cn-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
-                  <CheckCircle className="w-12 h-12 text-cn-navy-900" />
+              <div className="text-center flex flex-col items-center justify-center h-full">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-cn-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 relative z-10 shadow-lg">
+                  <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-cn-navy-900" />
                 </div>
-                <h4 className="heading-4 text-white mb-2">4. Service Delivered</h4>
-                <p className="text-gray-300 text-base mb-2">Complete & automated follow-up</p>
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white mb-1 sm:mb-2">4. Service Delivered</h4>
+                <p className="text-xs sm:text-sm lg:text-base text-gray-300">Complete & automated follow-up</p>
               </div>
             </div>
             
-            {/* Integration Examples */}
-            <div className="mt-8">
-              <h4 className="heading-3 text-white text-center mb-8">Services we integrate/automate with</h4>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div className="text-center rounded-xl p-4 border border-gray-600/30 backdrop-blur-sm" style={{ 
-                  backgroundColor: '#0e143e'
-                }}>
-                  <div className="w-12 h-12 bg-cn-blue-400 rounded-xl flex items-center justify-center mx-auto mb-3 relative z-10">
-                    <CalendarDays className="w-6 h-6 text-cn-navy-900" />
-                  </div>
-                  <h5 className="heading-5 text-white mb-1">Calendly</h5>
-                </div>
-                
-                <div className="text-center rounded-xl p-4 border border-gray-600/30 backdrop-blur-sm" style={{ 
-                  backgroundColor: '#0e143e'
-                }}>
-                  <div className="w-12 h-12 bg-cn-pink-400 rounded-xl flex items-center justify-center mx-auto mb-3 relative z-10">
-                    <Calendar className="w-6 h-6 text-cn-navy-900" />
-                  </div>
-                  <h5 className="heading-5 text-white mb-1">Google Calendar</h5>
-                </div>
-                
-                <div className="text-center rounded-xl p-4 border border-gray-600/30 backdrop-blur-sm" style={{ 
-                  backgroundColor: '#0e143e'
-                }}>
-                  <div className="w-12 h-12 bg-cn-lavender-400 rounded-xl flex items-center justify-center mx-auto mb-3 relative z-10">
-                    <Mail className="w-6 h-6 text-cn-navy-900" />
-                  </div>
-                  <h5 className="heading-5 text-white mb-1">Gmail</h5>
-                </div>
-                
-                <div className="text-center rounded-xl p-4 border border-gray-600/30 backdrop-blur-sm" style={{ 
-                  backgroundColor: '#0e143e'
-                }}>
-                  <div className="w-12 h-12 bg-cn-slate-600 rounded-xl flex items-center justify-center mx-auto mb-3 relative z-10">
-                    <Workflow className="w-6 h-6 text-cn-gray-300" />
-                  </div>
-                  <h5 className="heading-5 text-white mb-1">n8n</h5>
-                </div>
-                
-                <div className="text-center rounded-xl p-4 border border-gray-600/30 backdrop-blur-sm" style={{ 
-                  backgroundColor: '#0e143e'
-                }}>
-                  <div className="w-12 h-12 bg-cn-blue-400 rounded-xl flex items-center justify-center mx-auto mb-3 relative z-10">
-                    <Code className="w-6 h-6 text-cn-navy-900" />
-                  </div>
-                  <h5 className="heading-5 text-white mb-1">Cursor</h5>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         </div>
@@ -430,20 +394,20 @@ export default function Home() {
             </p>
           </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="rounded-2xl p-8 lg:p-10 border border-gray-600/30 backdrop-blur-sm" style={{ 
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             backgroundColor: '#0e143e'
           }}>
-            <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Bot className="w-8 h-8 text-cn-navy-900" />
+            <div className="text-center mb-8 lg:mb-10">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6">
+                <Bot className="w-8 h-8 lg:w-10 lg:h-10 text-cn-navy-900" />
               </div>
               <h3 className="heading-3 text-white">CogNodes AI</h3>
               <p className="text-gray-400 mt-2">The future of customer service</p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-5 lg:space-y-6">
               {[
                 "24/7, never off duty",
                 "Instant replies, no hold time", 
@@ -451,51 +415,39 @@ export default function Home() {
                 "Handles unlimited calls",
                 "100% accurate, no mood swings"
               ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <CheckCircle className="w-6 h-6 text-cn-blue-400" />
-                  <span className="text-white font-medium">{item}</span>
+                <div key={index} className="flex items-center space-x-4">
+                  <CheckCircle className="w-6 h-6 lg:w-7 lg:h-7 text-cn-blue-400 flex-shrink-0" />
+                  <span className="text-white font-medium text-sm lg:text-base">{item}</span>
                 </div>
               ))}
             </div>
           </div>
           
-          <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
+          <div className="rounded-2xl p-8 lg:p-10 border border-gray-600/30 backdrop-blur-sm" style={{ 
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             backgroundColor: '#0e143e'
           }}>
-            <div className="text-center mb-8">
-              <div className="w-16 h-16 bg-cn-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-cn-gray-300" />
+            <div className="text-center mb-8 lg:mb-10">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-cn-slate-600 rounded-full flex items-center justify-center mx-auto mb-4 lg:mb-6">
+                <Users className="w-8 h-8 lg:w-10 lg:h-10 text-cn-gray-300" />
               </div>
               <h3 className="heading-3 text-white">Traditional</h3>
               <p className="text-gray-400 mt-2">Outdated hiring methods</p>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-5 lg:space-y-6">
               {[
-                { text: "Limited to business hours", icon: "navy-monogram" },
-                { text: "Customers wait on hold", icon: "default" },
-                { text: "High cost, salaries + overhead", icon: "default" },
-                { text: "Limited by team size", icon: "default" },
-                { text: "Varies by employee", icon: "default" }
+                "Limited to business hours",
+                "Customers wait on hold", 
+                "High cost, salaries + overhead",
+                "Limited by team size",
+                "Varies by employee"
               ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  {item.icon === "navy-monogram" ? (
-                    <div className="w-6 h-6 flex items-center justify-center">
-                      <Image 
-                        src="/Logos/Navy Monogram.png" 
-                        alt="Navy Monogram" 
-                        width={24}
-                        height={24}
-                        className="w-6 h-6 object-contain"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-6 h-6 rounded-full border-2 border-red-400 flex items-center justify-center">
-                      <span className="text-red-400 text-sm">×</span>
-                    </div>
-                  )}
-                  <span className="text-gray-300">{item.text}</span>
+                <div key={index} className="flex items-center space-x-4">
+                  <div className="w-6 h-6 lg:w-7 lg:h-7 rounded-full border-2 border-red-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-red-400 text-sm lg:text-base">×</span>
+                  </div>
+                  <span className="text-gray-300 text-sm lg:text-base">{item}</span>
                 </div>
               ))}
             </div>
@@ -505,31 +457,31 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12 sm:mb-16">
             <h2 className="heading-1 text-white mb-6">What Our Clients Say</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Real results from businesses that have transformed their operations with CogNodes AI
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {/* Testimonial 1 */}
-            <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
+            <div className="rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
               backgroundColor: '#0e143e'
             }}>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-cn-blue-400 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-cn-navy-900 font-bold text-lg">JS</span>
+              <div className="flex items-center mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cn-blue-400 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <span className="text-cn-navy-900 font-bold text-sm sm:text-lg">DJH</span>
                 </div>
                 <div>
-                  <h4 className="heading-5 text-white">John Smith</h4>
-                  <p className="text-gray-400 text-sm">CEO, TechSolutions Inc.</p>
+                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">Direct Journey Holdings</h4>
+                  <p className="text-gray-400 text-xs sm:text-sm">Truck Parking Infrastructure</p>
                 </div>
               </div>
-            <p className="text-gray-300 text-base mb-4">
-              &ldquo;CogNodes AI has revolutionized our customer service. We&apos;ve seen a 300% increase in response time and our customers love the instant, accurate responses. Revenue is up 40% since implementation.&rdquo;
+            <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
+              &ldquo;CogNodes AI has revolutionized our truck parking operations. We&apos;ve seen a 300% increase in efficiency and our drivers love the instant, accurate responses. Revenue is up 40% since implementation.&rdquo;
             </p>
               <div className="flex text-cn-blue-400">
                 {[...Array(5)].map((_, i) => (
@@ -541,20 +493,20 @@ export default function Home() {
             </div>
 
             {/* Testimonial 2 */}
-            <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
+            <div className="rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
               backgroundColor: '#0e143e'
             }}>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-cn-pink-400 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-cn-navy-900 font-bold text-lg">MJ</span>
+              <div className="flex items-center mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cn-pink-400 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <span className="text-cn-navy-900 font-bold text-sm sm:text-lg">SBH</span>
                 </div>
                 <div>
-                  <h4 className="heading-5 text-white">Maria Johnson</h4>
-                  <p className="text-gray-400 text-sm">Owner, Elite Services</p>
+                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">Shake the Block Hospitality</h4>
+                  <p className="text-gray-400 text-xs sm:text-sm">Hospitality Services</p>
                 </div>
               </div>
-            <p className="text-gray-300 text-base mb-4">
-              &ldquo;The appointment scheduling feature alone has saved us 15 hours per week. Our no-show rate dropped from 25% to 8% thanks to automated reminders. This is a game-changer.&rdquo;
+            <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
+              &ldquo;CogNodes has transformed our hospitality business operations. The AI handles reservations, customer inquiries, and scheduling seamlessly. We&apos;ve reduced response time by 90% and increased bookings by 35%. Our guests love the instant service.&rdquo;
             </p>
               <div className="flex text-cn-pink-400">
                 {[...Array(5)].map((_, i) => (
@@ -566,20 +518,20 @@ export default function Home() {
             </div>
 
             {/* Testimonial 3 */}
-            <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
+            <div className="rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
               backgroundColor: '#0e143e'
             }}>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-cn-lavender-400 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-cn-navy-900 font-bold text-lg">RD</span>
+              <div className="flex items-center mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cn-lavender-400 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <span className="text-cn-navy-900 font-bold text-sm sm:text-lg">USH</span>
                 </div>
                 <div>
-                  <h4 className="heading-5 text-white">Robert Davis</h4>
-                  <p className="text-gray-400 text-sm">Founder, Davis Consulting</p>
+                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-white">USH</h4>
+                  <p className="text-gray-400 text-xs sm:text-sm">Business Solutions</p>
                 </div>
               </div>
-            <p className="text-gray-300 text-base mb-4">
-              &ldquo;The AI receptionist handles our after-hours calls perfectly. We never miss a lead anymore, and the quote generation feature has streamlined our entire sales process.&rdquo;
+            <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
+              &ldquo;The AI receptionist handles our after-hours calls perfectly. We never miss a lead anymore, and the quote generation feature has streamlined our entire sales process. Customer satisfaction is up 50% and we&apos;re closing deals faster than ever.&rdquo;
             </p>
               <div className="flex text-cn-lavender-400">
                 {[...Array(5)].map((_, i) => (
@@ -591,240 +543,21 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Case Study Highlight */}
-          <div className="mt-16 rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
-            backgroundColor: '#0e143e'
-          }}>
-            <div className="text-center mb-8">
-              <h3 className="heading-3 text-white mb-4">Case Study: Local HVAC Company</h3>
-              <p className="text-lg text-gray-300">How we helped ABC Heating & Cooling increase revenue by 60%</p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-cn-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-cn-navy-900 font-bold text-2xl">60%</span>
-                </div>
-                <h4 className="heading-5 text-white mb-2">Revenue Increase</h4>
-                <p className="text-gray-400 text-sm">Within 6 months of implementation</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-cn-pink-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-cn-navy-900 font-bold text-2xl">24/7</span>
-                </div>
-                <h4 className="heading-5 text-white mb-2">Availability</h4>
-                <p className="text-gray-400 text-sm">Never miss another lead</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-cn-lavender-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-cn-navy-900 font-bold text-2xl">85%</span>
-                </div>
-                <h4 className="heading-5 text-white mb-2">Time Saved</h4>
-                <p className="text-gray-400 text-sm">On administrative tasks</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="heading-1 text-white mb-6">Simple, Transparent Pricing</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Choose the perfect plan for your business. No hidden fees, no surprises.
-            </p>
-          </div>
-          
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Starter Plan */}
-          <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm flex flex-col" style={{ 
-            backgroundColor: '#0e143e'
-          }}>
-            <div className="text-center mb-8">
-              <h3 className="heading-3 text-white mb-2">Starter</h3>
-              <p className="text-gray-400 mb-6">Perfect for small businesses</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$XXX</span>
-                <span className="text-gray-400">/month</span>
-              </div>
-            </div>
-            
-            <ul className="space-y-4 mb-8 flex-grow">
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">AI Receptionist (100 calls/month)</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Basic Website Chatbot</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Email Automation (500 emails/month)</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Basic Appointment Scheduling</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Email Support</span>
-              </li>
-            </ul>
-            
-            <a href="mailto:cognodes@gmail.com" className="btn-secondary w-full text-center block mt-auto">
-              Get Started
-            </a>
-          </div>
-
-          {/* Professional Plan */}
-          <div className="rounded-2xl p-8 border-2 border-cn-blue-400 backdrop-blur-sm relative flex flex-col" style={{ 
-            backgroundColor: '#0e143e'
-          }}>
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <span className="bg-cn-blue-400 text-cn-navy-900 px-4 py-1 rounded-full text-sm font-semibold">
-                Most Popular
-              </span>
-            </div>
-            
-            <div className="text-center mb-8">
-              <h3 className="heading-3 text-white mb-2">Professional</h3>
-              <p className="text-gray-400 mb-6">Ideal for growing businesses</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$XXX</span>
-                <span className="text-gray-400">/month</span>
-              </div>
-            </div>
-            
-            <ul className="space-y-4 mb-8 flex-grow">
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">AI Receptionist (500 calls/month)</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Advanced Website Chatbot</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Email Automation (2000 emails/month)</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Advanced Appointment Scheduling</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Automated Quote Generation</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Priority Support</span>
-              </li>
-            </ul>
-            
-            <a href="mailto:cognodes@gmail.com" className="btn-primary w-full text-center block mt-auto">
-              Get Started
-            </a>
-          </div>
-
-          {/* Enterprise Plan */}
-          <div className="rounded-2xl p-8 border border-gray-600/30 backdrop-blur-sm flex flex-col" style={{ 
-            backgroundColor: '#0e143e'
-          }}>
-            <div className="text-center mb-8">
-              <h3 className="heading-3 text-white mb-2">Enterprise</h3>
-              <p className="text-gray-400 mb-6">For large businesses</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-white">$XXX</span>
-                <span className="text-gray-400">/month</span>
-              </div>
-            </div>
-            
-            <ul className="space-y-4 mb-8 flex-grow">
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Unlimited AI Receptionist Calls</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Custom Website & Agents</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Unlimited Email Automation</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Advanced Analytics Dashboard</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">Dedicated Account Manager</span>
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-cn-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                </svg>
-                <span className="text-gray-300">24/7 Phone Support</span>
-              </li>
-            </ul>
-            
-            <a href="mailto:cognodes@gmail.com" className="btn-secondary w-full text-center block mt-auto">
-              Contact Sales
-            </a>
-          </div>
-        </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <h2 className="heading-1 text-white mb-6">Questions You May Have</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Get answers to the most common questions about our AI automation solutions
             </p>
           </div>
         
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {faqs.map((faq, index) => (
             <div key={index} className="rounded-2xl border border-gray-600/30 backdrop-blur-sm" style={{ 
               backdropFilter: 'blur(12px)',
@@ -832,19 +565,19 @@ export default function Home() {
               backgroundColor: '#0e143e'
             }}>
               <button
-                className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-cn-navy-900 transition-colors rounded-2xl"
+                className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 text-left flex items-center justify-between hover:bg-cn-navy-900 transition-colors rounded-2xl"
                 onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
               >
-                <span className="heading-4 text-white pr-4">{faq.question}</span>
+                <span className="text-sm sm:text-base lg:text-lg font-semibold text-white pr-4">{faq.question}</span>
                 <ChevronDown 
-                  className={`w-6 h-6 text-cn-blue-400 transition-transform flex-shrink-0 ${
+                  className={`w-5 h-5 sm:w-6 sm:h-6 text-cn-blue-400 transition-transform flex-shrink-0 ${
                     expandedFaq === index ? 'rotate-180' : ''
                   }`} 
                 />
               </button>
               {expandedFaq === index && (
-                <div className="px-8 pb-8 pt-2">
-                  <p className="text-gray-300 text-lg leading-relaxed">{faq.answer}</p>
+                <div className="px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-2">
+                  <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </div>
@@ -854,18 +587,17 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="heading-1 text-white mb-6">
-            Let&apos;s Talk.<br />
-            Book a Free Consultation
+            Let&apos;s talk, book a free consultation.
           </h2>
           
-          <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
-            Ready to transform your business with AI automation? Get started with a free consultation today.
+          <p className="text-lg text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto">
+            See how your business transforms with AI automation.
           </p>
           
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-6 sm:mb-8">
             <div className="flex space-x-2">
               <div className="w-3 h-3 bg-cn-blue-400 rounded-full"></div>
               <div className="w-3 h-3 bg-cn-pink-400 rounded-full"></div>
@@ -875,11 +607,11 @@ export default function Home() {
           </div>
           
           <a
-            href="mailto:cognodes@gmail.com"
-            className="btn-primary inline-flex items-center justify-center text-lg px-8 py-4"
+            href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
+            className="btn-primary inline-flex items-center justify-center text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
           >
             Book a Call
-            <ArrowRight className="ml-2 w-6 h-6" />
+            <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
           </a>
         </div>
       </section>

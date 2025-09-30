@@ -50,8 +50,8 @@ export default function LoginPage() {
             <div className="w-20 h-20 bg-cn-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <span className="text-cn-navy-900 font-bold text-2xl">CN</span>
             </div>
-            <h1 className="heading-1 text-white mb-2">Welcome Back</h1>
-            <p className="text-gray-300">Sign in to your CogNodes account</p>
+            <h1 className="heading-1 text-white mb-2">Welcome</h1>
+            <p className="text-gray-300">Sign in to view your plan</p>
           </div>
 
           {/* Login Form */}
