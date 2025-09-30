@@ -104,38 +104,8 @@ export default function Navigation() {
             display: 'flex',
             gap: '12px'
           }}>
-            {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className={`btn-secondary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-                style={{ 
-                  transitionDelay: '100ms',
-                  filter: 'none',
-                  opacity: 1,
-                  position: 'relative',
-                  zIndex: 99999,
-                  cursor: 'pointer'
-                }}
-              >
-                Logout
-              </button>
-            ) : (
-              <a
-                href="/login"
-                className={`btn-secondary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
-                style={{ 
-                  transitionDelay: '100ms',
-                  filter: 'none',
-                  opacity: 1,
-                  position: 'relative',
-                  zIndex: 99999
-                }}
-              >
-                Log In
-              </a>
-            )}
             <a
-              href="mailto:cognodes@gmail.com"
+              href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
               className={`btn-primary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
               style={{ 
                 transitionDelay: '200ms',

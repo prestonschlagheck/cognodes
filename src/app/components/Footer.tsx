@@ -33,13 +33,13 @@ export default function Footer() {
             />
           </div>
           
-          {/* Get Started Button */}
+          {/* Client Plan Button */}
           <div>
             <a
-              href="mailto:cognodes@gmail.com"
+              href="/login"
               className="btn-primary inline-flex items-center text-lg px-8 py-4"
             >
-              Get Started
+              Client Plan
               <ArrowRight className="ml-2 w-6 h-6" />
             </a>
           </div>

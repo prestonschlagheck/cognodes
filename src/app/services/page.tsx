@@ -162,12 +162,6 @@ export default function ServicesPage() {
               Get Started Today
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
-            <Link
-              href="/pricing"
-              className="btn-secondary inline-flex items-center justify-center"
-            >
-              View Pricing
-            </Link>
           </div>
         </div>
       </section>
