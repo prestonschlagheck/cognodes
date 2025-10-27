@@ -57,7 +57,7 @@ export default function AboutPage() {
               </p>
               <p className="text-lg text-gray-300 mb-8">
                 We&apos;re not just another tech company. We&apos;re your partners in transformation, helping you optimize 
-                workflows, increase revenue, and focus on what matters most - growing your business.
+                workflows, increase revenue, and focus on what matters most: growing your business.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">

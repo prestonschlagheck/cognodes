@@ -93,10 +93,9 @@ export default function Navigation() {
           </div>
 
           {/* Buttons - On top of everything */}
-          <div style={{ 
+          <div className="right-4 sm:right-0" style={{ 
             position: 'absolute', 
             top: '12px', 
-            right: '0', 
             zIndex: 99999,
             filter: 'none',
             opacity: 1,
@@ -105,7 +104,7 @@ export default function Navigation() {
             gap: '12px'
           }}>
             <a
-              href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
+              href="https://calendly.com/cognodes/discovery-call"
               className={`btn-primary text-sm px-4 py-2 transition-all duration-1000 ${hasAnimated ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
               style={{ 
                 transitionDelay: '200ms',

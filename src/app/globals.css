@@ -100,10 +100,22 @@ body {
   /* Heading Styles - CogNodes Typography Scale */
   .heading-1 {
     font-family: 'DM Sans', sans-serif;
-    font-size: 64px;
+    font-size: 1.875rem; /* 30px - matches text-3xl */
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
+  }
+  
+  @media (min-width: 640px) {
+    .heading-1 {
+      font-size: 2.25rem; /* 36px - matches sm:text-4xl */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .heading-1 {
+      font-size: 3rem; /* 48px - matches lg:text-5xl */
+    }
   }
   
   .heading-2 {
