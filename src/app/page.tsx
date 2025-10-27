@@ -322,7 +322,7 @@ export default function Home() {
               Track Your Growth in Real-Time
             </h2>
             <p className="text-base sm:text-lg text-gray-300 max-w-4xl mx-auto">
-              We provide a personalized dashboard for your business (most competitors don't offer this)
+              We provide a personalized dashboard for your business (most competitors don&apos;t offer this)
             </p>
           </div>
           
@@ -387,7 +387,7 @@ export default function Home() {
                 backgroundColor: '#0e143e'
               }}>
                 <p className="text-base sm:text-lg text-gray-300">
-                  <span className="font-bold text-white">Most AI services don't provide dashboards. We do.</span> Track every call, email, and interaction in real-time. See exactly which AI agents are driving revenue, where leads come from, and how much time you&apos;re saving. Monitor performance metrics that matter to your unique operations.
+                  <span className="font-bold text-white">Most AI services don&apos;t provide dashboards. We do.</span> Track every call, email, and interaction in real-time. See exactly which AI agents are driving revenue, where leads come from, and how much time you&apos;re saving. Monitor performance metrics that matter to your unique operations.
                 </p>
               </div>
             </div>
