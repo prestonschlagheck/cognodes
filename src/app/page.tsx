@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Bot, Mail, Calendar, MessageSquare, Clock, Zap, DollarSign, Users, Shield, CheckCircle, Star, Phone, Headphones, BarChart3, Settings, ChevronDown, CalendarDays, Workflow, Code } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import SavingsAssessment from './components/SavingsAssessment';
 
 export default function Home() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -42,43 +43,43 @@ export default function Home() {
   const features = [
     {
       icon: Phone,
-      title: "Automated Quote Generator",
-      description: "Generate accurate quotes instantly based on customer needs and your pricing structure."
-    },
-    {
-      icon: Bot,
-      title: "Customer Engagement & Follow-Up",
-      description: "Automated reviews, reservation follow-ups, and customer satisfaction tracking."
-    },
-    {
-      icon: Mail,
-      title: "Smart Email Assistant",
-      description: "Intelligent email management with automated responses and personalized communication."
-    },
-    {
-      icon: Phone,
-      title: "After-Hours Receptionist",
-      description: "24/7 AI receptionist that handles calls when you're unavailable."
-    },
-    {
-      icon: Bot,
-      title: "Website Chatbot",
-      description: "Advanced chatbot with database access for comprehensive customer support."
-    },
-    {
-      icon: Phone,
-      title: "AI Receptionist",
-      description: "Live and after-hours receptionist service for seamless customer experience."
+      title: "24/7 AI Receptionist",
+      description: "Never miss a revenue opportunity. Answer every call instantly, qualify leads, and book appointments 24/7."
     },
     {
       icon: Calendar,
-      title: "Appointment & Scheduling Assistant",
-      description: "Automated scheduling with calendar integration and reminder systems."
+      title: "Smart Scheduling & Appointments",
+      description: "Eliminate scheduling back-and-forth. Customers book instantly while you focus on serving them."
+    },
+    {
+      icon: Bot,
+      title: "Intelligent Lead Qualification",
+      description: "Stop wasting time on unqualified leads. Our AI identifies high-value prospects automatically."
+    },
+    {
+      icon: Mail,
+      title: "Automated Email & Follow-Ups",
+      description: "Recover lost revenue from forgotten follow-ups. Every lead gets timely, personalized responses."
+    },
+    {
+      icon: Phone,
+      title: "Instant Quote Generation",
+      description: "Close deals faster. Provide accurate pricing immediately while competitors make customers wait."
+    },
+    {
+      icon: Bot,
+      title: "Website Chat Assistant",
+      description: "Convert more visitors into customers. Engage prospects instantly with answers they need to buy."
+    },
+    {
+      icon: Zap,
+      title: "Customer Satisfaction Tracking",
+      description: "Build loyalty automatically. Gather feedback and resolve issues before they become problems."
     },
     {
       icon: Settings,
-      title: "Custom Websites & Agents",
-      description: "Tailored website solutions and AI agents designed for your specific business needs."
+      title: "Custom Automation Solutions",
+      description: "Scale without hiring. We build AI agents tailored to your unique business workflows."
     }
   ];
 
@@ -93,7 +94,7 @@ export default function Home() {
   const faqs = [
     {
       question: "What exactly does CogNodes do for my business?",
-      answer: "We automate your business operations using AI-powered voice agents and chatbots. Our solutions handle customer inquiries, book appointments, manage workflows, and provide 24/7 support—helping you save time and resources while improving customer experience."
+      answer: "We automate your business operations using AI-powered voice agents and chatbots. Our solutions handle customer inquiries, book appointments, manage workflows, and provide 24/7 support. This helps you save time and resources while improving customer experience."
     },
     {
       question: "How do you ensure the AI provides accurate and reliable service?",
@@ -113,7 +114,7 @@ export default function Home() {
     },
     {
       question: "What kind of support and training do you provide?",
-      answer: "We provide comprehensive support throughout your journey—from initial setup to ongoing optimization. You'll receive detailed performance reports, regular system adjustments, and continuous support to ensure everything runs smoothly for your business."
+      answer: "We provide comprehensive support throughout your journey, from initial setup to ongoing optimization. You'll receive detailed performance reports, regular system adjustments, and continuous support to ensure everything runs smoothly for your business."
     },
     {
       question: "Can I customize the AI to match my brand voice and style?",
@@ -147,31 +148,32 @@ export default function Home() {
       />
       
       {/* Hero Section with Typing Effect */}
-      <section className="relative pt-32 sm:pt-40 lg:pt-52 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: '#0d133b' }}>
+      <section className="relative pt-32 sm:pt-40 lg:pt-52 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden overflow-y-visible" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left side - Text and buttons */}
-            <div className="text-left relative z-10">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6">
+            {/* Left side - Text (no buttons on mobile) */}
+            <div className="text-left relative z-10 lg:order-1">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-6">
                 Make your business more{' '}
                 <span className="text-cn-blue-400">
                   {currentText}
                   <span className="animate-pulse">|</span>
                 </span>
               </h1>
-              <p className="text-base sm:text-lg text-gray-300 max-w-2xl mb-6 sm:mb-8">
-                Focus on growing your business, while our<br className="hidden sm:block" />AI Receptionist & Sales Agent handle<br className="hidden sm:block" />inbound and outbound calls.
+              <p className="text-base sm:text-lg text-gray-300 max-w-2xl mb-2 sm:mb-8">
+                Focus on growing your business while our<br className="hidden sm:block" />intelligent AI agents automate the repetitive<br className="hidden sm:block" />tasks that slow you down.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <a
-                  href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
+              {/* Buttons shown on desktop only */}
+              <div className="hidden lg:flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Link
+                  href="/solution-finder"
                   className="btn-primary inline-flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
                 >
                   Learn More
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
+                </Link>
                 <a
-                  href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
+                  href="https://calendly.com/cognodes/discovery-call"
                   className="btn-secondary inline-flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
                 >
                   Book a Call
@@ -181,26 +183,45 @@ export default function Home() {
             </div>
             
             {/* Hero Image */}
-            <div className="relative lg:col-span-1 flex items-center justify-center">
-              <div className="relative w-full max-w-lg h-full flex items-center justify-center">
-                <div className="relative">
-                  <Image
-                    src="/CogNodes Graphics.png"
-                    alt="CogNodes Dashboard Graphics"
-                    width={1200}
-                    height={1200}
-                    className="w-full h-auto object-contain"
-                    style={{ 
-                      maxHeight: '800px',
-                      transform: 'scale(2.024) translateX(-5%) translateX(-10px)'
-                    }}
-                    priority
-                    quality={100}
-                    unoptimized={true}
-                  />
+            <div className="relative lg:col-span-1 flex items-center justify-center lg:order-2 overflow-visible my-0 lg:my-0">
+              <div className="relative w-full h-full flex items-center justify-center overflow-visible">
+                <div className="relative overflow-visible">
+                  <div className="lg:hidden w-full flex justify-center">
+                    <Image
+                      src="/CogNodes Graphics.png"
+                      alt="CogNodes Dashboard Graphics"
+                      width={1200}
+                      height={1200}
+                      className="h-auto object-contain"
+                      style={{
+                        maxHeight: 'none',
+                        width: '130%',
+                        maxWidth: '130%'
+                      }}
+                      priority
+                      quality={100}
+                      unoptimized={true}
+                    />
+                  </div>
+                  <div className="hidden lg:block">
+                    <Image
+                      src="/CogNodes Graphics.png"
+                      alt="CogNodes Dashboard Graphics"
+                      width={1200}
+                      height={1200}
+                      className="w-full h-auto object-contain"
+                      style={{ 
+                        maxHeight: '800px',
+                        transform: 'scale(2.024) translateX(-5%) translateX(-10px)'
+                      }}
+                      priority
+                      quality={100}
+                      unoptimized={true}
+                    />
+                  </div>
                   {/* Bottom gradient fade overlay - positioned directly on the image */}
                   <div 
-                    className="absolute left-0 right-0 h-32 bg-gradient-to-t from-cn-navy-900 to-transparent pointer-events-none"
+                    className="absolute left-0 right-0 h-32 bg-gradient-to-t from-cn-navy-900 to-transparent pointer-events-none lg:block hidden"
                     style={{
                       background: 'linear-gradient(to top, var(--cn-navy-900), transparent)',
                       bottom: '-100px',
@@ -211,13 +232,31 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            
+            {/* Buttons shown on mobile only - below image */}
+            <div className="lg:hidden flex flex-col gap-3 lg:order-3">
+              <Link
+                href="/solution-finder"
+                className="btn-primary inline-flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
+              >
+                Learn More
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              </Link>
+              <a
+                href="https://calendly.com/cognodes/discovery-call"
+                className="btn-secondary inline-flex items-center justify-center text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
+              >
+                Book a Call
+                <Phone className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto relative">
           {/* Left gradient fade - positioned at outer edge of content boundaries */}
           <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style={{ 
@@ -275,43 +314,80 @@ export default function Home() {
       </section>
 
       {/* Desktop & Phoner Image with Text */}
-      <section className="pt-20 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="pt-12 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden overflow-y-visible" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           {/* Centered Title */}
-          <div className="text-center mb-12 sm:mb-20">
-            <h2 className="heading-1 text-white mb-6">
-              Visualize your success.
+          <div className="text-center mb-2 sm:mb-20">
+            <h2 className="heading-1 text-white mb-2">
+              Track Your Growth in Real-Time
             </h2>
+            <p className="text-base sm:text-lg text-gray-300 max-w-4xl mx-auto">
+              We provide a personalized dashboard for your business (most competitors don't offer this)
+            </p>
           </div>
           
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
             {/* Image - Left 2/3 */}
-            <div className="relative lg:col-span-2">
-              <Image
-                src="/Logos/CogNodes Graphics (3).png"
-                alt="CogNodes Graphics"
-                width={1200}
-                height={900}
-                className="w-full h-auto object-cover rounded-2xl"
-                style={{ 
-                  objectPosition: 'center',
-                  transform: 'translateX(5%) translateX(-70px) scale(2.1) translateY(40px)',
-                  filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))'
-                }}
-                quality={100}
-                unoptimized={true}
-              />
+            <div className="relative lg:col-span-2 flex justify-center lg:justify-start overflow-visible my-0 lg:my-0">
+              <div className="relative overflow-visible w-full flex justify-center lg:justify-start">
+                <div className="lg:hidden w-full flex justify-center">
+                  <Image
+                    src="/Logos/CogNodes Graphics (3).png"
+                    alt="CogNodes Graphics"
+                    width={1200}
+                    height={900}
+                    className="h-auto object-cover rounded-2xl"
+                    style={{ 
+                      objectPosition: 'center',
+                      filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))',
+                      maxHeight: 'none',
+                      width: '225%',
+                      maxWidth: '225%'
+                    }}
+                    quality={100}
+                    unoptimized={true}
+                  />
+                </div>
+                <div className="hidden lg:block">
+                  <Image
+                    src="/Logos/CogNodes Graphics (3).png"
+                    alt="CogNodes Graphics"
+                    width={1200}
+                    height={900}
+                    className="h-auto object-cover rounded-2xl"
+                    style={{ 
+                      objectPosition: 'center',
+                      filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))',
+                      transform: 'translateX(5%) translateX(-70px) scale(2.1) translateY(40px)'
+                    }}
+                    quality={100}
+                    unoptimized={true}
+                  />
+                </div>
+              </div>
             </div>
             
             {/* Text - Right 1/3 */}
-            <div className="text-left relative z-10 lg:col-span-1 flex items-center" style={{ marginTop: '100px' }}>
+            <div className="text-left relative z-10 lg:col-span-1 flex items-center mt-0">
+              <style jsx>{`
+                @media (min-width: 1024px) {
+                  .text-left {
+                    margin-top: 100px;
+                  }
+                }
+                @media (max-width: 1023px) {
+                  .text-left {
+                    margin-top: 0;
+                  }
+                }
+              `}</style>
               <div className="rounded-2xl p-6 sm:p-8 border border-gray-600/30 backdrop-blur-sm" style={{ 
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
                 backgroundColor: '#0e143e'
               }}>
                 <p className="text-base sm:text-lg text-gray-300">
-                  <span className="font-bold text-white">Unlike competitors</span> who offer generic solutions, we provide a truly personalized dashboard that adapts to your specific business needs. Your dashboard tracks every agent&apos;s performance, showing real-time impact on your business growth and customer satisfaction metrics.
+                  <span className="font-bold text-white">Most AI services don't provide dashboards. We do.</span> Track every call, email, and interaction in real-time. See exactly which AI agents are driving revenue, where leads come from, and how much time you&apos;re saving. Monitor performance metrics that matter to your unique operations.
                 </p>
               </div>
             </div>
@@ -319,13 +395,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Savings Assessment Funnel */}
+      <SavingsAssessment />
+
       {/* Workflow Section */}
-      <section className="pt-20 sm:pt-32 lg:pt-48 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="heading-1 text-white mb-6">Complete AI Workflow Process</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              See exactly how our AI automation works with this visual workflow
+            <h2 className="heading-1 text-white mb-6">How We Turn Leads Into Revenue</h2>
+            <p className="text-base sm:text-lg text-gray-300 max-w-4xl mx-auto">
+              From first contact to closed deal, our AI captures and converts every opportunity
             </p>
           </div>
         
@@ -383,14 +462,14 @@ export default function Home() {
       </section>
 
       {/* AI vs Traditional Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-6 sm:py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="heading-1 text-white mb-6">
-              CogNodes AI vs. Traditional Hiring
+              Why Businesses Choose AI Over Hiring
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              See why AI automation is the smarter choice for modern businesses
+              Compare the economics: pay a fraction of the cost while getting better results
             </p>
           </div>
         
@@ -409,11 +488,11 @@ export default function Home() {
             </div>
             <div className="space-y-5 lg:space-y-6">
               {[
-                "24/7, never off duty",
-                "Instant replies, no hold time", 
-                "Low cost, no salaries or training",
-                "Handles unlimited calls",
-                "100% accurate, no mood swings"
+                "24/7 availability, never calls in sick",
+                "Answer instantly, zero hold time", 
+                "Fraction of the cost of hiring",
+                "Handle unlimited calls simultaneously",
+                "Consistent quality, every interaction"
               ].map((item, index) => (
                 <div key={index} className="flex items-center space-x-4">
                   <CheckCircle className="w-6 h-6 lg:w-7 lg:h-7 text-cn-blue-400 flex-shrink-0" />
@@ -457,7 +536,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="heading-1 text-white mb-6">What Our Clients Say</h2>
@@ -481,7 +560,7 @@ export default function Home() {
                 </div>
               </div>
             <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-              &ldquo;The AI receptionist handles our after-hours calls perfectly. We never miss a lead anymore, and the quote generation feature has streamlined our entire sales process. Customer satisfaction is up 50% and we&apos;re closing deals faster than ever.&rdquo;
+              &ldquo;We were missing about 30% of calls during busy season. The AI receptionist answers every call now, even when we&apos;re on job sites. It books appointments directly into our calendar and follows up automatically. We&apos;re capturing leads we would have lost before.&rdquo;
             </p>
               <div className="flex text-cn-blue-400">
                 {[...Array(5)].map((_, i) => (
@@ -506,7 +585,7 @@ export default function Home() {
                 </div>
               </div>
             <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-              &ldquo;Managing multiple hotels meant endless scheduling, guest communications, and internal reporting headaches. Preston&apos;s team built us a system that centralized everything—automated confirmations, staff scheduling, and even analytics dashboards. The result has been fewer errors, faster response times, and happier guests. It&apos;s transformed how smoothly our properties operate.&rdquo;
+              &ldquo;Managing guest communications across multiple properties was overwhelming. The automated system handles booking confirmations, check-in reminders, and follow-ups seamlessly. Our staff can focus on in-person service, and guests appreciate the quick, consistent responses.&rdquo;
             </p>
               <div className="flex text-cn-pink-400">
                 {[...Array(5)].map((_, i) => (
@@ -531,7 +610,7 @@ export default function Home() {
                 </div>
               </div>
             <p className="text-gray-300 text-sm sm:text-base mb-3 sm:mb-4">
-              &ldquo;Running a busy restaurant is nonstop, but Preston&apos;s solutions gave us breathing room. Online reservations sync automatically with staff schedules, inventory updates happen in real-time, and customer feedback is tracked without extra effort. What used to feel chaotic now runs like clockwork, and our team can focus on creating a better dining experience.&rdquo;
+              &ldquo;During dinner rush, we couldn&apos;t always answer the phone for reservations. Now the system handles booking requests automatically and sends confirmations. We&apos;re filling more tables without the chaos, and our staff can stay focused on the guests in front of them.&rdquo;
             </p>
               <div className="flex text-cn-lavender-400">
                 {[...Array(5)].map((_, i) => (
@@ -548,7 +627,7 @@ export default function Home() {
 
 
       {/* FAQ Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="heading-1 text-white mb-6">Questions You May Have</h2>
@@ -587,14 +666,14 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="heading-1 text-white mb-6">
-            Let&apos;s talk, book a free consultation.
+            Ready to Capture More Leads and Save Time?
           </h2>
           
-          <p className="text-lg text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto">
-            See how your business transforms with AI automation.
+          <p className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto">
+            Book a free consultation and we&apos;ll show you exactly how much you could save
           </p>
           
           <div className="flex justify-center mb-6 sm:mb-8">
@@ -607,10 +686,10 @@ export default function Home() {
           </div>
           
           <a
-            href="https://calendly.com/d/cwks-6jg-sss/discovery-call"
+            href="https://calendly.com/cognodes/discovery-call"
             className="btn-primary inline-flex items-center justify-center text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
           >
-            Book a Call
+            Get Your Free Consultation
             <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
           </a>
         </div>
