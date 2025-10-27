@@ -224,7 +224,7 @@ export default function Home() {
                     className="absolute left-0 right-0 h-32 bg-gradient-to-t from-cn-navy-900 to-transparent pointer-events-none lg:block hidden"
                     style={{
                       background: 'linear-gradient(to top, var(--cn-navy-900), transparent)',
-                      bottom: '-100px',
+                      bottom: '-164px',
                       transform: 'scale(2.024) translateX(-5%) translateX(-10px)',
                       transformOrigin: 'bottom center'
                     }}
