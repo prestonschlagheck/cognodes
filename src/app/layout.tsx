@@ -30,10 +30,10 @@ export const metadata = {
     description: 'Transform your service-based business with AI automation. Make more money and optimize workflows with intelligent automation solutions.',
     images: [
       {
-        url: '/logos/CN-W_B-Full.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'CogNodes Logo',
+        alt: 'CogNodes - AI-Powered Business Automation',
       },
     ],
   },
@@ -41,7 +41,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'CogNodes - AI-Powered Business Automation Solutions',
     description: 'Transform your service-based business with AI automation. Make more money and optimize workflows with intelligent automation solutions.',
-    images: ['/logos/CN-W_B-Full.png'],
+    images: ['/og-image.png'],
   },
   verification: {
     google: 'your-google-verification-code', // Replace with actual verification code
