@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Bot, Mail, Calendar, MessageSquare, Clock, Zap, DollarSign, Users, Shield, CheckCircle, Star, Phone, Headphones, BarChart3, Settings, ChevronDown, CalendarDays, Workflow, Code } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import SavingsAssessment from './components/SavingsAssessment';
 
 export default function Home() {
@@ -11,6 +11,8 @@ export default function Home() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const heroMediaRef = useRef<HTMLDivElement | null>(null);
+  const growthMediaRef = useRef<HTMLDivElement | null>(null);
   
   useEffect(() => {
     const words = ['efficient', 'automated', 'money'];
@@ -39,6 +41,58 @@ export default function Home() {
     
     return () => clearTimeout(timeout);
   }, [currentText, currentWordIndex, isDeleting]);
+
+  useEffect(() => {
+    const sections = [heroMediaRef.current, growthMediaRef.current].filter(
+      (element): element is HTMLDivElement => Boolean(element)
+    );
+
+    const cleanups = sections.map((element) => {
+      let touchStartY = 0;
+
+      const rerouteScroll = (deltaY: number) => {
+        window.scrollBy({
+          top: deltaY,
+          behavior: 'auto'
+        });
+      };
+
+      const handleWheel = (event: WheelEvent) => {
+        if (!element.contains(event.target as Node)) return;
+        rerouteScroll(event.deltaY);
+        event.preventDefault();
+      };
+
+      const handleTouchStart = (event: TouchEvent) => {
+        touchStartY = event.touches[0]?.clientY ?? 0;
+      };
+
+      const handleTouchMove = (event: TouchEvent) => {
+        if (!element.contains(event.target as Node)) return;
+        const currentY = event.touches[0]?.clientY ?? 0;
+        const deltaY = touchStartY - currentY;
+        if (Math.abs(deltaY) > 0) {
+          rerouteScroll(deltaY);
+          event.preventDefault();
+        }
+        touchStartY = currentY;
+      };
+
+      element.addEventListener('wheel', handleWheel, { passive: false });
+      element.addEventListener('touchstart', handleTouchStart, { passive: true });
+      element.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+      return () => {
+        element.removeEventListener('wheel', handleWheel);
+        element.removeEventListener('touchstart', handleTouchStart);
+        element.removeEventListener('touchmove', handleTouchMove);
+      };
+    });
+
+    return () => {
+      cleanups.forEach((cleanup) => cleanup());
+    };
+  }, []);
   
   const features = [
     {
@@ -148,7 +202,7 @@ export default function Home() {
       />
       
       {/* Hero Section with Typing Effect */}
-      <section className="relative pt-32 sm:pt-40 lg:pt-52 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden overflow-y-visible" style={{ backgroundColor: '#0d133b' }}>
+      <section className="relative pt-32 sm:pt-40 lg:pt-52 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left side - Text (no buttons on mobile) */}
@@ -184,7 +238,10 @@ export default function Home() {
             
             {/* Hero Image */}
             <div className="relative lg:col-span-1 flex items-center justify-center lg:order-2 overflow-visible my-0 lg:my-0">
-              <div className="relative w-full h-full flex items-center justify-center overflow-visible">
+              <div
+                className="relative w-full h-full flex items-center justify-center overflow-visible scroll-lock-target"
+                ref={heroMediaRef}
+              >
                 <div className="relative overflow-visible">
                   <div className="lg:hidden w-full flex justify-center">
                     <Image
@@ -195,8 +252,10 @@ export default function Home() {
                       className="h-auto object-contain"
                       style={{
                         maxHeight: 'none',
-                        width: '130%',
-                        maxWidth: '130%'
+                      width: '100%',
+                      maxWidth: '100%',
+                      transform: 'scale(1.3)',
+                      transformOrigin: 'center'
                       }}
                       priority
                       quality={100}
@@ -314,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* Desktop & Phoner Image with Text */}
-      <section className="pt-12 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden overflow-y-visible" style={{ backgroundColor: '#0d133b' }}>
+      <section className="pt-12 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: '#0d133b' }}>
         <div className="max-w-7xl mx-auto">
           {/* Centered Title */}
           <div className="text-center mb-2 sm:mb-20">
@@ -329,7 +388,10 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
             {/* Image - Left 2/3 */}
             <div className="relative lg:col-span-2 flex justify-center lg:justify-start overflow-visible my-0 lg:my-0">
-              <div className="relative overflow-visible w-full flex justify-center lg:justify-start">
+              <div
+                className="relative overflow-visible w-full flex justify-center lg:justify-start scroll-lock-target"
+                ref={growthMediaRef}
+              >
                 <div className="lg:hidden w-full flex justify-center">
                   <Image
                     src="/Logos/CogNodes Graphics (3).png"
@@ -341,8 +403,10 @@ export default function Home() {
                       objectPosition: 'center',
                       filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))',
                       maxHeight: 'none',
-                      width: '225%',
-                      maxWidth: '225%'
+                      width: '100%',
+                      maxWidth: '100%',
+                      transform: 'scale(2.25)',
+                      transformOrigin: 'center'
                     }}
                     quality={100}
                     unoptimized={true}
