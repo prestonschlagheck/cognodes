@@ -73,6 +73,19 @@ body {
   letter-spacing: -0.01em;
 }
 
+body:not(.dashboard-page) {
+  overflow-x: hidden;
+}
+
+.scroll-lock-target {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-lock-target::-webkit-scrollbar {
+  display: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
