@@ -13,7 +13,7 @@ const services = [
   },
   {
     id: "automation",
-    title: "Workflow Automation",
+    title: "Workflow Automations",
     description: "Eliminate repetitive tasks and free your team to focus on what matters. Custom automation pipelines that save time, reduce errors, and scale.",
     features: ["N8N", "API INTEGRATIONS", "CUSTOM PIPELINES", "REAL-TIME TRIGGERS"],
     accent: "var(--accent-purple)",
@@ -21,7 +21,7 @@ const services = [
   },
   {
     id: "ai",
-    title: "AI Integration",
+    title: "AI Integrations",
     description: "Add intelligence to your product without complexity. We implement LLM pipelines, conversational agents, and autonomous workflows that deliver real value.",
     features: ["SMART ASSISTANTS", "RAG SYSTEMS", "VOICE AI", "AGENT ORCHESTRATION"],
     accent: "var(--accent-pink)",

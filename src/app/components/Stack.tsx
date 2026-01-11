@@ -259,7 +259,7 @@ export default function Stack() {
         }
         @media (max-width: 768px) {
           .mobile-heading-large {
-            font-size: calc(var(--font-h1) * 2) !important;
+            font-size: calc(var(--font-h2) * 2) !important;
             line-height: var(--leading-tight) !important;
           }
         }
