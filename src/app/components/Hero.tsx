@@ -10,7 +10,7 @@ export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [animationPhase, setAnimationPhase] = useState<'idle' | 'animating' | 'swapping'>('idle');
+  const [isAnimating, setIsAnimating] = useState(false);
   const nextWordIndex = (currentWordIndex + 1) % morphWords.length;
 
   useEffect(() => {
@@ -39,25 +39,18 @@ export default function Hero() {
     };
   }, []);
 
-  // Word morphing animation - wheel style
+  // Word morphing animation - continuous wheel style
   useEffect(() => {
     const interval = setInterval(() => {
-      // Phase 1: Start animation (current slides down, next slides in from top)
-      setAnimationPhase('animating');
+      // Start animation
+      setIsAnimating(true);
       
-      // Phase 2: After animation completes, swap indices without transition
+      // After animation completes, update index and reset
       setTimeout(() => {
-        setAnimationPhase('swapping');
         setCurrentWordIndex(prev => (prev + 1) % morphWords.length);
-        
-        // Phase 3: Re-enable transitions after swap completes
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            setAnimationPhase('idle');
-          });
-        });
+        setIsAnimating(false);
       }, 500);
-    }, 3000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, []);
@@ -195,9 +188,9 @@ export default function Hero() {
                     position: 'absolute',
                     right: 0,
                     top: '50%',
-                    transform: animationPhase === 'animating' ? 'translateY(calc(-50% + 100%))' : 'translateY(-50%)',
-                    opacity: animationPhase === 'animating' ? 0 : 1,
-                    transition: animationPhase === 'swapping' ? 'none' : 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease',
+                    transform: isAnimating ? 'translateY(calc(-50% + 100%))' : 'translateY(-50%)',
+                    opacity: isAnimating ? 0 : 1,
+                    transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease',
                   }}
                 >
                   {morphWords[currentWordIndex]}
@@ -210,9 +203,9 @@ export default function Hero() {
                     position: 'absolute',
                     right: 0,
                     top: '50%',
-                    transform: animationPhase === 'animating' ? 'translateY(-50%)' : 'translateY(calc(-50% - 100%))',
-                    opacity: animationPhase === 'animating' ? 1 : 0,
-                    transition: animationPhase === 'swapping' ? 'none' : 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease',
+                    transform: isAnimating ? 'translateY(-50%)' : 'translateY(calc(-50% - 100%))',
+                    opacity: isAnimating ? 1 : 0,
+                    transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease',
                   }}
                 >
                   {morphWords[nextWordIndex]}
