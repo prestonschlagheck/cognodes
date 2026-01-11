@@ -837,6 +837,7 @@ export default function Ventures() {
           </h2>
           <p className="section-subtitle labs-subtitle">
             <span className="labs-line">We don&apos;t just build for clients.</span>
+            <span className="labs-space"> </span>
             <span className="labs-line">We create products we believe in.</span>
           </p>
         </div>
@@ -998,6 +999,9 @@ export default function Ventures() {
           }
           .labs-line {
             display: block !important;
+          }
+          .labs-space {
+            display: none !important;
           }
           .venture-title,
           .mobile-heading-large {
