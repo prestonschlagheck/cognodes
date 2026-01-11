@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: 'We design and build AI-powered software for startups and businesses. Websites, automation, and AI integration. Premium quality at startup prices.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/socialsharing.jpeg',
         width: 1200,
         height: 630,
         alt: 'CogNodes - Build With Us',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CogNodes - Build With Us',
     description: 'We design and build AI-powered software for startups and businesses. Websites, automation, and AI integration. Premium quality at startup prices.',
-    images: ['/og-image.png'],
+    images: ['/socialsharing.jpeg'],
   },
 };
 
