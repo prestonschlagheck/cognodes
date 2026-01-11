@@ -1,80 +1,105 @@
-# DJH Website
+# CogNodes
 
-A Next.js website for Direct Journey Line Holdings, featuring truck parking infrastructure and company information.
+A modern, responsive marketing website for CogNodes - a startup studio building AI-powered software for startups and businesses.
 
-## Brand Colors
+## Tech Stack
 
-The website uses the following brand color scheme:
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + CSS Variables
+- **Deployment**: Vercel
 
-### DJH Colors
-- **Primary**: `#000000` (Black)
-- **Light**: `#f5f5f5` (Light Gray)
-- **Dark**: `#011b34` (Navy)
+## Project Structure
 
-### Riggy's Colors
-- **Green**: `#74d603` (Riggy's Green)
-- **Navy**: `#011b34` (Riggy's Navy)
+```
+├── src/app/
+│   ├── components/        # React components
+│   │   ├── Hero.tsx       # Hero section with animated word morphing
+│   │   ├── Navigation.tsx # Collapsible navigation bar
+│   │   ├── Services.tsx   # "What We Build" service cards
+│   │   ├── Ventures.tsx   # "CogNodes Labs" product showcases
+│   │   ├── Stack.tsx      # Technology toolkit section
+│   │   ├── WhyUs.tsx      # "What Makes Us Different" section
+│   │   ├── Contact.tsx    # Contact form section
+│   │   └── Footer.tsx     # Site footer
+│   ├── globals.css        # Global styles & CSS variables
+│   ├── layout.tsx         # Root layout with metadata
+│   └── page.tsx           # Main landing page
+├── public/
+│   ├── og-image.png       # Open Graph social sharing image
+│   ├── robots.txt         # Search engine directives
+│   └── sitemap.xml        # XML sitemap
+├── tailwind.config.ts     # Tailwind configuration
+├── next.config.mjs        # Next.js configuration
+├── vercel.json            # Vercel deployment settings
+└── package.json           # Dependencies & scripts
+```
 
-### Journeyline Properties Colors
-- **Blue**: `#2563eb` (JP Blue)
+## Features
 
-### Truckbays Colors
-- **Blue**: `#2563eb` (Same blue as JP)
+### Hero Section
+- Animated word morphing ("Scale", "Ship", "Build")
+- Interactive blueprint grid that follows cursor
+- Responsive design for all screen sizes
 
-## Logo Requirements
+### Navigation
+- Collapsible navigation bar that shrinks on scroll
+- Dynamic "LABS" badge when viewing the Labs section
+- Smooth animations and transitions
 
-The following logos have been integrated into the website:
+### Services ("What We Build")
+- Four service categories: Full-Stack Products, AI Integration, Workflow Automation, Websites & Web Apps
+- Animated mockup previews for each service
+- Alternating layout on mobile for visual variety
 
-### DJH Logos
-- **Navigation & Footer**: Uses `djh-white.png` (transparent background, white logo)
-- **Hero Section**: Uses `djh-full-white.png` (full company name, white logo)
-- **Company Pages**: Uses `djh-full-white.png` in headers
-- **Company Cards**: Uses `djh-full-black.png` (full company name, black logo)
+### CogNodes Labs
+- Showcases internal products: Diffuse.AI and Runbook
+- Interactive animated mockups
+- Project status indicators
 
-### Riggy's Logo
-- **Current**: Uses `riggys-original.jpg` (original image with background)
-- **Required**: Remove background and make logo white for better integration
-
-### Logo Processing Needed
-For the Riggy's logo (`riggys-truck-parking.jpg`):
-1. Remove the background completely
-2. Make the logo elements white
-3. Save as PNG with transparent background
-4. Use the new file in place of `riggys-original.jpg`
-
-## Color Usage by Page
-
-### Main Page
-- **Hero Section**: DJH full white logo
-- **Brand Logos**: Company cards with respective brand colors
-- **Why Work With Us**: DJH black and Riggy's green accents
-
-### Riggy's Page
-- **Header**: Riggy's green (`#74d603`) background
-- **Text**: Riggy's navy (`#011b34`) for headings
-- **Accents**: Riggy's green for icons and highlights
-
-### Journeyline Properties Page
-- **Header**: JP blue (`#2563eb`) background
-- **Accents**: JP blue for icons, buttons, and highlights
-
-### Truckbays Page
-- **Header**: Truckbays blue (`#2563eb`) background
-- **Accents**: Truckbays blue for icons, buttons, and highlights
-
-### Truck Parking Page
-- **Header**: Riggy's green (`#74d603`) background
-- **Text**: Riggy's navy (`#011b34`) for headings
-- **Accents**: Riggy's green for icons and highlights
+### Additional Sections
+- Technology stack showcase with rotating logos
+- "What Makes Us Different" value propositions
+- Contact section with direct email links
 
 ## Development
 
-This is a Next.js 14 project with TypeScript and Tailwind CSS.
-
-### Running Locally
 ```bash
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+
+# Run linting
+npm run lint
 ```
 
-The website will be available at `http://localhost:3000`
+## Design System
+
+The project uses CSS variables for consistent theming:
+
+- **Colors**: Dark theme with blue (`--accent-blue`), purple (`--accent-purple`), and pink (`--accent-pink`) accents
+- **Typography**: System font stack with variable font sizes
+- **Spacing**: 4px-based spacing scale
+- **Border Radius**: Standardized 4px corners
+
+## Deployment
+
+The site is configured for deployment on Vercel:
+
+1. Push to GitHub
+2. Connect repository to Vercel
+3. Automatic deployments on push to main
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile responsive design
+- Progressive enhancement for animations
