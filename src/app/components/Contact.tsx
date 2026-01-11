@@ -17,7 +17,7 @@ export default function Contact() {
         >
           {/* Header */}
           <p className="section-label">Get in Touch</p>
-          <h2 className="section-title" style={{ marginBottom: 'var(--space-4)' }}>
+          <h2 className="section-title mobile-heading-large" style={{ marginBottom: 'var(--space-4)' }}>
             Let&apos;s build something
           </h2>
           <p 
@@ -88,6 +88,12 @@ export default function Contact() {
         }
         .subtitle-break-desktop {
           display: inline;
+        }
+        @media (max-width: 768px) {
+          .mobile-heading-large {
+            font-size: calc(var(--font-h2) * 2) !important;
+            line-height: var(--leading-tight) !important;
+          }
         }
         @media (max-width: 640px) {
           .contact-buttons {
