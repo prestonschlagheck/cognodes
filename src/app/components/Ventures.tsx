@@ -1003,6 +1003,7 @@ export default function Ventures() {
           .mobile-heading-large {
             font-size: calc(var(--font-h2) * 2) !important;
             line-height: var(--leading-tight) !important;
+            color: #ffffff !important;
           }
         }
       `}</style>

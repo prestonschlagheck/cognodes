@@ -98,6 +98,7 @@ function ReasonCard({ reason }: { reason: typeof reasons[0] }) {
         {/* Content */}
         <div className="reason-content" style={{ padding: 'var(--space-6) var(--space-8)' }}>
           <h3 
+            className="reason-title"
             style={{
               fontSize: 'var(--font-h2)',
               fontWeight: 'var(--weight-bold)',
@@ -169,6 +170,10 @@ export default function WhyUs() {
           .mobile-heading-large {
             font-size: calc(var(--font-h2) * 2) !important;
             line-height: var(--leading-tight) !important;
+            color: #ffffff !important;
+          }
+          .reason-title {
+            color: #ffffff !important;
           }
         }
       `}</style>
