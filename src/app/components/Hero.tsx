@@ -11,6 +11,7 @@ export default function Hero() {
   const [isHovering, setIsHovering] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [shouldTransition, setShouldTransition] = useState(true);
   const nextWordIndex = (currentWordIndex + 1) % morphWords.length;
 
   useEffect(() => {
@@ -42,13 +43,22 @@ export default function Hero() {
   // Word morphing animation - continuous wheel style
   useEffect(() => {
     const interval = setInterval(() => {
-      // Start animation
+      // Start animation (current slides down, next slides in)
       setIsAnimating(true);
       
-      // After animation completes, update index and reset
+      // After animation completes, swap indices without transition
       setTimeout(() => {
+        // Disable transitions for the swap
+        setShouldTransition(false);
         setCurrentWordIndex(prev => (prev + 1) % morphWords.length);
         setIsAnimating(false);
+        
+        // Re-enable transitions after the DOM updates
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setShouldTransition(true);
+          });
+        });
       }, 500);
     }, 2500);
 
@@ -190,7 +200,7 @@ export default function Hero() {
                     top: '50%',
                     transform: isAnimating ? 'translateY(calc(-50% + 100%))' : 'translateY(-50%)',
                     opacity: isAnimating ? 0 : 1,
-                    transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease',
+                    transition: shouldTransition ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease' : 'none',
                   }}
                 >
                   {morphWords[currentWordIndex]}
@@ -205,7 +215,7 @@ export default function Hero() {
                     top: '50%',
                     transform: isAnimating ? 'translateY(-50%)' : 'translateY(calc(-50% - 100%))',
                     opacity: isAnimating ? 1 : 0,
-                    transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease',
+                    transition: shouldTransition ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease' : 'none',
                   }}
                 >
                   {morphWords[nextWordIndex]}
