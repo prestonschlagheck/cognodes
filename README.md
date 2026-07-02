@@ -26,7 +26,7 @@ A modern, responsive marketing website for CogNodes - a startup studio building 
 │   ├── layout.tsx         # Root layout with metadata
 │   └── page.tsx           # Main landing page
 ├── public/
-│   ├── og-image.png       # Open Graph social sharing image
+│   ├── llms.txt           # Structured facts for AI agents
 │   ├── robots.txt         # Search engine directives
 │   └── sitemap.xml        # XML sitemap
 ├── tailwind.config.ts     # Tailwind configuration
