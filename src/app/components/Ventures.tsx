@@ -9,16 +9,16 @@ function VentureCard({ children, id }: { children: React.ReactNode; id?: string 
   useEffect(() => {
     const handleScroll = () => {
       if (!cardRef.current) return;
-      
+
       const rect = cardRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const cardCenter = rect.top + rect.height / 2;
       const screenCenter = windowHeight / 2;
-      
+
       const distanceFromCenter = Math.abs(cardCenter - screenCenter);
       const maxDistance = windowHeight * 0.35;
       const progress = Math.max(0, 1 - (distanceFromCenter / maxDistance));
-      
+
       setCenterProgress(progress);
     };
 
@@ -29,14 +29,14 @@ function VentureCard({ children, id }: { children: React.ReactNode; id?: string 
   }, []);
 
   const scale = 1 + (centerProgress * 0.1);
-  const shadowOpacity = centerProgress * 0.5;
+  const shadowOpacity = centerProgress * 0.12;
   const opacity = 0.7 + (centerProgress * 0.3);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       id={id}
-      className="venture-card"
+      className="venture-card mockup-dark"
       style={{
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-xl)',
@@ -85,7 +85,7 @@ function DiffuseMockup() {
   useEffect(() => {
     const text = stageTexts[step];
     const typingSpeed = step === 0 ? 30 : step === 1 ? 20 : 40;
-    
+
     const typingInterval = setInterval(() => {
       setCharIndex(prev => {
         if (prev < text.length) {
@@ -108,10 +108,10 @@ function DiffuseMockup() {
   }, []);
 
   const steps = ['Recording', 'Transcribing', 'Generating', 'Complete'];
-  const stepColors = ['var(--accent-blue)', 'var(--accent-purple)', 'var(--accent-pink)', 'var(--accent-blue)'];
+  const stepColors = ['var(--accent-blue)', 'var(--accent-blue)', 'var(--accent-blue)', 'var(--accent-blue)'];
 
   return (
-    <div style={{
+    <div className="mockup-dark" style={{
       width: '100%',
       height: '100%',
       background: 'var(--bg-elevated)',
@@ -119,37 +119,37 @@ function DiffuseMockup() {
       flexDirection: 'column',
     }}>
       {/* Browser header */}
-      <div style={{ 
-        padding: '10px 14px', 
-        background: 'var(--bg-card)', 
-        borderBottom: '1px solid var(--border-subtle)', 
-        display: 'flex', 
-        alignItems: 'center', 
-        gap: '8px' 
+      <div style={{
+        padding: '10px 14px',
+        background: 'var(--bg-card)',
+        borderBottom: '1px solid var(--border-subtle)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px'
       }}>
         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-pink)' }} />
         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-purple)' }} />
         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-blue)' }} />
-        <div style={{ 
-          marginLeft: '8px', 
-          flex: 1, 
-          background: 'var(--bg-base)', 
-          borderRadius: '4px', 
+        <div style={{
+          marginLeft: '8px',
+          flex: 1,
+          background: 'var(--bg-base)',
+          borderRadius: '4px',
           padding: '4px 10px',
           fontSize: '10px',
           color: 'var(--text-muted)',
           fontFamily: 'monospace',
         }}>
-          app.diffuse.ai/dashboard
+          diffuse.press
         </div>
       </div>
 
       {/* App content */}
       <div style={{ flex: 1, padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {/* Status bar with microphone */}
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
           gap: '12px',
           padding: '10px 12px',
           background: 'var(--bg-card)',
@@ -182,10 +182,10 @@ function DiffuseMockup() {
               ))}
             </div>
           ) : (
-            <div style={{ 
-              width: '10px', 
-              height: '10px', 
-              borderRadius: '50%', 
+            <div style={{
+              width: '10px',
+              height: '10px',
+              borderRadius: '50%',
               background: stepColors[step],
               animation: step < 3 ? 'pulse 1s infinite' : 'none',
             }} />
@@ -199,23 +199,23 @@ function DiffuseMockup() {
         </div>
 
         {/* Progress bar - synced with typing */}
-        <div style={{ 
-          height: '6px', 
-          background: 'var(--border-subtle)', 
+        <div style={{
+          height: '6px',
+          background: 'var(--border-subtle)',
           borderRadius: '3px',
           overflow: 'hidden',
         }}>
-          <div style={{ 
-            height: '100%', 
-            width: `${progress}%`, 
-            background: `linear-gradient(90deg, ${stepColors[step]}, var(--accent-purple))`,
+          <div style={{
+            height: '100%',
+            width: `${progress}%`,
+            background: stepColors[step],
             transition: 'width 0.05s linear',
             borderRadius: '3px',
           }} />
         </div>
 
         {/* Content area with typing */}
-        <div style={{ 
+        <div style={{
           flex: 1,
           minHeight: '156px',
           background: 'var(--bg-base)',
@@ -257,25 +257,25 @@ function DiffuseMockup() {
 
         {/* Action buttons */}
         <div style={{ display: 'flex', gap: '8px' }}>
-          <div style={{ 
+          <div style={{
             flex: 1,
-            height: '32px', 
-            background: step === 3 ? 'var(--accent-blue)' : 'var(--bg-card)', 
-            borderRadius: '4px', 
+            height: '32px',
+            background: step === 3 ? 'var(--accent-blue)' : 'var(--bg-card)',
+            borderRadius: '4px',
             border: `1px solid ${step === 3 ? 'var(--accent-blue)' : 'var(--border-subtle)'}`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '10px',
-            color: step === 3 ? 'white' : 'var(--text-muted)',
+            color: step === 3 ? '#0a0a0a' : 'var(--text-muted)',
             fontWeight: 500,
           }}>
             {step === 3 ? 'Publish Article' : step === 0 ? 'Stop Recording' : 'Processing...'}
           </div>
-          <div style={{ 
+          <div style={{
             width: '32px',
-            height: '32px', 
-            background: 'var(--bg-card)', 
+            height: '32px',
+            background: 'var(--bg-card)',
             borderRadius: '4px',
             border: '1px solid var(--border-subtle)',
             display: 'flex',
@@ -290,404 +290,269 @@ function DiffuseMockup() {
   );
 }
 
-// Full browser-style Runbook mockup - with slower, more organic equity curves
-function RunbookMockup() {
-  const [status, setStatus] = useState('analyzing');
-  const [returns, setReturns] = useState(12.4);
-  const [deployed, setDeployed] = useState(24.8);
-  const [holdings, setHoldings] = useState([
-    { name: 'Election 2026', allocation: 35, pnl: 8.2 },
-    { name: 'Rate Decision', allocation: 25, pnl: -2.1 },
-    { name: 'GDP Report', allocation: 20, pnl: 5.4 },
-  ]);
-  const [chartData1, setChartData1] = useState<number[]>([]);
-  const [chartData2, setChartData2] = useState<number[]>([]);
-  const [time, setTime] = useState(0);
+// Animated full-ring gauge used in the Mano Wellness mockup
+function ManoGauge({ pct, value, label, unit, color = 'var(--text-primary)' }: { pct: number; value: string; label: string; unit?: string; color?: string }) {
+  const clamped = Math.max(0, Math.min(100, pct));
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1, minWidth: 0, gap: '6px' }}>
+      <div style={{
+        fontSize: '8px',
+        letterSpacing: '0.12em',
+        color: 'var(--text-muted)',
+        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+      }}>
+        {label}
+      </div>
+      <div style={{ position: 'relative', width: '100%', maxWidth: '66px', aspectRatio: '1' }}>
+        <svg viewBox="0 0 100 100" style={{ width: '100%', height: '100%', display: 'block' }}>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="var(--border-default)" strokeWidth="8" />
+          <circle
+            cx="50"
+            cy="50"
+            r="42"
+            fill="none"
+            stroke={color}
+            strokeWidth="8"
+            strokeLinecap="round"
+            pathLength={100}
+            strokeDasharray={`${clamped} 100`}
+            transform="rotate(-90 50 50)"
+            style={{ transition: 'stroke-dasharray 0.6s ease' }}
+          />
+        </svg>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <span style={{ fontSize: '13px', fontWeight: 'var(--weight-bold)', color: 'var(--text-primary)', lineHeight: 1, whiteSpace: 'nowrap' }}>
+            {value}
+          </span>
+          {unit && <span style={{ fontSize: '7px', color: 'var(--text-muted)', marginTop: '2px' }}>{unit}</span>}
+        </div>
+      </div>
+    </div>
+  );
+}
 
-  // Initialize smooth chart data with more organic patterns
+// Mano Wellness mockup - animated fitness & recovery dashboard
+function ManoMockup() {
+  const [recovery, setRecovery] = useState(70);
+  const [strain, setStrain] = useState(8.4);
+  const [sleep, setSleep] = useState(7.25);
+  const [stages, setStages] = useState([31, 25, 39, 5]); // deep, rem, light, awake
+  const [week, setWeek] = useState([9, 5, 13, 7, 11, 6, 12]);
+  const [today, setToday] = useState(6);
+
   useEffect(() => {
-    const points = 40;
-    const initial1: number[] = [];
-    const initial2: number[] = [];
-    for (let i = 0; i < points; i++) {
-      // Use multiple sine waves at different frequencies for organic feel
-      const base1 = 50 + Math.sin(i * 0.15) * 12 + Math.sin(i * 0.07) * 6 + Math.sin(i * 0.23) * 4;
-      const base2 = 48 + Math.sin(i * 0.12 + 1.2) * 10 + Math.sin(i * 0.05 + 0.8) * 5 + Math.sin(i * 0.19 + 0.5) * 3;
-      initial1.push(base1);
-      initial2.push(base2);
-    }
-    setChartData1(initial1);
-    setChartData2(initial2);
+    const a = setInterval(() => setRecovery(v => Math.max(58, Math.min(88, v + (Math.random() - 0.5) * 14))), 1900);
+    const b = setInterval(() => setStrain(v => Math.max(4, Math.min(18, v + (Math.random() - 0.5) * 3.2))), 1900);
+    const c = setInterval(() => setSleep(v => Math.max(6.2, Math.min(8.3, v + (Math.random() - 0.5) * 0.9))), 2100);
+    const d = setInterval(() => {
+      const deep = 28 + Math.random() * 8;
+      const rem = 22 + Math.random() * 8;
+      const awake = 3 + Math.random() * 4;
+      const light = 100 - deep - rem - awake;
+      setStages([deep, rem, light, awake]);
+    }, 2000);
+    const e = setInterval(() => {
+      setWeek(prev => prev.map(() => 4 + Math.random() * 11));
+      setToday(t => (t + 1) % 7);
+    }, 1600);
+    return () => { clearInterval(a); clearInterval(b); clearInterval(c); clearInterval(d); clearInterval(e); };
   }, []);
 
-  useEffect(() => {
-    const states = ['analyzing', 'executing', 'complete', 'monitoring'];
-    let stateIndex = 0;
-
-    const stateInterval = setInterval(() => {
-      stateIndex = (stateIndex + 1) % states.length;
-      setStatus(states[stateIndex]);
-    }, 3500);
-
-    // Update returns smoothly - slower
-    const returnsInterval = setInterval(() => {
-      setReturns(prev => {
-        const change = (Math.random() - 0.45) * 0.15;
-        return Math.max(-5, Math.min(25, prev + change));
-      });
-    }, 400);
-
-    // Update deployed value - slower
-    const deployedInterval = setInterval(() => {
-      setDeployed(prev => {
-        const change = (Math.random() - 0.5) * 0.08;
-        return Math.max(20, Math.min(30, prev + change));
-      });
-    }, 500);
-
-    // Update holdings - slower
-    const holdingsInterval = setInterval(() => {
-      setHoldings(prev => prev.map(h => ({
-        ...h,
-        pnl: Math.max(-10, Math.min(15, h.pnl + (Math.random() - 0.5) * 0.15)),
-        allocation: Math.max(15, Math.min(45, h.allocation + (Math.random() - 0.5) * 0.4)),
-      })));
-    }, 600);
-
-    // Much slower chart animation for smooth movement
-    const chartInterval = setInterval(() => {
-      setTime(t => t + 1);
-    }, 120);
-
-    return () => {
-      clearInterval(stateInterval);
-      clearInterval(returnsInterval);
-      clearInterval(deployedInterval);
-      clearInterval(holdingsInterval);
-      clearInterval(chartInterval);
-    };
-  }, []);
-
-  // Update chart data with organic, non-predictable patterns
-  useEffect(() => {
-    if (chartData1.length === 0) return;
-    
-    setChartData1(prev => {
-      const newData = [...prev];
-      for (let i = 0; i < newData.length - 1; i++) {
-        newData[i] = newData[i + 1];
-      }
-      // Multiple overlapping sine waves with noise for organic movement
-      const t = time * 0.03;
-      const baseValue = 50 
-        + Math.sin(t * 2.1) * 10 
-        + Math.sin(t * 0.7 + 1.3) * 6 
-        + Math.sin(t * 3.7 + 2.1) * 3
-        + Math.sin(t * 0.3) * 8;
-      newData[newData.length - 1] = baseValue + (Math.random() - 0.5) * 1;
-      return newData;
-    });
-
-    setChartData2(prev => {
-      const newData = [...prev];
-      for (let i = 0; i < newData.length - 1; i++) {
-        newData[i] = newData[i + 1];
-      }
-      // Different wave pattern for second line
-      const t = time * 0.03;
-      const baseValue = 47 
-        + Math.sin(t * 1.8 + 0.5) * 8 
-        + Math.sin(t * 0.5 + 2.1) * 5 
-        + Math.sin(t * 2.9 + 1.1) * 3
-        + Math.sin(t * 0.4 + 0.7) * 6;
-      newData[newData.length - 1] = baseValue + (Math.random() - 0.5) * 1;
-      return newData;
-    });
-  }, [time]);
-
-  const statusColors: Record<string, string> = {
-    analyzing: 'var(--accent-purple)',
-    executing: 'var(--accent-blue)',
-    complete: 'var(--accent-pink)',
-    monitoring: 'var(--text-muted)',
-  };
-
-  const allData = [...chartData1, ...chartData2];
-  const minChart = Math.min(...allData) - 5;
-  const maxChart = Math.max(...allData) + 5;
-  const chartRange = maxChart - minChart || 1;
-
-  // Generate smooth SVG path with bezier curves
-  const generatePath = (data: number[]) => {
-    if (data.length < 2) return '';
-    
-    const points = data.map((v, i) => ({
-      x: (i / (data.length - 1)) * 200,
-      y: 60 - ((v - minChart) / chartRange) * 55
-    }));
-
-    let path = `M ${points[0].x} ${points[0].y}`;
-    
-    for (let i = 1; i < points.length; i++) {
-      const prev = points[i - 1];
-      const curr = points[i];
-      const tension = 0.35;
-      
-      const cp1x = prev.x + (curr.x - prev.x) * tension;
-      const cp1y = prev.y;
-      const cp2x = curr.x - (curr.x - prev.x) * tension;
-      const cp2y = curr.y;
-      
-      path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${curr.x} ${curr.y}`;
-    }
-    
-    return path;
-  };
+  const h = Math.floor(sleep);
+  const m = Math.round((sleep - h) * 60);
+  const stageColors = ['var(--accent-blue)', 'var(--accent-purple)', '#c2c2c8', 'var(--accent-pink)'];
+  const stageNames = ['Deep', 'REM', 'Light', 'Awake'];
 
   return (
-    <div style={{
-      width: '100%',
-      height: '100%',
-      background: 'var(--bg-void)',
-      display: 'flex',
-      flexDirection: 'column',
-    }}>
+    <div className="mockup-dark" style={{ width: '100%', height: '100%', background: 'var(--bg-elevated)', display: 'flex', flexDirection: 'column' }}>
       {/* Browser header */}
-      <div style={{ 
-        padding: '10px 14px', 
-        background: 'var(--bg-elevated)', 
-        borderBottom: '1px solid var(--border-subtle)', 
-        display: 'flex', 
-        alignItems: 'center', 
-        gap: '8px' 
+      <div style={{
+        padding: '10px 14px',
+        background: 'var(--bg-card)',
+        borderBottom: '1px solid var(--border-subtle)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
       }}>
         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-pink)' }} />
         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-purple)' }} />
         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-blue)' }} />
-        <div style={{ 
-          marginLeft: '8px', 
-          flex: 1, 
-          background: 'var(--bg-base)', 
-          borderRadius: '4px', 
+        <div style={{
+          marginLeft: '8px',
+          flex: 1,
+          background: 'var(--bg-base)',
+          borderRadius: '4px',
           padding: '4px 10px',
           fontSize: '10px',
           color: 'var(--text-muted)',
-          fontFamily: 'monospace',
+          fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
         }}>
-          app.runbook.com/portfolio
+          Mano Wellness · Fitness Coach
         </div>
       </div>
 
-      {/* Dashboard content */}
-      <div style={{ flex: 1, padding: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        {/* Top stats row */}
-        <div style={{ display: 'flex', gap: '8px' }}>
-          <div style={{ 
-            flex: 1, 
-            padding: '8px 10px', 
-            background: 'var(--bg-elevated)', 
-            borderRadius: '4px',
-            border: '1px solid var(--border-subtle)',
-          }}>
-            <div style={{ fontSize: '8px', color: 'var(--text-muted)', marginBottom: '2px', fontFamily: 'monospace' }}>STATUS</div>
-            <div style={{ 
-              fontSize: '10px', 
-              color: statusColors[status], 
-              fontWeight: 600,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-            }}>
-              <div style={{ 
-                width: '5px', 
-                height: '5px', 
-                borderRadius: '50%', 
-                background: statusColors[status],
-                animation: status !== 'complete' && status !== 'monitoring' ? 'pulse 1s infinite' : 'none',
-              }} />
-              {status.toUpperCase()}
-            </div>
-          </div>
-          <div style={{ 
-            flex: 1, 
-            padding: '8px 10px', 
-            background: 'var(--bg-elevated)', 
-            borderRadius: '4px',
-            border: '1px solid var(--border-subtle)',
-          }}>
-            <div style={{ fontSize: '8px', color: 'var(--text-muted)', marginBottom: '2px', fontFamily: 'monospace' }}>RETURNS</div>
-            <div style={{ 
-              fontSize: '10px', 
-              color: returns >= 0 ? 'var(--accent-blue)' : 'var(--accent-pink)', 
-              fontWeight: 600,
-              fontFamily: 'monospace',
-            }}>
-              {returns >= 0 ? '+' : ''}{returns.toFixed(1)}%
-            </div>
-          </div>
-          <div style={{ 
-            flex: 1, 
-            padding: '8px 10px', 
-            background: 'var(--bg-elevated)', 
-            borderRadius: '4px',
-            border: '1px solid var(--border-subtle)',
-          }}>
-            <div style={{ fontSize: '8px', color: 'var(--text-muted)', marginBottom: '2px', fontFamily: 'monospace' }}>DEPLOYED</div>
-            <div style={{ 
-              fontSize: '10px', 
-              color: 'var(--accent-purple)', 
-              fontWeight: 600,
-              fontFamily: 'monospace',
-            }}>
-              ${deployed.toFixed(1)}K
-            </div>
-          </div>
+      {/* Dashboard */}
+      <div style={{ flex: 1, padding: '14px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {/* Ring gauges */}
+        <div style={{
+          display: 'flex',
+          gap: '8px',
+          padding: '10px 6px 6px',
+          background: 'var(--bg-card)',
+          border: '1px solid var(--border-subtle)',
+          borderRadius: '4px',
+        }}>
+          <ManoGauge label="RECOVERY" pct={recovery} value={`${Math.round(recovery)}%`} color="var(--accent-blue)" />
+          <ManoGauge label="STRAIN" pct={(strain / 21) * 100} value={strain.toFixed(1)} color="var(--accent-purple)" />
+          <ManoGauge label="SLEEP" pct={(sleep / 8) * 100} value={`${h}h ${m}m`} color="var(--accent-pink)" />
         </div>
 
-        {/* Dual equity curve chart */}
-        <div style={{ 
-          flex: 1,
-          background: 'var(--bg-elevated)',
-          borderRadius: '4px',
+        {/* Sleep stages */}
+        <div style={{
+          background: 'var(--bg-card)',
           border: '1px solid var(--border-subtle)',
-          padding: '10px',
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: '80px',
+          borderRadius: '4px',
+          padding: '10px 12px',
         }}>
-          <div style={{ 
-            fontSize: '8px', 
-            color: 'var(--text-muted)', 
-            marginBottom: '6px', 
-            fontFamily: 'monospace',
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}>
-            <span>EQUITY CURVES</span>
-            <span style={{ display: 'flex', gap: '8px' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-                <span style={{ width: '8px', height: '2px', background: 'var(--accent-blue)', borderRadius: '1px' }} />
-                Portfolio
-              </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-                <span style={{ width: '8px', height: '2px', background: 'var(--accent-purple)', borderRadius: '1px' }} />
-                Benchmark
-              </span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+            <span style={{ fontSize: '8px', letterSpacing: '0.12em', color: 'var(--text-muted)', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace' }}>
+              SLEEP STAGES
+            </span>
+            <span style={{ fontSize: '8px', color: 'var(--text-muted)', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace' }}>
+              {h}h {m}m
             </span>
           </div>
-          <div style={{ 
-            flex: 1, 
-            position: 'relative',
-            minHeight: '60px',
-          }}>
-            <svg 
-              width="100%" 
-              height="100%" 
-              viewBox="0 0 200 60" 
-              preserveAspectRatio="none"
-              style={{ position: 'absolute', top: 0, left: 0 }}
-            >
-              <defs>
-                <linearGradient id="chartGradient1" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="var(--accent-blue)" stopOpacity="0.3"/>
-                  <stop offset="100%" stopColor="var(--accent-blue)" stopOpacity="0"/>
-                </linearGradient>
-                <linearGradient id="chartGradient2" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="var(--accent-purple)" stopOpacity="0.2"/>
-                  <stop offset="100%" stopColor="var(--accent-purple)" stopOpacity="0"/>
-                </linearGradient>
-              </defs>
-              
-              {/* Second line area (behind) */}
-              {chartData2.length > 1 && (
-                <>
-                  <path
-                    d={`${generatePath(chartData2)} L 200 60 L 0 60 Z`}
-                    fill="url(#chartGradient2)"
-                  />
-                  <path
-                    d={generatePath(chartData2)}
-                    fill="none"
-                    stroke="var(--accent-purple)"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    opacity="0.7"
-                  />
-                </>
-              )}
-              
-              {/* First line area (front) */}
-              {chartData1.length > 1 && (
-                <>
-                  <path
-                    d={`${generatePath(chartData1)} L 200 60 L 0 60 Z`}
-                    fill="url(#chartGradient1)"
-                  />
-                  <path
-                    d={generatePath(chartData1)}
-                    fill="none"
-                    stroke="var(--accent-blue)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  {/* Current point indicator */}
-                  <circle
-                    cx="200"
-                    cy={60 - ((chartData1[chartData1.length - 1] - minChart) / chartRange) * 55}
-                    r="3"
-                    fill="var(--accent-blue)"
-                  />
-                </>
-              )}
-            </svg>
+          <div style={{ display: 'flex', height: '10px', borderRadius: '2px', overflow: 'hidden', gap: '2px' }}>
+            {stages.map((s, i) => (
+              <div key={i} style={{ width: `${s}%`, background: stageColors[i], transition: 'width 0.6s ease' }} />
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: '12px', marginTop: '8px', flexWrap: 'wrap' }}>
+            {stageNames.map((n, i) => (
+              <span key={i} style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '9px', color: 'var(--text-secondary)' }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: stageColors[i] }} />
+                {n} {Math.round(stages[i])}%
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Holdings list */}
-        <div style={{ 
-          background: 'var(--bg-elevated)',
-          borderRadius: '4px',
+        {/* Weekly training load */}
+        <div style={{
+          flex: 1,
+          background: 'var(--bg-card)',
           border: '1px solid var(--border-subtle)',
-          padding: '8px 10px',
-          fontFamily: 'monospace',
-          fontSize: '9px',
+          borderRadius: '4px',
+          padding: '10px 12px',
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '78px',
         }}>
-          <div style={{ color: 'var(--text-muted)', marginBottom: '6px', fontSize: '8px' }}>ACTIVE POSITIONS</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {holdings.map((h, i) => (
-              <div key={i} style={{ 
-                display: 'flex', 
-                alignItems: 'center',
-                gap: '8px',
-              }}>
-                <span style={{ 
-                  color: 'var(--text-secondary)',
-                  flex: 1,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'nowrap',
-                }}>
-                  {h.name}
-                </span>
-                <span style={{ 
-                  color: 'var(--accent-purple)',
-                  width: '35px',
-                  textAlign: 'right',
-                }}>
-                  {h.allocation.toFixed(0)}%
-                </span>
-                <span style={{ 
-                  color: h.pnl >= 0 ? 'var(--accent-blue)' : 'var(--accent-pink)',
-                  width: '45px',
-                  textAlign: 'right',
-                }}>
-                  {h.pnl >= 0 ? '+' : ''}{h.pnl.toFixed(1)}%
-                </span>
-              </div>
+          <span style={{ fontSize: '8px', letterSpacing: '0.12em', color: 'var(--text-muted)', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', marginBottom: '8px' }}>
+            TRAINING LOAD · 7D
+          </span>
+          <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '6px', minHeight: '40px' }}>
+            {week.map((hgt, i) => (
+              <div key={i} style={{
+                flex: 1,
+                height: `${(hgt / 15) * 100}%`,
+                background: ['var(--accent-blue)', 'var(--accent-purple)', 'var(--accent-pink)'][i % 3],
+                borderRadius: '2px 2px 0 0',
+                opacity: i === today ? 1 : 0.5,
+                transition: 'height 0.6s ease, opacity 0.4s ease',
+              }} />
             ))}
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Lookr mockup - masonry style feed with an AI stylist score and community fit rating
+function LookrMockup() {
+  const [score, setScore] = useState(88);
+  const [fit, setFit] = useState(82);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const s = setInterval(() => setScore(v => Math.max(74, Math.min(97, Math.round(v + (Math.random() - 0.5) * 12)))), 1900);
+    const f = setInterval(() => setFit(v => Math.max(62, Math.min(96, Math.round(v + (Math.random() - 0.5) * 14)))), 2100);
+    const a = setInterval(() => setActive(x => (x + 1) % 6), 1500);
+    return () => { clearInterval(s); clearInterval(f); clearInterval(a); };
+  }, []);
+
+  const grads = [
+    'linear-gradient(135deg, var(--accent-blue), var(--accent-purple))',
+    'linear-gradient(135deg, var(--accent-purple), var(--accent-pink))',
+    'linear-gradient(135deg, var(--accent-pink), var(--accent-blue))',
+    'linear-gradient(135deg, var(--accent-blue), var(--accent-pink))',
+    'linear-gradient(135deg, var(--accent-purple), var(--accent-blue))',
+    'linear-gradient(135deg, var(--accent-pink), var(--accent-purple))',
+  ];
+  const heights = [58, 72, 66, 54, 70, 60];
+  const badges = [92, 78, 85, 74, 88, 81];
+  const mono = 'ui-monospace, SFMono-Regular, Menlo, monospace';
+
+  return (
+    <div className="mockup-dark" style={{ width: '100%', height: '100%', background: 'var(--bg-elevated)', display: 'flex', flexDirection: 'column' }}>
+      {/* Browser header */}
+      <div style={{ padding: '10px 14px', background: 'var(--bg-card)', borderBottom: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-pink)' }} />
+        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-purple)' }} />
+        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-blue)' }} />
+        <div style={{ marginLeft: '8px', flex: 1, background: 'var(--bg-base)', borderRadius: '4px', padding: '4px 10px', fontSize: '10px', color: 'var(--text-muted)', fontFamily: mono }}>
+          Lookr · Style Feed
+        </div>
+      </div>
+
+      {/* Feed */}
+      <div style={{ flex: 1, padding: '14px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {/* Featured look: photo + AI score + community fit */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px', background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', borderRadius: '4px' }}>
+          <div style={{ width: '60px', height: '84px', borderRadius: '6px', background: grads[0], flexShrink: 0 }} />
+          <div style={{ width: '64px', flexShrink: 0 }}>
+            <ManoGauge label="AI SCORE" pct={score} value={String(score)} color="var(--accent-blue)" />
+          </div>
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '5px' }}>
+            <span style={{ fontSize: '8px', letterSpacing: '0.12em', color: 'var(--text-muted)', fontFamily: mono }}>COMMUNITY FIT</span>
+            <div style={{ height: '7px', background: 'var(--border-subtle)', borderRadius: '4px', overflow: 'hidden' }}>
+              <div style={{ height: '100%', width: `${fit}%`, background: 'var(--accent-blue)', borderRadius: '4px', transition: 'width 0.6s ease' }} />
+            </div>
+            <span style={{ fontSize: '10px', color: 'var(--text-secondary)' }}>{fit}% love this fit</span>
+          </div>
+        </div>
+
+        {/* Masonry feed */}
+        <div style={{ flex: 1, display: 'flex', gap: '8px', overflow: 'hidden' }}>
+          {[0, 1, 2].map(col => (
+            <div key={col} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {[0, 1].map(row => {
+                const idx = col * 2 + row;
+                return (
+                  <div key={row} style={{
+                    position: 'relative',
+                    height: `${heights[idx]}px`,
+                    borderRadius: '6px',
+                    background: grads[idx],
+                    boxShadow: idx === active ? '0 0 0 2px var(--accent-blue)' : 'none',
+                    transition: 'box-shadow 0.4s ease',
+                  }}>
+                    <div style={{ position: 'absolute', bottom: '5px', left: '5px', fontSize: '8px', fontWeight: 700, color: '#fff', background: 'rgba(0,0,0,0.28)', borderRadius: '10px', padding: '1px 6px', fontFamily: mono }}>
+                      {badges[idx]}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -726,10 +591,10 @@ export default function Ventures() {
   }, []);
 
   return (
-    <section 
+    <section
       id="ventures"
       ref={sectionRef}
-      style={{ 
+      style={{
         position: 'relative',
         paddingTop: 'var(--space-32)',
         paddingBottom: 'var(--space-32)',
@@ -737,7 +602,7 @@ export default function Ventures() {
       }}
     >
       {/* Base background */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           inset: 0,
@@ -746,39 +611,39 @@ export default function Ventures() {
       />
 
       {/* Blueprint grid - small */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.03) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
           `,
           backgroundSize: '36px 36px',
         }}
       />
 
       {/* Blueprint grid - large */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.06) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
           `,
           backgroundSize: '144px 144px',
         }}
       />
 
       {/* Cursor tracking grid glow */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.4) 1px, transparent 1px)
+            linear-gradient(rgba(215, 255, 61, 0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(215, 255, 61, 0.4) 1px, transparent 1px)
           `,
           backgroundSize: '144px 144px',
           opacity: isHovering ? 1 : 0,
@@ -790,7 +655,7 @@ export default function Ventures() {
       />
 
       {/* Top fade gradient */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           top: 0,
@@ -804,7 +669,7 @@ export default function Ventures() {
       />
 
       {/* Bottom fade gradient */}
-      <div 
+      <div
         style={{
           position: 'absolute',
           bottom: 0,
@@ -838,14 +703,14 @@ export default function Ventures() {
           <p className="section-subtitle labs-subtitle">
             <span className="labs-line">We don&apos;t just build for clients.</span>
             <span className="labs-space"> </span>
-            <span className="labs-line">We create products we believe in.</span>
+            <span className="labs-line">We build products we believe in.</span>
           </p>
         </div>
 
         {/* Projects */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)', maxWidth: '900px', margin: '0 auto' }}>
-          
-          {/* Diffuse.AI Card */}
+
+          {/* Diffuse Card */}
           <VentureCard id="diffuse">
             <div className="venture-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '380px' }}>
               {/* Content */}
@@ -859,24 +724,24 @@ export default function Ventures() {
                 <h3 className="venture-title" style={{ fontSize: 'var(--font-h2)', fontWeight: 'var(--weight-bold)', color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
                   Diffuse.AI
                 </h3>
-                
-                <p style={{ 
-                  fontSize: '11px', 
+
+                <p style={{
+                  fontSize: '11px',
                   fontWeight: 'var(--weight-semibold)',
                   letterSpacing: '0.1em',
-                  color: 'var(--accent-blue)', 
+                  color: 'var(--accent-blue)',
                   textTransform: 'uppercase',
-                  marginBottom: 'var(--space-4)' 
+                  marginBottom: 'var(--space-4)'
                 }}>
-                  AUTOMATED JOURNALISM PLATFORM
+                  Local News, Drafted by AI
                 </p>
 
                 <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--font-small)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-6)' }}>
-                  Transform any meeting recording into publication-ready news articles in minutes. Cut content costs and save hours every week.
+                  Diffuse.AI pulls local reporting into one workspace: meeting audio, documents, and links. AI drafts, while editors decide what&apos;s newsworthy and verify what&apos;s true.
                 </p>
 
                 <div className="venture-features" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--space-2)', marginBottom: 'var(--space-5)' }}>
-                  {['AI Article Generation', 'Smart Transcription', 'CMS Integration', 'Team Collaboration'].map((feature, i) => (
+                  {['Human-Reviewed Drafts', 'Speaker Transcription', 'Mixed Source Inputs', 'Editorial Control'].map((feature, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--text-secondary)', fontSize: '12px' }}>
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" strokeWidth="2">
                         <polyline points="20 6 9 17 4 12"/>
@@ -886,14 +751,28 @@ export default function Ventures() {
                   ))}
                 </div>
 
-                <span style={{ 
-                  fontFamily: 'monospace', 
-                  fontSize: 'var(--font-body)', 
-                  fontWeight: 'var(--weight-semibold)',
-                  color: 'var(--accent-blue)' 
-                }}>
-                  → Launching Spring 2026
-                </span>
+                <a
+                  href="https://www.diffuse.press/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="venture-link"
+                  style={{
+                    fontFamily: 'monospace',
+                    fontSize: 'var(--font-body)',
+                    fontWeight: 'var(--weight-semibold)',
+                    color: 'var(--accent-blue)',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    width: 'fit-content',
+                  }}
+                >
+                  Visit diffuse.press
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
               </div>
 
               {/* Mockup */}
@@ -903,8 +782,8 @@ export default function Ventures() {
             </div>
           </VentureCard>
 
-          {/* Runbook Card */}
-          <VentureCard id="runbook">
+          {/* Mano Wellness Card */}
+          <VentureCard id="mano">
             <div className="venture-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '380px' }}>
               {/* Content */}
               <div className="venture-content" style={{ padding: 'var(--space-8)', paddingBottom: 'var(--space-10)', borderRight: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column' }}>
@@ -915,28 +794,28 @@ export default function Ventures() {
                 </div>
 
                 <h3 className="venture-title" style={{ fontSize: 'var(--font-h2)', fontWeight: 'var(--weight-bold)', color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
-                  Runbook
+                  Mano Wellness
                 </h3>
-                
-                <p style={{ 
-                  fontSize: '11px', 
+
+                <p style={{
+                  fontSize: '11px',
                   fontWeight: 'var(--weight-semibold)',
                   letterSpacing: '0.1em',
-                  color: 'var(--accent-purple)', 
+                  color: 'var(--accent-blue)',
                   textTransform: 'uppercase',
-                  marginBottom: 'var(--space-4)' 
+                  marginBottom: 'var(--space-4)'
                 }}>
-                  PREDICTION MARKETS AUTOMATION
+                  Agentic Fitness Coach
                 </p>
 
                 <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--font-small)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-6)' }}>
-                  Automated trading for prediction markets with discipline built in. Set your strategy once and let the system execute with guardrails.
+                  An agentic fitness coach that syncs with your wearables and logs your nutrition. It learns your patterns and builds training and recovery plans that adapt as you progress.
                 </p>
 
                 <div className="venture-features" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--space-2)', marginBottom: 'var(--space-5)' }}>
-                  {['Rules-based Automation', 'Strict Risk Controls', 'Real-time Analytics', 'Transparent Trade Logs'].map((feature, i) => (
+                  {['Wearable Sync', 'Nutrition Tracking', 'Adaptive Plans', 'AI Coaching'].map((feature, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--text-secondary)', fontSize: '12px' }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" strokeWidth="2">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" strokeWidth="2">
                         <polyline points="20 6 9 17 4 12"/>
                       </svg>
                       {feature}
@@ -944,11 +823,11 @@ export default function Ventures() {
                   ))}
                 </div>
 
-                <span style={{ 
-                  fontFamily: 'monospace', 
-                  fontSize: 'var(--font-body)', 
+                <span style={{
+                  fontFamily: 'monospace',
+                  fontSize: 'var(--font-body)',
                   fontWeight: 'var(--weight-semibold)',
-                  color: 'var(--accent-purple)' 
+                  color: 'var(--accent-pink)'
                 }}>
                   → Launching Summer 2026
                 </span>
@@ -956,7 +835,65 @@ export default function Ventures() {
 
               {/* Mockup */}
               <div className="venture-mockup" style={{ overflow: 'hidden' }}>
-                <RunbookMockup />
+                <ManoMockup />
+              </div>
+            </div>
+          </VentureCard>
+
+          {/* Lookr Card */}
+          <VentureCard id="lookr">
+            <div className="venture-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '380px' }}>
+              {/* Content */}
+              <div className="venture-content" style={{ padding: 'var(--space-8)', paddingBottom: 'var(--space-10)', borderRight: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ marginBottom: 'var(--space-4)' }}>
+                  <span style={{ fontFamily: 'monospace', fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
+                    PROJECT_003
+                  </span>
+                </div>
+
+                <h3 className="venture-title" style={{ fontSize: 'var(--font-h2)', fontWeight: 'var(--weight-bold)', color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
+                  Lookr
+                </h3>
+
+                <p style={{
+                  fontSize: '11px',
+                  fontWeight: 'var(--weight-semibold)',
+                  letterSpacing: '0.1em',
+                  color: 'var(--accent-blue)',
+                  textTransform: 'uppercase',
+                  marginBottom: 'var(--space-4)'
+                }}>
+                  Social AI Stylist
+                </p>
+
+                <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--font-small)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-6)' }}>
+                  Share your outfits and get real feedback: an AI stylist scores every look while the community rates your fit, all inside a feed personalized to your taste.
+                </p>
+
+                <div className="venture-features" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--space-2)', marginBottom: 'var(--space-5)' }}>
+                  {['AI Stylist Grades', 'Community Fit Ratings', 'Personalized Feed', 'Shop the Look'].map((feature, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', color: 'var(--text-secondary)', fontSize: '12px' }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" strokeWidth="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <span style={{
+                  fontFamily: 'monospace',
+                  fontSize: 'var(--font-body)',
+                  fontWeight: 'var(--weight-semibold)',
+                  color: 'var(--accent-pink)'
+                }}>
+                  → Launching Summer 2026
+                </span>
+              </div>
+
+              {/* Mockup */}
+              <div className="venture-mockup" style={{ overflow: 'hidden' }}>
+                <LookrMockup />
               </div>
             </div>
           </VentureCard>
@@ -972,7 +909,11 @@ export default function Ventures() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
         }
-        
+
+        .venture-link:hover {
+          text-decoration: underline !important;
+        }
+
         @media (max-width: 768px) {
           .venture-card {
             transform: none !important;
@@ -1003,11 +944,15 @@ export default function Ventures() {
           .labs-space {
             display: none !important;
           }
-          .venture-title,
           .mobile-heading-large {
             font-size: calc(var(--font-h2) * 2) !important;
             line-height: var(--leading-tight) !important;
-            color: #ffffff !important;
+            color: #fafafa !important;
+          }
+          .venture-title {
+            font-size: calc(var(--font-h2) * 1.35) !important;
+            line-height: var(--leading-tight) !important;
+            color: #fafafa !important;
           }
         }
       `}</style>

@@ -83,27 +83,48 @@ function LogoCard({ techIndices, flipInterval, cardIndex }: { techIndices: numbe
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isNew, setIsNew] = useState(cardIndex === 0);
+  const [animateColor, setAnimateColor] = useState(true);
 
   useEffect(() => {
     const startDelay = cardIndex * 500;
-    
+    let interval: ReturnType<typeof setInterval>;
+    let holdTimer: ReturnType<typeof setTimeout>;
+
+    // Seed the first "new" glow, then fade it to gray
+    const seedTimer = setTimeout(() => {
+      setAnimateColor(true);
+      setIsNew(false);
+    }, 600);
+
     const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         setIsFlipping(true);
-        
+
         setTimeout(() => {
           setCurrentIndex((prev) => (prev + 1) % techIndices.length);
           setIsFlipping(false);
+          // Newly flipped logo pops green, then fades to gray
+          setAnimateColor(false);
+          setIsNew(true);
+          holdTimer = setTimeout(() => {
+            setAnimateColor(true);
+            setIsNew(false);
+          }, 500);
         }, 300);
       }, flipInterval);
-      
-      return () => clearInterval(interval);
     }, startDelay);
-    
-    return () => clearTimeout(timeout);
+
+    return () => {
+      clearTimeout(seedTimer);
+      clearTimeout(timeout);
+      clearTimeout(holdTimer);
+      clearInterval(interval);
+    };
   }, [techIndices.length, flipInterval, cardIndex]);
 
   const currentTech = techItems[techIndices[currentIndex]];
+  const logoColor = isHovered ? '#fafafa' : (isNew ? 'var(--accent-blue)' : 'var(--text-muted)');
 
   return (
     <button 
@@ -145,8 +166,8 @@ function LogoCard({ techIndices, flipInterval, cardIndex }: { techIndices: numbe
             transition: 'opacity 0.3s ease',
           }}
         >
-          <div style={{ width: '48px', height: '48px' }}>
-            {currentTech.logo(isHovered ? 'white' : currentTech.color)}
+          <div style={{ width: '48px', height: '48px', color: logoColor, transition: animateColor ? 'color 1.6s ease' : 'none' }}>
+            {currentTech.logo('currentColor')}
           </div>
         </div>
       </div>
@@ -223,7 +244,7 @@ export default function Stack() {
               lineHeight: 'var(--leading-tight)',
             }}
           >
-            From idea to production with proven tools
+            From Idea to Production With Proven Tools
           </h3>
           
           {/* 4-wide grid of rotating logo cards */}

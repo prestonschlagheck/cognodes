@@ -12,7 +12,7 @@ const reasons = [
   {
     number: "02",
     title: "Proven Track Record",
-    description: "We don't just talk about building products. Diffuse.AI and Runbook are live platforms we've built from scratch. Real users, real traction.",
+    description: "We don't just talk about building products. Diffuse.AI is live with real users, and Mano Wellness launches this summer. We ship our own work, not just pitch decks.",
     accent: "var(--accent-purple)",
   },
   {
@@ -50,7 +50,7 @@ function ReasonCard({ reason }: { reason: typeof reasons[0] }) {
   }, []);
 
   const scale = 1 + (centerProgress * 0.1);
-  const shadowOpacity = centerProgress * 0.5;
+  const shadowOpacity = centerProgress * 0.12;
   const opacity = 0.7 + (centerProgress * 0.3);
 
   return (
@@ -70,8 +70,8 @@ function ReasonCard({ reason }: { reason: typeof reasons[0] }) {
     >
       <div className="reason-grid" style={{ display: 'grid', gridTemplateColumns: '100px 1fr', gap: 0 }}>
         {/* Number side */}
-        <div 
-          className="reason-number"
+        <div
+          className="reason-number mockup-dark"
           style={{
             background: 'var(--bg-elevated)',
             borderRight: '1px solid var(--border-subtle)',
@@ -81,14 +81,15 @@ function ReasonCard({ reason }: { reason: typeof reasons[0] }) {
             padding: 'var(--space-6)',
           }}
         >
-          <span 
+          <span
             style={{
               fontSize: '42px',
               fontWeight: 'var(--weight-bold)',
-              color: reason.accent,
-              opacity: 0.8,
+              color: centerProgress > 0.5 ? 'var(--accent-green)' : 'var(--text-muted)',
+              opacity: centerProgress > 0.5 ? 1 : 0.55,
               fontFamily: 'monospace',
               lineHeight: 1,
+              transition: 'color 0.3s ease-out, opacity 0.3s ease-out',
             }}
           >
             {reason.number}
@@ -137,7 +138,7 @@ export default function WhyUs() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 'var(--space-12)' }}>
           <p className="section-label">Why Work With Us</p>
-          <h2 className="section-title mobile-heading-large">What makes us different</h2>
+          <h2 className="section-title mobile-heading-large">What Makes Us Different</h2>
           <p className="section-subtitle">
             We combine the quality of an agency with the speed and pricing of a startup.
           </p>
@@ -170,10 +171,12 @@ export default function WhyUs() {
           .mobile-heading-large {
             font-size: calc(var(--font-h2) * 2) !important;
             line-height: var(--leading-tight) !important;
-            color: #ffffff !important;
+            color: #fafafa !important;
           }
           .reason-title {
-            color: #ffffff !important;
+            font-size: calc(var(--font-h2) * 1.35) !important;
+            line-height: var(--leading-tight) !important;
+            color: #fafafa !important;
           }
         }
       `}</style>

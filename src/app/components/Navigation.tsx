@@ -198,9 +198,11 @@ export default function Navigation() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'var(--accent-blue)';
+                e.currentTarget.style.color = '#0a0a0a';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'var(--text-primary)';
+                e.currentTarget.style.color = 'var(--bg-base)';
               }}
             >
               Let&apos;s Talk

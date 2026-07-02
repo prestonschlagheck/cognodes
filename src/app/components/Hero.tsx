@@ -92,8 +92,8 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.03) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
           `,
           backgroundSize: '36px 36px',
         }}
@@ -105,8 +105,8 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.06) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
           `,
           backgroundSize: '144px 144px',
         }}
@@ -118,8 +118,8 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.4) 1px, transparent 1px)
+            linear-gradient(rgba(215, 255, 61, 0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(215, 255, 61, 0.4) 1px, transparent 1px)
           `,
           backgroundSize: '144px 144px',
           opacity: isHovering ? 1 : 0,

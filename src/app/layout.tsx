@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
+import { helveticaNow } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cognodes.com'),
@@ -50,11 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
+    <html lang="en" className={helveticaNow.variable}>
       <body>
         {children}
       </body>

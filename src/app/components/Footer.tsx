@@ -57,8 +57,8 @@ export default function Footer() {
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.03) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
           `,
           backgroundSize: '36px 36px',
         }}
@@ -70,8 +70,8 @@ export default function Footer() {
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.06) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
           `,
           backgroundSize: '144px 144px',
         }}
@@ -83,8 +83,8 @@ export default function Footer() {
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(99, 178, 250, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(99, 178, 250, 0.4) 1px, transparent 1px)
+            linear-gradient(rgba(215, 255, 61, 0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(215, 255, 61, 0.4) 1px, transparent 1px)
           `,
           backgroundSize: '144px 144px',
           opacity: isHovering ? 1 : 0,
@@ -193,8 +193,33 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
               <li>
+                <a
+                  href="https://www.diffuse.press/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-secondary)',
+                    fontSize: 'var(--font-body)',
+                    fontWeight: 'var(--weight-medium)',
+                    cursor: 'pointer',
+                    padding: 0,
+                    textDecoration: 'none',
+                    transition: 'color 0.2s ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 'var(--space-2)',
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-blue)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                >
+                  Diffuse.AI
+                </a>
+              </li>
+              <li>
                 <button
-                  onClick={() => scrollToSection('diffuse')}
+                  onClick={() => scrollToSection('mano')}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -211,12 +236,12 @@ export default function Footer() {
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-blue)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
                 >
-                  Diffuse AI
+                  Mano Wellness
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('runbook')}
+                  onClick={() => scrollToSection('lookr')}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -230,10 +255,10 @@ export default function Footer() {
                     alignItems: 'center',
                     gap: 'var(--space-2)',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-purple)'}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-pink)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
                 >
-                  Runbook
+                  Lookr
                 </button>
               </li>
             </ul>
@@ -241,23 +266,40 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div 
+        <div
+          className="footer-bottom"
           style={{
             paddingTop: 'var(--space-6)',
             paddingBottom: 'var(--space-6)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
+            gap: 'var(--space-4)',
           }}
         >
-          <p 
+          <p
             style={{
               color: 'var(--text-muted)',
-              fontSize: 'var(--font-small)',
+              fontSize: 'var(--font-label)',
+              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              margin: 0,
             }}
           >
-            © {currentYear} CogNodes. All rights reserved.
+            © {currentYear} CogNodes. All Rights Reserved.
           </p>
+          <span
+            style={{
+              color: 'var(--text-muted)',
+              fontSize: 'var(--font-label)',
+              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}
+          >
+            Designed &amp; Built By CogNodes / AI&#8209;Powered Software
+          </span>
         </div>
       </div>
 
@@ -273,6 +315,13 @@ export default function Footer() {
           }
           .footer-brand p {
             max-width: 100% !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .footer-bottom {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: var(--space-2) !important;
           }
         }
       `}</style>

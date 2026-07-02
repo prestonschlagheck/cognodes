@@ -18,7 +18,7 @@ export default function Contact() {
           {/* Header */}
           <p className="section-label">Get in Touch</p>
           <h2 className="section-title mobile-heading-large" style={{ marginBottom: 'var(--space-4)' }}>
-            Let&apos;s build something
+            Let&apos;s Build Something
           </h2>
           <p 
             className="contact-subtitle section-subtitle"
