@@ -28,20 +28,11 @@ export const metadata: Metadata = {
     siteName: 'CogNodes',
     title: 'CogNodes - Build With Us',
     description: 'We design and build AI-powered software for startups and businesses. Websites, automation, and AI integration. Premium quality at startup prices.',
-    images: [
-      {
-        url: '/socialsharing.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'CogNodes - Build With Us',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'CogNodes - Build With Us',
     description: 'We design and build AI-powered software for startups and businesses. Websites, automation, and AI integration. Premium quality at startup prices.',
-    images: ['/socialsharing.jpeg'],
   },
 };
 
