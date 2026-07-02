@@ -20,12 +20,20 @@ export default function Icon() {
           justifyContent: "center",
           background: "#0a0a0a",
           borderRadius: "50%",
-          color: "#d7ff3d",
-          fontSize: 22,
-          fontFamily: "HelveticaNow",
         }}
       >
-        C
+        <span
+          style={{
+            display: "flex",
+            color: "#d7ff3d",
+            fontSize: 22,
+            fontFamily: "HelveticaNow",
+            lineHeight: 1,
+            transform: "translateY(-1.4px)",
+          }}
+        >
+          C
+        </span>
       </div>
     ),
     {
