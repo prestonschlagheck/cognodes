@@ -5,9 +5,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'display': ['var(--font-helvetica-now)', 'system-ui', 'sans-serif'],
-        'body': ['var(--font-helvetica-now)', 'system-ui', 'sans-serif'],
-        'mono': ['var(--font-helvetica-now)', 'monospace'],
+        'display': ['var(--font-display)', 'system-ui', 'sans-serif'],
+        'body': ['var(--font-display)', 'system-ui', 'sans-serif'],
+        'mono': ['var(--font-display)', 'monospace'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

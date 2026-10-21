@@ -1,14 +1,10 @@
 import { ImageResponse } from "next/og";
-import { readFileSync } from "fs";
-import { join } from "path";
 
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
-// Black circle with a yellow "C" set in Helvetica Now Display (the site font)
+// Black circle with a bold yellow "C", in next/og's built-in sans
 export default function Icon() {
-  const font = readFileSync(join(process.cwd(), "font/HelveticaNowDisplay-Bold.ttf"));
-
   return new ImageResponse(
     (
       <div
@@ -27,7 +23,7 @@ export default function Icon() {
             display: "flex",
             color: "#d7ff3d",
             fontSize: 22,
-            fontFamily: "HelveticaNow",
+            fontWeight: 700,
             lineHeight: 1,
             transform: "translateY(-1.4px)",
           }}
@@ -36,9 +32,6 @@ export default function Icon() {
         </span>
       </div>
     ),
-    {
-      ...size,
-      fonts: [{ name: "HelveticaNow", data: font, weight: 700, style: "normal" }],
-    }
+    { ...size }
   );
 }

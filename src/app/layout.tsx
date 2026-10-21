@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
-import { helveticaNow } from "./fonts";
+import { display } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cognodes.com'),
@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={helveticaNow.variable}>
+    <html lang="en" className={display.variable}>
       <body>
         {children}
       </body>
